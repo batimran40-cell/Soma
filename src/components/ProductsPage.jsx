@@ -4,6 +4,7 @@ import Icon from './Icons'
 import '../styles/products.css'
 import '../styles/discovery.css'
 import '../styles/products-reference.css'
+import '../styles/product-card-reference.css'
 
 const categories=['All Products','Serums','Cleansers','Moisturizers','Toners']
 const getCategory=product=>({'vitamin-c':'Serums','aloe-wash':'Cleansers','hydrating-cream':'Moisturizers','neem-toner':'Toners'})[product.id]||'All Products'
@@ -50,7 +51,7 @@ export default function ProductsPage({onAdd,favorites=[],onToggle=()=>{},cartCou
    </div>
    {items.length?<div className="soma-ref-product-grid">{items.map(p=><article className="soma-ref-product-card" key={p.id}>
     <div className="soma-ref-product-media"><a href={`/products/${p.id}`} aria-label={`View ${p.name}`}><img src={p.image} alt={p.name} loading="lazy"/></a><button type="button" className="soma-ref-product-heart" aria-pressed={favorites.includes(p.id)} aria-label={`${favorites.includes(p.id)?'Remove':'Add'} ${p.name} ${favorites.includes(p.id)?'from':'to'} wishlist`} onClick={()=>onToggle(p.id)}>{favorites.includes(p.id)?'♥':'♡'}</button></div>
-    <div className="soma-ref-product-description"><a href={`/products/${p.id}`} className="soma-ref-product-name">{p.name}</a><p>{p.detail}</p><strong>{Number.isFinite(p.price)?`${p.currency||'PKR'} ${p.price.toLocaleString()}`:'Price on request'}</strong><button type="button" onClick={()=>onAdd(p)}>Add to bag ↗</button></div>
+    <div className="soma-ref-product-description"><a href={`/products/${p.id}`} className="soma-ref-product-name">{p.name}</a><p>{p.detail}</p><strong>{Number.isFinite(p.price)?`${p.currency||'PKR'} ${p.price.toLocaleString()}`:'Price on request'}</strong><button type="button" className="soma-ref-card-add" onClick={()=>onAdd(p)} aria-label={`Add ${p.name} to bag`}>+ <span>Add to bag</span></button></div>
    </article>)}</div>:<div className="soma-ref-no-results"><h3>No products found</h3><p>Try another search or category.</p><button onClick={()=>{setQuery('');setCategory('All Products')}}>Show all products</button></div>}
    <p className="soma-ref-catalog-count">Showing {items.length} of {products.length} Soma Organic products</p>
   </section>
