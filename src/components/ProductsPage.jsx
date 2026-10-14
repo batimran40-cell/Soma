@@ -39,10 +39,16 @@ export default function ProductsPage({onAdd,favorites=[],onToggle=()=>{}}){
     </section>
     <section className="products-results" aria-label="Shop Soma products">
       <div className="products-results-top"><h2>Our essentials</h2><a href="/wishlist" className="products-wishlist-link">♡ MY WISHLIST ({favorites.length})</a><span>{items.length} {items.length===1?'product':'products'}</span></div>
-      {items.length?<div className="products-grid">{items.map(p=><article className="products-card" key={p.id}>
-        <button type="button" className="discovery-heart products-heart" aria-label={`${favorites.includes(p.id)?"Remove":"Add"} ${p.name} ${favorites.includes(p.id)?"from":"to"} wishlist`} aria-pressed={favorites.includes(p.id)} onClick={()=>onToggle(p.id)}>{favorites.includes(p.id)?"♥":"♡"}</button><a className="products-image" href={`/products/${p.id}`} aria-label={`View details for ${p.name}`}><img src={p.image} alt={p.name} loading="lazy"/></a>
-        <div className="products-tag">{p.tag}</div><h3>{p.name}</h3><p>{p.detail}</p>
-        <div className="products-actions"><a className="products-action secondary" style={{display:"flex",alignItems:"center",justifyContent:"center"}} href={`/products/${p.id}`}>VIEW DETAILS</a><button className="products-action" onClick={()=>onAdd(p)}>ADD TO BAG</button></div>
+      {items.length?<div className="products-grid premium-products-grid">{items.map((p,index)=><article className="products-card premium-product-card" key={p.id}>
+        <div className="premium-product-visual">
+          <a className="products-image" href={`/products/${p.id}`} aria-label={`Explore ${p.name}`}><img src={p.image} alt={p.name} loading="lazy"/></a>
+          <span className="premium-product-index">{String(index+1).padStart(2,'0')} / 0{items.length}</span>
+          <button type="button" className="premium-product-favorite" aria-label={`${favorites.includes(p.id)?"Remove":"Add"} ${p.name} ${favorites.includes(p.id)?"from":"to"} wishlist`} aria-pressed={favorites.includes(p.id)} onClick={()=>onToggle(p.id)}>{favorites.includes(p.id)?"♥":"♡"}</button>
+          <a className="premium-product-quick" href={`/products/${p.id}`}>DISCOVER PRODUCT <span aria-hidden="true">↗</span></a>
+        </div>
+        <div className="premium-product-info"><span className="products-tag">{p.tag}</span><h3><a href={`/products/${p.id}`}>{p.name}</a></h3><p>{p.detail}</p>
+          <div className="premium-product-actions"><button type="button" className="premium-product-add" onClick={()=>onAdd(p)}>ADD TO BAG <span aria-hidden="true">↗</span></button></div>
+        </div>
       </article>)}</div>:<p className="products-empty">No products match your search. Try another term or category.</p>}
     </section>
   </main>
