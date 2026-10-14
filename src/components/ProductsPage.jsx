@@ -46,7 +46,7 @@ export default function ProductsPage({onAdd,favorites=[],onToggle=()=>{}}){
           <button type="button" className="premium-product-favorite" aria-label={`${favorites.includes(p.id)?"Remove":"Add"} ${p.name} ${favorites.includes(p.id)?"from":"to"} wishlist`} aria-pressed={favorites.includes(p.id)} onClick={()=>onToggle(p.id)}>{favorites.includes(p.id)?"♥":"♡"}</button>
           <a className="premium-product-quick" href={`/products/${p.id}`}>DISCOVER PRODUCT <span aria-hidden="true">↗</span></a>
         </div>
-        <div className="premium-product-info"><span className="products-tag">{p.tag}</span><h3><a href={`/products/${p.id}`}>{p.name}</a></h3><p>{p.detail}</p>
+        <div className="premium-product-info"><span className="products-tag">{p.tag}</span><h3><a href={`/products/${p.id}`}>{p.name}</a></h3><p>{p.detail}</p><div className="premium-product-price" aria-label={`Price for ${p.name}`}>{p.price != null ? `${p.currency || "PKR"} ${Number(p.price).toLocaleString()}` : "Price on request"}</div>
           <div className="premium-product-actions"><button type="button" className="premium-product-add" onClick={()=>onAdd(p)}>ADD TO BAG <span aria-hidden="true">↗</span></button></div>
         </div>
       </article>)}</div>:<p className="products-empty">No products match your search. Try another term or category.</p>}
