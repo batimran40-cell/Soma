@@ -1,8 +1,8 @@
 import {useState,useEffect} from 'react'
 import Icon from './Icons'
 
-const links=[['Shop','#products'],['Philosophy','#philosophy'],['Ritual','#bestseller'],['Reviews','#reviews']]
-const drawerLinks=[['Home','#top'],['Shop','#products'],['Our Philosophy','#philosophy'],['Our Ritual','#bestseller'],['Reviews','#reviews'],['Contact','#footer']]
+const links=[['Shop','/products'],['Philosophy','#philosophy'],['Ritual','#bestseller'],['Reviews','#reviews']]
+const drawerLinks=[['Home','/'],['Shop','/products'],['Our Philosophy','#philosophy'],['Our Ritual','#bestseller'],['Reviews','#reviews'],['Contact','#footer']]
 
 export default function Navbar({onCart,cartCount}) {
  const [menu,setMenu]=useState(false),[search,setSearch]=useState(false),[term,setTerm]=useState(''),[scrolled,setScrolled]=useState(false)
@@ -26,14 +26,14 @@ export default function Navbar({onCart,cartCount}) {
     <button className="icon-btn nav-menu-btn" aria-label="Open menu" onClick={()=>setMenu(true)}><Icon name="menu"/></button>
     <nav className="nav-links" aria-label="Primary">{links.map(([label,href])=><a href={href} key={label}>{label}</a>)}</nav>
    </div>
-   <a className="wordmark" href="#top" aria-label="Soma home"><span className="wordmark-main">SOMA</span><span className="wordmark-sub">ORGANIC</span></a>
+   <a className="wordmark" href="/" aria-label="Soma home"><span className="wordmark-main">SOMA</span><span className="wordmark-sub">ORGANIC</span></a>
    <div className="header-actions">
     <button className={`icon-btn${search?' is-active':''}`} aria-label="Search products" aria-expanded={search} onClick={()=>setSearch(v=>!v)}><Icon name={search?'close':'search'} size={21}/></button>
     <button className="cart-button" onClick={onCart} aria-label={`Open cart, ${cartCount} items`}><Icon name="bag" size={21}/><span className="cart-label">BAG</span><span className={`cart-count${cartCount?' has-items':''}`}>{cartCount}</span></button>
    </div>
   </div>
   <div className={`search-panel${search?' open':''}`} aria-hidden={!search}>
-   <form className="search-bar" onSubmit={e=>{e.preventDefault();setSearch(false);document.getElementById('products')?.scrollIntoView({behavior:'smooth'})}}>
+   <form className="search-bar" onSubmit={e=>{e.preventDefault();setSearch(false);window.location.assign('/products')}}>
     <label htmlFor="site-search">Search Soma products</label>
     <Icon name="search" size={19}/>
     <input id="site-search" tabIndex={search?0:-1} value={term} onChange={e=>setTerm(e.target.value)} placeholder="Search the collection…"/>
