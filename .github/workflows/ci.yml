@@ -1,0 +1,33 @@
+name: Soma CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Check required routes and product references
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import assert from 'node:assert/strict';
+          const app=fs.readFileSync('src/App.jsx','utf8');
+          const productDetail=fs.readFileSync('src/components/ProductDetailPage.jsx','utf8');
+          const data=fs.readFileSync('src/data/products.js','utf8');
+          assert.match(app, /ProductDetailPage/);
+          for (const id of ['vitamin-c','aloe-wash','hydrating-cream','neem-toner']) assert.ok(data.includes(id), id);
+          assert.match(productDetail, /onAdd\(product,quantity\)/);
+          for (const img of ['serum-premium.webp','face-wash.webp','hydrating-premium.webp','toner.webp']) assert.ok(fs.existsSync('public/images/'+img),img);
+          console.log('Soma route and product checks passed');
+          JS
