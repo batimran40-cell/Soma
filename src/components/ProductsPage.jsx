@@ -18,7 +18,7 @@ const descriptions={
 }
 export default function ProductsPage({onAdd,favorites=[],onToggle=()=>{}}){
   const [category,setCategory]=useState('All Products')
-  const [query,setQuery]=useState('')
+  const [query,setQuery]=useState(()=>new URLSearchParams(window.location.search).get('q')||'')
   const [sort,setSort]=useState('featured')
   
   const items=useMemo(()=>{
