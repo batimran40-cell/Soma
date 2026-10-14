@@ -1,0 +1,64 @@
+/* SOMA: Organic Skincare reference-led visual system.
+   Inspired by the provided Dribbble composition; uses original SOMA content and assets. */
+:root{--ref-ink:#091114;--ref-mute:#686b87;--ref-paper:#f5f3f9;--ref-lime:#d0dd41;--ref-border:#d8d9df;--ref-white:#fff;--green:#091114;--cream:#f5f3f9;--soft:#f1f0f6}
+body,.site-shell,.page-frame{background:var(--ref-paper);color:var(--ref-ink)}
+:where(.section-heading h2,.hero h1,.philosophy h2,.bestseller h2,.editorial-overlay h2,.ingredient-heading h2,.ritual-banner h2,.newsletter h2,.review h3){font-family:'DM Sans',Arial,sans-serif!important;letter-spacing:-.055em!important;font-weight:600!important}
+:where(.hero p,.philosophy p,.bestseller p,.editorial-overlay p,.ingredient-heading>p,.ritual-banner p){font-family:'DM Sans',Arial,sans-serif!important;font-size:clamp(1rem,1.25vw,1.2rem)!important;line-height:1.65!important;color:var(--ref-mute)}
+.eyebrow{font-family:'DM Sans',Arial,sans-serif;font-size:.72rem;letter-spacing:.16em;color:var(--ref-mute)}
+.soma-nav-announcement{background:var(--ref-ink)!important;color:var(--ref-white)!important}
+.soma-premium-header{background:var(--ref-paper)!important;border-color:var(--ref-border)!important}
+.soma-premium-logo,.soma-premium-links a,.soma-nav-bag,.soma-nav-icon,.soma-nav-wishlist{color:var(--ref-ink)!important}
+.soma-premium-logo>small{color:var(--ref-mute)!important}
+.soma-premium-links a::after{background:var(--ref-ink)!important}
+.soma-nav-bag{border-color:var(--ref-border)!important;background:var(--ref-white)!important}
+.button,.pdp-btn,.premium-product-add{background:var(--ref-lime)!important;color:var(--ref-ink)!important;border-color:var(--ref-lime)!important;border-radius:999px!important;font-weight:700!important;letter-spacing:.08em!important}
+.button:hover,.pdp-btn:hover,.premium-product-add:hover{background:#e3ed70!important;border-color:#e3ed70!important;color:var(--ref-ink)!important}
+main:has(> .soma-luxury-hero){gap:0}
+.soma-luxury-hero{grid-template-columns:49% 51%;background:var(--ref-paper);min-height:clamp(36rem,47vw,46rem);padding:clamp(1rem,2.3vw,2.5rem);gap:clamp(1rem,2vw,2rem);box-sizing:border-box;overflow:visible}
+.soma-luxury-hero .hero-copy{padding:clamp(2.5rem,5vw,5.4rem) clamp(1.5rem,4vw,4rem);background:#e7e6ee;border-radius:2rem;align-self:stretch;display:flex;flex-direction:column;justify-content:center;min-width:0}
+.soma-luxury-hero h1{font:600 clamp(4.2rem,7.3vw,8rem)/.94 'DM Sans',Arial,sans-serif!important;letter-spacing:-.07em!important;max-width:12ch;margin:1.4rem 0 1.5rem;color:var(--ref-ink)}
+.soma-luxury-hero h1 em{font-style:normal;background:var(--ref-lime);padding:0 .12em;border-radius:.15em;color:var(--ref-ink);box-decoration-break:clone}
+.soma-luxury-hero .hero-copy p{max-width:27rem;margin-bottom:2rem}
+.soma-hero-actions{gap:1.25rem}.soma-hero-actions .button{padding:1.15rem 1.6rem;min-height:3.6rem}
+.soma-hero-story{font-size:.78rem;color:var(--ref-ink)}
+.soma-hero-note{color:var(--ref-mute);margin-top:3rem}
+.soma-luxury-hero .soma-hero-media{height:auto;min-height:100%;border-radius:2rem;overflow:hidden;background:#d6d7d6}
+.soma-luxury-hero .soma-hero-media .soma-hero-product{padding:clamp(1.2rem,3vw,3rem);object-fit:contain}
+.soma-luxury-hero .soma-hero-media .soma-hero-atmosphere{opacity:.7;filter:blur(2rem) saturate(.7)}
+.soma-hero-media-caption{border-radius:1rem;background:#fffffff2;color:var(--ref-ink)}
+.products.section-pad{background:var(--ref-paper);padding-block:clamp(4rem,8vw,8rem)}
+.section-heading h2{font-size:clamp(2.75rem,5vw,5.5rem)!important;color:var(--ref-ink)}
+.products .product-grid{gap:clamp(.8rem,1.8vw,1.7rem)}
+.products .product-card{text-align:left;min-width:0}
+.products .product-image{aspect-ratio:4/5;border-radius:1.4rem;background:#e8e9e9;display:block;overflow:hidden}
+.products .product-image img{object-fit:contain;padding:clamp(.7rem,1.5vw,1.5rem)}
+.products .product-card h3{font-family:'DM Sans',Arial,sans-serif;font-size:clamp(1.2rem,1.6vw,1.65rem);font-weight:600;letter-spacing:-.04em;margin:.6rem 0}
+.products .product-card p,.product-tag{font-family:'DM Sans',Arial,sans-serif;color:var(--ref-mute)}
+.products .product-tag{font-size:.7rem;letter-spacing:.11em}
+.products .add-overlay{background:var(--ref-lime);color:var(--ref-ink);font-weight:700}
+.underlined-link{font-family:'DM Sans',Arial,sans-serif;font-size:.8rem;color:var(--ref-ink)}
+.editorial-feature{margin:clamp(1rem,2vw,2rem);border-radius:2rem;overflow:hidden}
+.editorial-feature:after{background:linear-gradient(90deg,#091114d9,#09111424 85%)}
+.editorial-overlay{padding:clamp(4rem,8vw,8rem) clamp(2rem,7vw,7rem)}
+.editorial-overlay h2{font-size:clamp(3.5rem,6vw,7rem);color:white}
+.editorial-overlay p{color:#f5f3f9!important}
+.button-cream{background:var(--ref-lime)!important;color:var(--ref-ink)!important}
+.philosophy{margin:clamp(1rem,2vw,2rem);border-radius:2rem;overflow:hidden;background:#e9e8f0;min-height:34rem}
+.philosophy-image{min-height:34rem}.philosophy-copy{padding:clamp(2rem,5vw,5rem)}
+.philosophy h2,.bestseller h2{font-size:clamp(3rem,4.8vw,5.3rem)!important;color:var(--ref-ink)}
+.benefits{margin:clamp(1rem,2vw,2rem);border-radius:1.5rem;background:#e9efc4;padding:clamp(1.5rem,3vw,3rem)}
+.benefit{border-right-color:#cbd2ae}.benefit p{font-family:'DM Sans',Arial,sans-serif;font-size:clamp(.92rem,1.4vw,1.2rem);line-height:1.35;font-weight:600}
+.ingredient-gallery{background:var(--ref-paper)}
+.ingredient-heading h2{font-size:clamp(3.5rem,6vw,6rem)!important}
+.ingredient-image{border-radius:1.35rem;overflow:hidden}.ingredient-meta h3{font-family:'DM Sans',Arial,sans-serif;font-weight:600;letter-spacing:-.05em}
+.bestseller{margin:clamp(1rem,2vw,2rem);background:#e1e5e7;border-radius:2rem;overflow:hidden}
+.bestseller-art img{object-fit:contain;padding:clamp(1rem,3vw,3rem);mask-image:none;-webkit-mask-image:none}
+.reviews{background:var(--ref-paper)}.review h3{font-size:clamp(1.35rem,2vw,1.8rem)}
+.review p{font-family:'DM Sans',Arial,sans-serif;font-size:.96rem;line-height:1.65;color:var(--ref-mute)}
+.newsletter{margin:clamp(1rem,2vw,2rem);background:var(--ref-lime);border-radius:1.75rem;overflow:hidden}
+.newsletter h2{font-size:clamp(2rem,3vw,3.2rem)}
+.newsletter .button{background:var(--ref-ink)!important;color:white!important;border-color:var(--ref-ink)!important}
+.footer{background:var(--ref-paper);border-color:var(--ref-border)}
+@media(max-width:60rem){.soma-luxury-hero{grid-template-columns:1fr}.soma-luxury-hero .hero-copy{padding:3rem 1.8rem}.soma-luxury-hero .soma-hero-media{min-height:30rem;height:clamp(26rem,75vw,37rem)}.philosophy{grid-template-columns:1fr}.philosophy-image{min-height:22rem;height:22rem}.philosophy-copy{padding:3rem 1.8rem}}
+@media(max-width:38rem){.soma-luxury-hero{padding:.65rem;gap:.65rem}.soma-luxury-hero .hero-copy{border-radius:1.3rem;padding:3rem 1.3rem}.soma-luxury-hero h1{font-size:clamp(3.5rem,13vw,5rem)!important}.soma-luxury-hero .soma-hero-media{border-radius:1.3rem;height:27rem;min-height:0}.products .product-grid{grid-template-columns:1fr}.editorial-feature,.philosophy,.bestseller,.benefits,.newsletter{margin:.65rem;border-radius:1.2rem}.ingredient-cards{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.products .product-image img{transition:none}}
