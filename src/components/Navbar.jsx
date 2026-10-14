@@ -2,8 +2,8 @@ import {useEffect,useRef,useState} from 'react'
 import Icon from './Icons'
 import '../styles/navbar-premium.css'
 
-const primary=[['Home','/'],['Products','/products'],['Our Story','/story'],['Wishlist','/wishlist'],['FAQs','/help']]
-const drawerLinks=[...primary,['Skincare Ritual','/#bestseller'],['Reviews','/#reviews'],['Shopping Bag','/cart'],['Checkout Preview','/checkout']]
+const primary=[['Home','/'],['Shop','/products'],['Our Story','/story'],['Ritual','/#bestseller'],['FAQs','/help']]
+const drawerLinks=[...primary,['Wishlist','/wishlist'],['Reviews','/#reviews'],['Shopping Bag','/cart']]
 export default function Navbar({onCart,cartCount}){
  const [menu,setMenu]=useState(false)
  const [search,setSearch]=useState(false)
@@ -17,7 +17,7 @@ export default function Navbar({onCart,cartCount}){
  useEffect(()=>{const onKey=e=>{if(e.key==='Escape')setSearch(false)};window.addEventListener('keydown',onKey);return()=>window.removeEventListener('keydown',onKey)},[])
  const submit=e=>{e.preventDefault();const q=term.trim();setSearch(false);window.location.assign(q?'/products?q='+encodeURIComponent(q):'/products')}
  return <>
-  <div className="soma-nav-announcement"><span>BOTANICAL CARE, BEAUTIFULLY CONSIDERED</span><span className="soma-nav-announcement-side">SOMA ORGANIC · DAILY RITUALS</span></div>
+  <div className="soma-nav-announcement"><span className="soma-announcement-spark" aria-hidden="true">✦</span><span>YOUR DAILY MOMENT OF BOTANICAL CARE</span><span className="soma-announcement-spark" aria-hidden="true">✦</span><a href="/products" className="soma-nav-announcement-side">EXPLORE THE COLLECTION ↗</a></div>
   <header className={`site-header soma-premium-header${scrolled?' is-scrolled':''}`} id="top">
    <div className="soma-premium-nav">
     <div className="soma-premium-left">
@@ -26,7 +26,7 @@ export default function Navbar({onCart,cartCount}){
     </div>
     <a className="soma-premium-logo" href="/" aria-label="Soma Organic home"><span>SOMA</span><small>ORGANIC</small></a>
     <div className="soma-premium-actions">
-      <a className="soma-nav-wishlist" href="/wishlist" aria-label="View wishlist">♡ <span>Wishlist</span></a>
+      <a className="soma-nav-wishlist" href="/wishlist" aria-label="View wishlist"><span aria-hidden="true" className="soma-heart">♡</span><span>Wishlist</span></a>
       <button className="soma-nav-icon" type="button" aria-label={search?'Close product search':'Search products'} aria-expanded={search} aria-controls="soma-nav-search" onClick={()=>setSearch(v=>!v)}><Icon name={search?'close':'search'} size={21}/></button>
       <button className="soma-nav-bag" type="button" onClick={onCart} aria-label={`Open shopping bag, ${cartCount} items`}><Icon name="bag" size={19}/><span className="soma-nav-bag-label">Bag</span><strong>{cartCount}</strong></button>
     </div>
