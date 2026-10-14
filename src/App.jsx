@@ -10,6 +10,7 @@ import {Hero,FeaturedProducts,OurPhilosophy,Benefits,BestSeller,RealResults,News
 import {products} from './data/products'
 import './styles/global.css'
 import './styles/refinements.css'
+import './styles/hero-premium.css'
 export default function App(){
  const [cart,setCart]=useState(()=>{try{const saved=JSON.parse(localStorage.getItem('soma-cart-v1')||'[]');if(!Array.isArray(saved))return [];return saved.filter(x=>products.some(p=>p.id===x.id)&&Number.isInteger(x.quantity)&&x.quantity>0).map(x=>({...products.find(p=>p.id===x.id),quantity:Math.min(x.quantity,20)}))}catch{return []}}),[cartOpen,setCartOpen]=useState(false)
  useEffect(()=>{try{localStorage.setItem('soma-cart-v1',JSON.stringify(cart.map(({id,quantity})=>({id,quantity}))))}catch{}},[cart])
@@ -28,7 +29,7 @@ export default function App(){
   let ctx;let disposed=false
   const start=async()=>{
    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return
-   try { const [{default:gsap},{ScrollTrigger}]=await Promise.all([import('gsap'),import('gsap/ScrollTrigger')]);if(disposed)return;gsap.registerPlugin(ScrollTrigger);ctx=gsap.context(()=>{gsap.utils.toArray('[data-reveal]').forEach(el=>gsap.fromTo(el,{opacity:0,y:28},{opacity:1,y:0,duration:.85,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 92%',once:true}}));gsap.to('.hero-visual img',{y:-24,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}})})}catch(err){console.warn('Animations unavailable; static site remains usable',err)}
+   try { const [{default:gsap},{ScrollTrigger}]=await Promise.all([import('gsap'),import('gsap/ScrollTrigger')]);if(disposed)return;gsap.registerPlugin(ScrollTrigger);ctx=gsap.context(()=>{gsap.utils.toArray('[data-reveal]').forEach(el=>gsap.fromTo(el,{opacity:0,y:28},{opacity:1,y:0,duration:.85,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 92%',once:true}}))})}catch(err){console.warn('Animations unavailable; static site remains usable',err)}
   };start();return()=>{disposed=true;ctx?.revert()}
  },[path])
  useEffect(()=>{const onEscape=e=>{if(e.key==='Escape')setCartOpen(false)};window.addEventListener('keydown',onEscape);return()=>window.removeEventListener('keydown',onEscape)},[])
