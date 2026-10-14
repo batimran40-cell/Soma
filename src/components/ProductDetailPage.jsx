@@ -8,7 +8,7 @@ const copy={
  'hydrating-cream':{category:'MOISTURIZER · EVERYDAY COMFORT',headline:'The art of feeling cared for.',description:'A comforting cream for a simple, considered daily moisturizing ritual.',ritual:'Use after cleansing and any serum, following the directions on the final product packaging.'},
  'neem-toner':{category:'TONER · BOTANICAL BALANCE',headline:'A moment to reset.',description:'Neem and tea tree inspiration for a refreshing step in your everyday skincare ritual.',ritual:'Apply following the directions on the final product packaging, and avoid contact with eyes.'}
 }
-export default function ProductDetailPage({slug,onAdd}){
+export default function ProductDetailPage({slug,onAdd,favorites=[],onToggle=()=>{}}){
  const product=products.find(p=>p.id===slug)
  const [quantity,setQuantity]=useState(1)
  const [active,setActive]=useState(0)
@@ -28,7 +28,7 @@ export default function ProductDetailPage({slug,onAdd}){
    </section>
    <section className="pdp-information">
      <span className="pdp-eyebrow">{info.category}</span><div className="pdp-small-rule"/>
-     <h1>{product.name}</h1><p className="pdp-subtitle">{info.headline}</p>
+     <h1>{product.name}</h1><p className="pdp-subtitle">{info.headline}</p><button type="button" className="pdp-save" aria-pressed={favorites.includes(product.id)} onClick={()=>onToggle(product.id)}>{favorites.includes(product.id)?"♥ SAVED TO WISHLIST":"♡ SAVE TO WISHLIST"}</button>
      <p className="pdp-desc">{info.description}</p><div className="pdp-meta"><span>{product.detail}</span><span>{product.tag}</span></div>
      <div className="pdp-purchase"><div className="pdp-qty" aria-label="Quantity selector"><button type="button" onClick={()=>setQuantity(v=>Math.max(1,v-1))} aria-label="Decrease quantity">−</button><span aria-live="polite">{quantity}</span><button type="button" onClick={()=>setQuantity(v=>Math.min(20,v+1))} aria-label="Increase quantity">+</button></div><button className="pdp-btn pdp-add" onClick={()=>{onAdd(product,quantity)}}>ADD TO BAG <span>↗</span></button></div>
      <p className="pdp-price-note">Product prices and checkout are not configured yet.</p>
