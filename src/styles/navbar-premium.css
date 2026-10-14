@@ -1,72 +1,49 @@
-/* Soma Organic — premium editorial navigation */
-.soma-nav-announcement{min-height:2rem;background:#18392e;color:#eff2e9;display:flex;justify-content:center;align-items:center;position:relative;padding:.55rem 1rem;font-size:.62rem;letter-spacing:.21em;font-weight:600}
-.soma-nav-announcement-side{position:absolute;right:clamp(1rem,5vw,6rem);font-size:.58rem;color:#bdccbb}
-.soma-premium-header{position:sticky;top:0;z-index:70;background:rgba(250,249,245,.97);backdrop-filter:blur(1rem);border-bottom:1px solid #e0e5db}
-.soma-premium-header.is-scrolled{box-shadow:0 .65rem 2rem #163b2a12}
-.soma-premium-nav{width:100%;min-height:5.7rem;padding:0 clamp(1.2rem,5vw,6.7rem);display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:1.5rem}
+/* Soma Organic: editorial storefront navigation */
+.soma-nav-announcement{position:relative;display:flex;align-items:center;justify-content:center;gap:.85rem;min-height:2.45rem;background:#193a2e;color:#f5f2e9;padding:.55rem 1rem;font:600 .67rem/1.4 'DM Sans',Arial,sans-serif;letter-spacing:.19em}
+.soma-announcement-spark{color:#bfcda7;font-size:.65rem}
+.soma-nav-announcement-side{position:absolute;right:clamp(1.25rem,4vw,5rem);color:#e4eada;text-decoration:none;font-size:.63rem;letter-spacing:.12em;border-bottom:1px solid transparent}
+.soma-nav-announcement-side:hover{border-bottom-color:currentColor}
+.soma-premium-header{position:sticky;top:0;z-index:70;background:rgba(250,249,245,.97);border-bottom:1px solid #e0e4dc;backdrop-filter:blur(1rem);-webkit-backdrop-filter:blur(1rem)}
+.soma-premium-header.is-scrolled{box-shadow:0 .65rem 1.8rem rgba(12,48,31,.09)}
+.soma-premium-nav{width:100%;max-width:120rem;margin:0 auto;min-height:6rem;padding:0 clamp(1.4rem,4vw,5.5rem);display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;column-gap:clamp(1rem,2vw,2.5rem)}
 .soma-premium-left,.soma-premium-actions{display:flex;align-items:center;min-width:0}
-.soma-premium-links{display:flex;align-items:center;gap:clamp(.85rem,1.8vw,2rem);white-space:nowrap}
-.soma-premium-links a{font-size:.72rem;text-transform:uppercase;font-weight:600;letter-spacing:.115em;position:relative;color:#1c3e31;padding:1rem 0}
-.soma-premium-links a:after{content:"";position:absolute;bottom:.68rem;left:0;width:100%;height:1px;background:#2e6748;transform:scaleX(0);transform-origin:left;transition:transform .25s}
-.soma-premium-links a:hover:after,.soma-premium-links a:focus-visible:after{transform:scaleX(1)}
-.soma-premium-logo{text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#16392c;white-space:nowrap}
-.soma-premium-logo>span{font-family:'DM Sans',sans-serif;font-weight:700;font-size:1.56rem;letter-spacing:.4em;padding-left:.4em;line-height:1.1}
-.soma-premium-logo>small{font-weight:600;font-size:.56rem;letter-spacing:.48em;padding-left:.48em;margin-top:.3rem;color:#718575}
-.soma-premium-actions{justify-content:flex-end;gap:clamp(.5rem,1vw,1.1rem)}
-.soma-nav-wishlist{font-size:.74rem;letter-spacing:.07em;white-space:nowrap;display:flex;align-items:center;gap:.4rem}
-.soma-nav-wishlist:first-letter{font-size:1.25rem}
-.soma-nav-icon{border:0;background:transparent;display:grid;place-items:center;min-width:2.65rem;min-height:2.65rem;color:#16392c;cursor:pointer}
-.soma-nav-icon:hover{background:#e9eee6}
+.soma-premium-links{display:flex;align-items:center;gap:clamp(.9rem,1.6vw,2rem);white-space:nowrap}
+.soma-premium-links a{position:relative;padding:.75rem 0;color:#274135;font:600 clamp(.84rem,.9vw,.98rem)/1.3 'DM Sans',Arial,sans-serif;letter-spacing:.025em;text-decoration:none}
+.soma-premium-links a::after{content:"";position:absolute;bottom:.42rem;left:0;right:0;height:1px;background:#4c8061;transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.soma-premium-links a:hover::after,.soma-premium-links a:focus-visible::after,.soma-premium-links a[aria-current="page"]::after{transform:scaleX(1)}
+.soma-premium-links a[aria-current="page"]{color:#28734e}
+.soma-premium-logo{justify-self:center;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#193a2d;text-decoration:none;white-space:nowrap;line-height:1}
+.soma-premium-logo>span{font:700 clamp(1.65rem,2vw,2.15rem)/1.05 'DM Sans',Arial,sans-serif;letter-spacing:.39em;padding-left:.39em}
+.soma-premium-logo>small{font:600 .6rem/1 'DM Sans',Arial,sans-serif;letter-spacing:.47em;padding-left:.47em;margin-top:.55rem;color:#7d917d}
+.soma-premium-actions{justify-content:flex-end;gap:clamp(.4rem,.85vw,.95rem)}
+.soma-nav-wishlist{display:inline-flex;align-items:center;gap:.45rem;white-space:nowrap;text-decoration:none;color:#274135;font:500 .87rem 'DM Sans',Arial,sans-serif}
+.soma-nav-wishlist:hover{color:#378055}
+.soma-heart{font-size:1.5rem;line-height:1}
+.soma-nav-icon{display:grid;place-items:center;flex-shrink:0;width:2.85rem;height:2.85rem;border:0;border-radius:50%;background:transparent;color:#193b2d;cursor:pointer;transition:background .2s}
+.soma-nav-icon:hover{background:#e9eee7}
 .soma-nav-toggle{display:none}
-.soma-nav-bag{border:1px solid #c7d2c7;border-radius:2rem;display:flex;align-items:center;gap:.6rem;background:transparent;padding:.65rem .8rem;font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;cursor:pointer;color:#17392a}
-.soma-nav-bag:hover{border-color:#214a36;background:#ebf0e8}
-.soma-nav-bag strong{font-size:.72rem;min-width:1.25rem;min-height:1.25rem;border-radius:50%;background:#e1e7de;display:grid;place-items:center;letter-spacing:0}
-.soma-nav-search{padding:.9rem clamp(1.2rem,5vw,6.7rem) 1.2rem;border-top:1px solid #e0e5db;background:#faf9f5}
+.soma-nav-bag{display:inline-flex;align-items:center;justify-content:center;gap:.65rem;min-height:2.9rem;padding:.45rem .85rem;border:1px solid #c9d4c9;border-radius:3rem;background:#faf9f5;color:#214333;cursor:pointer;font:600 .78rem 'DM Sans',Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;transition:background .2s,border-color .2s}
+.soma-nav-bag:hover{background:#e9f0e7;border-color:#8ba88c}
+.soma-nav-bag strong{display:grid;place-items:center;min-width:1.3rem;height:1.3rem;padding:0 .2rem;border-radius:50%;background:#e2e9de;color:#234837;font-size:.7rem;letter-spacing:0}
+.soma-nav-search{padding:1rem clamp(1.25rem,4vw,5.5rem) 1.35rem;border-top:1px solid #e2e7de;background:#faf9f5}
 .soma-nav-search[hidden]{display:none}
-.soma-nav-search form{display:flex;align-items:end;gap:1rem;max-width:65rem;margin:auto}
-.soma-nav-search label{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
-.soma-nav-search input{flex:1;min-width:0;padding:.6rem;border:0;border-bottom:1px solid #95ac9a;background:transparent;font-size:1rem}
-.soma-nav-search form button{border:0;background:#193a2e;color:white;display:flex;gap:.8rem;align-items:center;padding:.8rem 1.1rem;font-size:.72rem;cursor:pointer}
-.soma-nav-overlay{position:fixed;inset:0;z-index:200;background:#10251ebb;display:flex}
-.soma-nav-drawer{width:min(26rem,90vw);height:100%;overflow:auto;background:#faf9f5;padding:2rem clamp(1.3rem,4vw,2.4rem);box-shadow:1rem 0 3rem #122c2625}
-.soma-nav-drawer-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;font-size:1.5rem;font-weight:700;letter-spacing:.3em}
-.soma-nav-drawer-top small{display:block;font-size:.58rem;letter-spacing:.36em;color:#718575}
-.soma-nav-drawer>a{display:flex;align-items:center;gap:1.2rem;border-bottom:1px solid #dde4dc;padding:1rem 0;font:400 2rem 'Cormorant Garamond',Georgia,serif}
+.soma-nav-search form{display:flex;align-items:center;gap:1rem;max-width:68rem;margin:auto}
+.soma-nav-search label{font:600 .78rem 'DM Sans',Arial,sans-serif;letter-spacing:.04em;white-space:nowrap}
+.soma-nav-search input{flex:1;min-width:0;padding:.8rem;border:1px solid #c6d3c5;border-radius:.15rem;background:#fffefa;color:#193a2d;font-size:1rem}
+.soma-nav-search form button{display:flex;align-items:center;justify-content:center;gap:.6rem;border:0;background:#193a2e;color:#fff;padding:.95rem 1.2rem;font-size:.74rem;font-weight:700;letter-spacing:.08em;cursor:pointer}
+.soma-nav-overlay{position:fixed;inset:0;z-index:200;display:flex;background:rgba(10,34,23,.72)}
+.soma-nav-drawer{width:min(27rem,92vw);height:100%;overflow:auto;padding:2rem clamp(1.25rem,4vw,2.4rem);background:#faf9f5;box-shadow:1rem 0 3rem #081d162f}
+.soma-nav-drawer-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;font-size:1.45rem;letter-spacing:.25em;font-weight:700}
+.soma-nav-drawer-top small{display:block;color:#839983;font-size:.6rem;letter-spacing:.34em}
+.soma-nav-drawer>a{display:flex;align-items:center;gap:1rem;padding:1rem 0;border-bottom:1px solid #dee6db;color:#214132;font:400 2.05rem/1.2 'Cormorant Garamond',Georgia,serif;text-decoration:none}
 .soma-nav-drawer>a>span{flex:1}
-.soma-nav-drawer>a small{font:500 .65rem 'DM Sans',sans-serif;color:#86998a}
-.soma-nav-drawer p{margin:3rem 0;font:italic 2rem 'Cormorant Garamond',serif;color:#63836c}
-@media(max-width:80rem){.soma-premium-links{gap:.85rem}.soma-nav-wishlist span{display:none}.soma-nav-announcement-side{display:none}}
-@media(max-width:67rem){.soma-nav-toggle{display:grid}.soma-premium-links{display:none}.soma-premium-nav{min-height:4.8rem}.soma-premium-left{justify-content:flex-start}}
-@media(max-width:36rem){.soma-premium-nav{padding:0 .7rem;gap:.35rem}.soma-premium-logo>span{font-size:1.22rem}.soma-premium-logo>small{font-size:.49rem}.soma-nav-bag-label{display:none}.soma-nav-bag{gap:.25rem;padding:.5rem}.soma-premium-actions{gap:.05rem}.soma-nav-wishlist{display:none}.soma-nav-search form{flex-wrap:wrap}.soma-nav-search label{width:100%}.soma-nav-search form button{width:100%;justify-content:center}}
-@media(prefers-reduced-motion:reduce){.soma-premium-links a:after{transition:none}}
-
-/* Navigation accessibility and readability upgrade */
-.soma-premium-nav{padding-inline:clamp(1.25rem,3.5vw,4.5rem);gap:1rem}
-.soma-premium-links{gap:clamp(.8rem,1.4vw,1.6rem)}
-.soma-premium-links a{font-size:clamp(.84rem,.9vw,.96rem);font-weight:600;letter-spacing:.055em;text-transform:none}
-.soma-premium-links a[aria-current="page"]{color:#2d7450}
-.soma-premium-links a[aria-current="page"]::after{transform:scaleX(1)}
-.soma-premium-logo>span{font-size:clamp(1.55rem,1.9vw,1.95rem)}
-.soma-premium-logo>small{font-size:.65rem}
-.soma-nav-wishlist{font-size:.87rem}
-.soma-nav-bag{font-size:.84rem;min-height:2.9rem}
-.soma-nav-icon{min-width:2.85rem;min-height:2.85rem}
-.soma-nav-announcement{font-size:.73rem;letter-spacing:.12em}
-.soma-nav-search label{font-size:.85rem}
-.soma-nav-drawer>a{font-size:2.25rem}
-@media(max-width:88rem){.soma-nav-toggle{display:grid}.soma-premium-links{display:none}.soma-premium-nav{min-height:5rem}.soma-premium-left{justify-content:flex-start}.soma-nav-wishlist span{display:inline}}
-@media(max-width:48rem){.soma-nav-wishlist span{display:none}.soma-premium-logo>span{font-size:1.6rem}.soma-premium-nav{padding-inline:1rem}}
-@media(max-width:36rem){.soma-premium-logo>span{font-size:1.35rem}.soma-premium-logo>small{font-size:.55rem}.soma-nav-wishlist{display:none}.soma-nav-bag{min-height:2.65rem;font-size:.8rem}}
-
-/* Design completion task 02 — predictable responsive navigation */
-.soma-premium-nav{grid-template-columns:minmax(0,1fr) minmax(8rem,auto) minmax(0,1fr)}
-.soma-premium-links{gap:clamp(.7rem,1.15vw,1.45rem)}
-.soma-premium-links a{font-size:clamp(.85rem,.82vw,.97rem);letter-spacing:.035em}
-.soma-premium-actions{gap:clamp(.35rem,.75vw,.8rem)}
-.soma-premium-logo{justify-self:center}
-.soma-nav-icon:focus-visible,.soma-nav-bag:focus-visible,.soma-premium-links a:focus-visible,.soma-nav-drawer a:focus-visible{outline:.15rem solid #527a5a;outline-offset:.15rem}
-.soma-nav-drawer>a[aria-current="page"]{color:#2c7650}
-@media(min-width:76.001rem){.soma-premium-header .soma-nav-toggle{display:none}.soma-premium-header .soma-premium-links{display:flex}.soma-premium-nav{min-height:5.5rem}}
-@media(max-width:76rem){.soma-premium-header .soma-nav-toggle{display:grid}.soma-premium-header .soma-premium-links{display:none}.soma-premium-nav{min-height:4.75rem}.soma-nav-wishlist span{display:inline}}
-@media(max-width:48rem){.soma-nav-wishlist span{display:none}}
-@media(max-width:36rem){.soma-premium-nav{grid-template-columns:minmax(2.8rem,1fr) auto minmax(5.4rem,1fr)}}
+.soma-nav-drawer>a>small{color:#819784;font:500 .7rem 'DM Sans',Arial,sans-serif}
+.soma-nav-drawer>a[aria-current="page"]{color:#307c53}
+.soma-nav-drawer p{margin:3rem 0 1rem;color:#678673;font:italic 2rem 'Cormorant Garamond',Georgia,serif}
+.soma-nav-icon:focus-visible,.soma-nav-bag:focus-visible,.soma-premium-links a:focus-visible,.soma-nav-wishlist:focus-visible,.soma-nav-drawer a:focus-visible{outline:.15rem solid #477e56;outline-offset:.18rem}
+@media(max-width:92rem){.soma-nav-announcement-side{display:none}}
+@media(max-width:85rem){.soma-premium-links{gap:.85rem}.soma-nav-wishlist span:last-child{display:none}}
+@media(max-width:76rem){.soma-premium-nav{min-height:5.1rem}.soma-nav-toggle{display:grid}.soma-premium-links{display:none}.soma-nav-wishlist span:last-child{display:inline}}
+@media(max-width:48rem){.soma-premium-nav{padding:0 1rem;gap:.4rem}.soma-nav-wishlist span:last-child{display:none}.soma-premium-logo>span{font-size:1.6rem}}
+@media(max-width:36rem){.soma-nav-announcement{min-height:2rem;font-size:.56rem;letter-spacing:.1em;gap:.4rem}.soma-premium-nav{grid-template-columns:minmax(2.7rem,1fr) auto minmax(5.7rem,1fr);padding:0 .65rem}.soma-premium-logo>span{font-size:1.33rem}.soma-premium-logo>small{font-size:.51rem}.soma-nav-wishlist{display:none}.soma-nav-bag{gap:.3rem;padding:.45rem .5rem}.soma-nav-bag-label{display:none}.soma-premium-actions{gap:.05rem}.soma-nav-search form{flex-wrap:wrap}.soma-nav-search label{width:100%}.soma-nav-search form button{width:100%}}
+@media(prefers-reduced-motion:reduce){.soma-premium-links a::after,.soma-nav-icon,.soma-nav-bag{transition:none}}
