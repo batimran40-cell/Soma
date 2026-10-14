@@ -19,7 +19,7 @@ export default function ProductsPage({onAdd}){
   const [category,setCategory]=useState('All Products')
   const [query,setQuery]=useState('')
   const [sort,setSort]=useState('featured')
-  const [selected,setSelected]=useState(null)
+  
   const items=useMemo(()=>{
     const filtered=products.filter(p=>(category==='All Products'||getCategory(p)===category)&&`${p.name} ${p.detail}`.toLowerCase().includes(query.toLowerCase().trim()))
     if(sort==='name-asc')return [...filtered].sort((a,b)=>a.name.localeCompare(b.name))
@@ -39,17 +39,9 @@ export default function ProductsPage({onAdd}){
     <section className="products-results" aria-label="Shop Soma products">
       <div className="products-results-top"><h2>Our essentials</h2><span>{items.length} {items.length===1?'product':'products'}</span></div>
       {items.length?<div className="products-grid">{items.map(p=><article className="products-card" key={p.id}>
-        <button className="products-image" type="button" onClick={()=>setSelected(p)} aria-label={`View details for ${p.name}`}><img src={p.image} alt={p.name} loading="lazy"/></button>
+        <a className="products-image" href={`/products/${p.id}`} aria-label={`View details for ${p.name}`}><img src={p.image} alt={p.name} loading="lazy"/></a>
         <div className="products-tag">{p.tag}</div><h3>{p.name}</h3><p>{p.detail}</p>
-        <div className="products-actions"><button className="products-action secondary" onClick={()=>setSelected(p)}>VIEW DETAILS</button><button className="products-action" onClick={()=>onAdd(p)}>ADD TO BAG</button></div>
+        <div className="products-actions"><a className="products-action secondary" style={{display:"flex",alignItems:"center",justifyContent:"center"}} href={`/products/${p.id}`}>VIEW DETAILS</a><button className="products-action" onClick={()=>onAdd(p)}>ADD TO BAG</button></div>
       </article>)}</div>:<p className="products-empty">No products match your search. Try another term or category.</p>}
     </section>
-    {selected&&<div className="product-modal-backdrop" onClick={()=>setSelected(null)} role="presentation">
-      <section className="product-modal" role="dialog" aria-modal="true" aria-labelledby="product-modal-title" onClick={e=>e.stopPropagation()}>
-        <button className="product-modal-close" onClick={()=>setSelected(null)} aria-label="Close product details">✕</button>
-        <img src={selected.image} alt={selected.name}/>
-        <div className="product-modal-body"><span className="products-kicker">{getCategory(selected)}</span><h2 id="product-modal-title">{selected.name}</h2><p>{selected.detail}</p><p>{descriptions[selected.id]}</p><p>Pricing and checkout details will be available soon.</p><button className="products-action" onClick={()=>{onAdd(selected);setSelected(null)}}>ADD TO BAG</button></div>
-      </section>
-    </div>}
-  </main>
-}
+  </main>\n}
