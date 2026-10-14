@@ -57,3 +57,16 @@
 @media(max-width:88rem){.soma-nav-toggle{display:grid}.soma-premium-links{display:none}.soma-premium-nav{min-height:5rem}.soma-premium-left{justify-content:flex-start}.soma-nav-wishlist span{display:inline}}
 @media(max-width:48rem){.soma-nav-wishlist span{display:none}.soma-premium-logo>span{font-size:1.6rem}.soma-premium-nav{padding-inline:1rem}}
 @media(max-width:36rem){.soma-premium-logo>span{font-size:1.35rem}.soma-premium-logo>small{font-size:.55rem}.soma-nav-wishlist{display:none}.soma-nav-bag{min-height:2.65rem;font-size:.8rem}}
+
+/* Design completion task 02 — predictable responsive navigation */
+.soma-premium-nav{grid-template-columns:minmax(0,1fr) minmax(8rem,auto) minmax(0,1fr)}
+.soma-premium-links{gap:clamp(.7rem,1.15vw,1.45rem)}
+.soma-premium-links a{font-size:clamp(.85rem,.82vw,.97rem);letter-spacing:.035em}
+.soma-premium-actions{gap:clamp(.35rem,.75vw,.8rem)}
+.soma-premium-logo{justify-self:center}
+.soma-nav-icon:focus-visible,.soma-nav-bag:focus-visible,.soma-premium-links a:focus-visible,.soma-nav-drawer a:focus-visible{outline:.15rem solid #527a5a;outline-offset:.15rem}
+.soma-nav-drawer>a[aria-current="page"]{color:#2c7650}
+@media(min-width:76.001rem){.soma-premium-header .soma-nav-toggle{display:none}.soma-premium-header .soma-premium-links{display:flex}.soma-premium-nav{min-height:5.5rem}}
+@media(max-width:76rem){.soma-premium-header .soma-nav-toggle{display:grid}.soma-premium-header .soma-premium-links{display:none}.soma-premium-nav{min-height:4.75rem}.soma-nav-wishlist span{display:inline}}
+@media(max-width:48rem){.soma-nav-wishlist span{display:none}}
+@media(max-width:36rem){.soma-premium-nav{grid-template-columns:minmax(2.8rem,1fr) auto minmax(5.4rem,1fr)}}
