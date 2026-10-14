@@ -2,8 +2,8 @@ import {useEffect,useRef,useState} from 'react'
 import Icon from './Icons'
 import '../styles/navbar-premium.css'
 
-const primary=[['Home','/'],['Shop','/products'],['Our Story','/#philosophy'],['Ritual','/#bestseller']]
-const drawerLinks=[...primary,['Wishlist','/wishlist'],['Reviews','/#reviews'],['Your bag','/cart']]
+const primary=[['Home','/'],['Shop','/products'],['Our Story','/story'],['Ritual','/#bestseller']]
+const drawerLinks=[...primary,['Wishlist','/wishlist'],['Reviews','/#reviews'],['Your bag','/cart'],['Help & FAQs','/help']]
 export default function Navbar({onCart,cartCount}){
  const [menu,setMenu]=useState(false)
  const [search,setSearch]=useState(false)
