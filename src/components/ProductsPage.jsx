@@ -41,7 +41,7 @@ export default function ProductsPage({onAdd,favorites=[],onToggle=()=>{}}){
       <div className="products-results-top"><h2>Our essentials</h2><a href="/wishlist" className="products-wishlist-link">♡ MY WISHLIST ({favorites.length})</a><span>{items.length} {items.length===1?'product':'products'}</span></div>
       {items.length?<div className="products-grid premium-products-grid">{items.map((p,index)=><article className="products-card premium-product-card" key={p.id}>
         <div className="premium-product-visual">
-          <a className="products-image" href={`/products/${p.id}`} aria-label={`Explore ${p.name}`}><img src={p.image} alt={p.name} loading="lazy"/></a>
+          <a className="products-image" href={`/products/${p.id}`} aria-label={`Explore ${p.name}`}><img className="premium-image-atmosphere" src={p.image} alt="" aria-hidden="true" loading="lazy"/><img className="premium-image-main" src={p.image} alt={p.name} loading="lazy"/></a>
           <span className="premium-product-index">{String(index+1).padStart(2,'0')} / 0{items.length}</span>
           <button type="button" className="premium-product-favorite" aria-label={`${favorites.includes(p.id)?"Remove":"Add"} ${p.name} ${favorites.includes(p.id)?"from":"to"} wishlist`} aria-pressed={favorites.includes(p.id)} onClick={()=>onToggle(p.id)}>{favorites.includes(p.id)?"♥":"♡"}</button>
           <a className="premium-product-quick" href={`/products/${p.id}`}>DISCOVER PRODUCT <span aria-hidden="true">↗</span></a>
