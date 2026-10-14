@@ -1,5 +1,6 @@
 import {useMemo,useState} from 'react'
 import {products} from '../data/products'
+import Icon from './Icons'
 import '../styles/products.css'
 import '../styles/discovery.css'
 import '../styles/products-reference.css'
@@ -29,7 +30,7 @@ export default function ProductsPage({onAdd,favorites=[],onToggle=()=>{},cartCou
      </form>
      <button type="button" className="soma-ref-search-toggle" onClick={()=>setSearchOpen(v=>!v)} aria-label="Toggle product search" aria-expanded={searchOpen}>⌕</button>
      <a href="/wishlist" className="soma-ref-shop-round" aria-label="View wishlist">♡{favorites.length>0&&<span className="soma-ref-tool-count">{favorites.length}</span>}</a>
-     <button type="button" onClick={onCart} className="soma-ref-shop-round" aria-label={`Open bag with ${cartCount} items`}>♙{cartCount>0&&<span className="soma-ref-tool-count">{cartCount}</span>}</button>
+     <button type="button" onClick={onCart} className="soma-ref-shop-round" aria-label={`Open bag with ${cartCount} items`}><Icon name="bag" size={18}/>{cartCount>0&&<span className="soma-ref-tool-count">{cartCount}</span>}</button>
     </div>
    </header>
    {searchOpen&&<form className="soma-ref-mobile-search" onSubmit={e=>{e.preventDefault();setSearchOpen(false);document.getElementById('soma-shop-grid')?.scrollIntoView({behavior:'smooth'})}}><input autoFocus aria-label="Search Soma collection" placeholder="Search products" value={query} onChange={e=>setQuery(e.target.value)}/><button type="submit">SEARCH ↗</button></form>}
