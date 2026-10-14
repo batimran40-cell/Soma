@@ -1,6 +1,7 @@
 import {useMemo,useState} from 'react'
 import {products} from '../data/products'
 import '../styles/products.css'
+import '../styles/discovery.css'
 
 const categories=['All Products','Serums','Cleansers','Moisturizers','Toners']
 const getCategory = product => {
@@ -15,7 +16,7 @@ const descriptions={
   'hydrating-cream':'A comforting face cream for a daily moisture ritual.',
   'neem-toner':'A refreshing toner inspired by neem and tea tree botanicals.'
 }
-export default function ProductsPage({onAdd}){
+export default function ProductsPage({onAdd,favorites=[],onToggle=()=>{}}){
   const [category,setCategory]=useState('All Products')
   const [query,setQuery]=useState('')
   const [sort,setSort]=useState('featured')
@@ -37,9 +38,9 @@ export default function ProductsPage({onAdd}){
       <div style={{display:'flex',gap:'.7rem',flexWrap:'wrap'}}><input className="products-search" type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search products" aria-label="Search products"/><select className="products-sort" value={sort} onChange={e=>setSort(e.target.value)} aria-label="Sort products"><option value="featured">Featured</option><option value="name-asc">Name A–Z</option><option value="name-desc">Name Z–A</option></select></div>
     </section>
     <section className="products-results" aria-label="Shop Soma products">
-      <div className="products-results-top"><h2>Our essentials</h2><span>{items.length} {items.length===1?'product':'products'}</span></div>
+      <div className="products-results-top"><h2>Our essentials</h2><a href="/wishlist" className="products-wishlist-link">♡ MY WISHLIST ({favorites.length})</a><span>{items.length} {items.length===1?'product':'products'}</span></div>
       {items.length?<div className="products-grid">{items.map(p=><article className="products-card" key={p.id}>
-        <a className="products-image" href={`/products/${p.id}`} aria-label={`View details for ${p.name}`}><img src={p.image} alt={p.name} loading="lazy"/></a>
+        <button type="button" className="discovery-heart products-heart" aria-label={`${favorites.includes(p.id)?"Remove":"Add"} ${p.name} ${favorites.includes(p.id)?"from":"to"} wishlist`} aria-pressed={favorites.includes(p.id)} onClick={()=>onToggle(p.id)}>{favorites.includes(p.id)?"♥":"♡"}</button><a className="products-image" href={`/products/${p.id}`} aria-label={`View details for ${p.name}`}><img src={p.image} alt={p.name} loading="lazy"/></a>
         <div className="products-tag">{p.tag}</div><h3>{p.name}</h3><p>{p.detail}</p>
         <div className="products-actions"><a className="products-action secondary" style={{display:"flex",alignItems:"center",justifyContent:"center"}} href={`/products/${p.id}`}>VIEW DETAILS</a><button className="products-action" onClick={()=>onAdd(p)}>ADD TO BAG</button></div>
       </article>)}</div>:<p className="products-empty">No products match your search. Try another term or category.</p>}
