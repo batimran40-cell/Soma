@@ -1,0 +1,20 @@
+/* Final hero + reference-navbar adjustments, loaded last. */
+.soma-luxury-hero .soma-hero-media{display:block;position:relative;min-width:0;min-height:clamp(35rem,47vw,46rem);overflow:hidden;border-radius:2rem;background:#c4b99c}
+.soma-luxury-hero .soma-hero-artwork{position:absolute;inset:0;overflow:hidden;isolation:isolate}
+.soma-luxury-hero .soma-hero-artwork .soma-hero-atmosphere{position:absolute;inset:-12%;width:124%;height:124%;object-fit:cover;filter:blur(2.2rem) saturate(.9);opacity:.95;transform:scale(1.05);mask-image:none;-webkit-mask-image:none}
+.soma-luxury-hero .soma-hero-artwork .soma-hero-product{position:absolute;inset:0;width:100%;height:100%;padding:0;object-fit:contain;object-position:center center;mix-blend-mode:normal;mask-image:linear-gradient(90deg,transparent 0%,#000 11%,#000 89%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 11%,#000 89%,transparent 100%);filter:none;transform:none}
+.soma-luxury-hero .soma-hero-media-caption{bottom:1rem;left:1rem;right:1rem;z-index:3}
+.soma-premium-header{background:#f5f3f9!important;border-color:#dddde4!important}
+.soma-premium-nav{min-height:5.4rem;max-width:115rem}
+.soma-premium-logo>span{color:#10151a;font-size:clamp(1.7rem,2.1vw,2.2rem)}
+.soma-premium-logo>small{color:#6b7080}
+.soma-premium-links a{color:#151b20!important}
+.soma-premium-links a[aria-current=page]{color:#5f6932!important}
+.soma-premium-links a::after{background:#a5ba35!important}
+.soma-nav-bag{border-radius:999px;background:#d0dd41!important;border-color:#d0dd41!important;color:#121719!important}
+.soma-nav-bag strong{background:#f5f3f9}
+.soma-nav-icon:hover{background:#e7e7ed}
+.soma-nav-announcement{background:#10151a!important}
+.soma-nav-announcement-side{color:#d9ea72}
+@media(max-width:60rem){.soma-luxury-hero .soma-hero-media{height:clamp(27rem,75vw,38rem);min-height:0}.soma-luxury-hero .soma-hero-artwork .soma-hero-product{object-fit:contain}}
+@media(max-width:36rem){.soma-luxury-hero .soma-hero-media{height:27rem;border-radius:1.3rem}.soma-luxury-hero .soma-hero-media-caption{left:.7rem;right:.7rem;bottom:.7rem}}
