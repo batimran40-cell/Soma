@@ -1,0 +1,37 @@
+/* Milestone 04 — visual refinement, shared across storefront pages */
+:root{--soma-forest:#142f28;--soma-sage:#718978;--soma-ivory:#faf9f5;--soma-line:#e3e6dc}
+html{scroll-padding-top:7.5rem}
+body{min-width:0;-webkit-font-smoothing:antialiased}
+:where(button,a,input,select):focus-visible{outline:.15rem solid #50785f;outline-offset:.2rem}
+:where(.hero,.philosophy,.editorial-feature,.ingredient-gallery,.bestseller,.ritual-banner,.products-intro,.pdp-main){isolation:isolate}
+.hero-copy h1{letter-spacing:-.045em;text-wrap:balance}
+.hero-copy p{max-width:33rem;color:#4a6052}
+.hero-visual img{transition:filter .45s ease}
+.section-heading h2,.ingredient-heading h2,.pdp-related-heading h2{text-wrap:balance}
+.product-image{cursor:pointer;text-decoration:none}
+.product-card h3{line-height:1.13}
+.product-card:hover h3{color:#345e4b}
+.product-image img,.ingredient-image img{will-change:auto}
+.button:active,.pdp-btn:active,.products-action:active{transform:translateY(0)}
+.products-controls{background:#faf9f5}
+.products-filters{max-width:100%}
+.products-filter{font-family:'DM Sans',sans-serif;letter-spacing:.04em}
+.products-filter:focus-visible,.products-action:focus-visible{outline-offset:.18rem}
+.products-card .products-tag{line-height:1.5}
+.products-image img{object-fit:contain}
+.products-results-top>span{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:#667c6b}
+.pdp-gallery-stage{background:#eeefe9}
+.pdp-gallery-stage>img{object-fit:contain}
+.pdp-thumbs button:hover{border-color:#9eae9c}
+.pdp-information h1{max-width:11ch;text-wrap:balance}
+.pdp-information .pdp-desc{color:#526a5a}
+.pdp-related-image{border:1px solid #e6e8df}
+.pdp-related h3{line-height:1.1}
+.pdp-accordion button{min-height:3.5rem}
+.pdp-editorial h2{text-wrap:balance}
+.cart-drawer{box-shadow:-1rem 0 4rem #07130e29}
+.cart-drawer button:focus-visible{outline-offset:.18rem}
+@media(min-width:75rem){.products-results,.pdp-related{padding-inline:clamp(4rem,7vw,8.5rem)}.pdp-main{padding-inline:clamp(4rem,7vw,8.5rem)}}
+@media(max-width:48rem){.hero-copy h1{max-width:15ch}.products-controls{gap:1rem}.products-filters{overflow-x:auto;flex-wrap:nowrap;padding-bottom:.3rem}.products-filter{white-space:nowrap}.pdp-information h1{max-width:none}.pdp-editorial{padding-block:5rem}.pdp-related-heading{align-items:flex-end}.product-image .add-overlay{transform:none;position:static;background:var(--green);padding:.75rem;font-size:.65rem}.product-image{aspect-ratio:auto}.product-image img{aspect-ratio:1;object-fit:contain}}
+@media(max-width:25rem){.products-intro-copy{padding:2.5rem 1rem}.products-results{padding-inline:1rem}.pdp-purchase{gap:.65rem}.pdp-qty{width:100%}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
