@@ -39,3 +39,21 @@
 @media(max-width:67rem){.soma-nav-toggle{display:grid}.soma-premium-links{display:none}.soma-premium-nav{min-height:4.8rem}.soma-premium-left{justify-content:flex-start}}
 @media(max-width:36rem){.soma-premium-nav{padding:0 .7rem;gap:.35rem}.soma-premium-logo>span{font-size:1.22rem}.soma-premium-logo>small{font-size:.49rem}.soma-nav-bag-label{display:none}.soma-nav-bag{gap:.25rem;padding:.5rem}.soma-premium-actions{gap:.05rem}.soma-nav-wishlist{display:none}.soma-nav-search form{flex-wrap:wrap}.soma-nav-search label{width:100%}.soma-nav-search form button{width:100%;justify-content:center}}
 @media(prefers-reduced-motion:reduce){.soma-premium-links a:after{transition:none}}
+
+/* Navigation accessibility and readability upgrade */
+.soma-premium-nav{padding-inline:clamp(1.25rem,3.5vw,4.5rem);gap:1rem}
+.soma-premium-links{gap:clamp(.8rem,1.4vw,1.6rem)}
+.soma-premium-links a{font-size:clamp(.84rem,.9vw,.96rem);font-weight:600;letter-spacing:.055em;text-transform:none}
+.soma-premium-links a[aria-current="page"]{color:#2d7450}
+.soma-premium-links a[aria-current="page"]::after{transform:scaleX(1)}
+.soma-premium-logo>span{font-size:clamp(1.55rem,1.9vw,1.95rem)}
+.soma-premium-logo>small{font-size:.65rem}
+.soma-nav-wishlist{font-size:.87rem}
+.soma-nav-bag{font-size:.84rem;min-height:2.9rem}
+.soma-nav-icon{min-width:2.85rem;min-height:2.85rem}
+.soma-nav-announcement{font-size:.73rem;letter-spacing:.12em}
+.soma-nav-search label{font-size:.85rem}
+.soma-nav-drawer>a{font-size:2.25rem}
+@media(max-width:88rem){.soma-nav-toggle{display:grid}.soma-premium-links{display:none}.soma-premium-nav{min-height:5rem}.soma-premium-left{justify-content:flex-start}.soma-nav-wishlist span{display:inline}}
+@media(max-width:48rem){.soma-nav-wishlist span{display:none}.soma-premium-logo>span{font-size:1.6rem}.soma-premium-nav{padding-inline:1rem}}
+@media(max-width:36rem){.soma-premium-logo>span{font-size:1.35rem}.soma-premium-logo>small{font-size:.55rem}.soma-nav-wishlist{display:none}.soma-nav-bag{min-height:2.65rem;font-size:.8rem}}
