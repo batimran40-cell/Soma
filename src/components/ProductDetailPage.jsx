@@ -14,7 +14,7 @@ export default function ProductDetailPage({slug,onAdd}){
  const [active,setActive]=useState(0)
  const [expanded,setExpanded]=useState('ritual')
  useEffect(()=>{setQuantity(1);setActive(0);setExpanded('ritual')},[slug])
- useEffect(()=>{const onKey=e=>{if(e.key==='ArrowRight')setActive(v=>(v+1)%2);if(e.key==='ArrowLeft')setActive(v=>(v+1)%2)};window.addEventListener('keydown',onKey);return()=>window.removeEventListener('keydown',onKey)},[])
+ useEffect(()=>{const onKey=e=>{if(['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName))return;if(e.key==='ArrowRight')setActive(v=>(v+1)%2);if(e.key==='ArrowLeft')setActive(v=>(v+1)%2)};window.addEventListener('keydown',onKey);return()=>window.removeEventListener('keydown',onKey)},[])
  if(!product)return <main className="soma-detail-missing"><span className="pdp-eyebrow">SOMA ORGANIC</span><h1>We couldn't find that ritual.</h1><p>This product isn't in our collection.</p><a className="pdp-btn" href="/products">BACK TO THE COLLECTION →</a></main>
  const info=copy[product.id]
  const related=products.filter(p=>p.id!==product.id).slice(0,3)
@@ -30,7 +30,7 @@ export default function ProductDetailPage({slug,onAdd}){
      <span className="pdp-eyebrow">{info.category}</span><div className="pdp-small-rule"/>
      <h1>{product.name}</h1><p className="pdp-subtitle">{info.headline}</p>
      <p className="pdp-desc">{info.description}</p><div className="pdp-meta"><span>{product.detail}</span><span>{product.tag}</span></div>
-     <div className="pdp-purchase"><div className="pdp-qty" aria-label="Quantity selector"><button type="button" onClick={()=>setQuantity(v=>Math.max(1,v-1))} aria-label="Decrease quantity">−</button><span aria-live="polite">{quantity}</span><button type="button" onClick={()=>setQuantity(v=>Math.min(20,v+1))} aria-label="Increase quantity">+</button></div><button className="pdp-btn pdp-add" onClick={()=>{for(let i=0;i<quantity;i++)onAdd(product)}}>ADD TO BAG <span>↗</span></button></div>
+     <div className="pdp-purchase"><div className="pdp-qty" aria-label="Quantity selector"><button type="button" onClick={()=>setQuantity(v=>Math.max(1,v-1))} aria-label="Decrease quantity">−</button><span aria-live="polite">{quantity}</span><button type="button" onClick={()=>setQuantity(v=>Math.min(20,v+1))} aria-label="Increase quantity">+</button></div><button className="pdp-btn pdp-add" onClick={()=>{onAdd(product,quantity)}}>ADD TO BAG <span>↗</span></button></div>
      <p className="pdp-price-note">Product prices and checkout are not configured yet.</p>
      <div className="pdp-accordions">{[{id:'ritual',title:'THE DAILY RITUAL',body:info.ritual},{id:'details',title:'PRODUCT DETAILS',body:product.detail+' · '+info.description},{id:'ingredients',title:'INGREDIENTS & SAFETY',body:'The final ingredient list and safety information have not yet been provided. Please confirm the physical product label before purchasing or using.'}].map(x=><div className="pdp-accordion" key={x.id}><button type="button" aria-expanded={expanded===x.id} onClick={()=>setExpanded(expanded===x.id?'':x.id)}>{x.title}<span>{expanded===x.id?'−':'+'}</span></button>{expanded===x.id&&<p>{x.body}</p>}</div>)}</div>
    </section>
