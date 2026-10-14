@@ -2,8 +2,8 @@ import {useEffect,useRef,useState} from 'react'
 import Icon from './Icons'
 import '../styles/navbar-premium.css'
 
-const primary=[['Home','/'],['Shop','/products'],['Our Story','/story'],['Ritual','/#bestseller']]
-const drawerLinks=[...primary,['Wishlist','/wishlist'],['Reviews','/#reviews'],['Your bag','/cart'],['Help & FAQs','/help']]
+const primary=[['Home','/'],['Products','/products'],['Our Story','/story'],['Wishlist','/wishlist'],['FAQs','/help']]
+const drawerLinks=[...primary,['Skincare Ritual','/#bestseller'],['Reviews','/#reviews'],['Shopping Bag','/cart'],['Checkout Preview','/checkout']]
 export default function Navbar({onCart,cartCount}){
  const [menu,setMenu]=useState(false)
  const [search,setSearch]=useState(false)
@@ -22,7 +22,7 @@ export default function Navbar({onCart,cartCount}){
    <div className="soma-premium-nav">
     <div className="soma-premium-left">
       <button className="soma-nav-icon soma-nav-toggle" type="button" aria-label="Open navigation" aria-expanded={menu} aria-controls="soma-mobile-nav" onClick={()=>setMenu(true)}><Icon name="menu" size={23}/></button>
-      <nav className="soma-premium-links" aria-label="Primary navigation">{primary.map(([name,url])=><a href={url} key={name}>{name}</a>)}</nav>
+      <nav className="soma-premium-links" aria-label="Primary navigation">{primary.map(([name,url])=><a href={url} key={name} aria-current={window.location.pathname===url?"page":undefined}>{name}</a>)}</nav>
     </div>
     <a className="soma-premium-logo" href="/" aria-label="Soma Organic home"><span>SOMA</span><small>ORGANIC</small></a>
     <div className="soma-premium-actions">
