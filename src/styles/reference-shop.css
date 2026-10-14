@@ -1,0 +1,44 @@
+/* Reference-inspired consistency for Soma secondary storefront pages */
+.products-page,.soma-pdp,.discovery-page,.soma-cart-page,.soma-checkout,.soma-editorial-page{background:#f5f3f9;color:#091114}
+.products-intro,.discovery-hero,.checkout-heading,.sep-hero,.sep-help-heading{background:#e7e6ee}
+.products-intro h1,.products-results h2,.pdp-information h1,.pdp-editorial h2,.pdp-related-heading h2,.discovery-hero h1,.discovery-heading h2,.checkout-heading h1,.checkout-section-title h2,.checkout-summary h2,.sep-hero h1,.sep-manifesto h2,.sep-copy h2,.sep-help h1,.sep-notfound h1{font-family:'DM Sans',Arial,sans-serif!important;font-weight:600!important;letter-spacing:-.06em!important;line-height:1.03!important;color:#091114!important}
+.products-intro h1,.discovery-hero h1,.checkout-heading h1{font-size:clamp(3.5rem,6.2vw,7rem)!important}
+.products-intro p,.pdp-desc,.discovery-hero p,.checkout-heading>p{font-family:'DM Sans',Arial,sans-serif!important;color:#686b87}
+.products-results{padding-block:clamp(3.5rem,6vw,6rem)}
+.products-page .premium-products-grid{gap:clamp(1rem,1.5vw,1.6rem)}
+.products-page .premium-product-card{background:#fff;border:1px solid #e0e1e7;border-radius:1.35rem;overflow:hidden;box-shadow:0 .7rem 2rem rgba(9,17,20,.04)}
+.products-page .premium-product-visual{background:#e8e8ec;aspect-ratio:4/5}
+.products-page .premium-product-card .products-image{background:#e8e8ec}
+.products-page .premium-product-card .products-image .premium-image-main{object-fit:contain;padding:clamp(.6rem,1.6vw,1.5rem)}
+.products-page .premium-product-info{padding:1.3rem}
+.products-page .premium-product-card h3{font-family:'DM Sans',Arial,sans-serif!important;font-size:clamp(1.15rem,1.4vw,1.6rem)!important;font-weight:650!important;line-height:1.25!important;letter-spacing:-.035em!important;min-height:0}
+.products-page .premium-product-card p,.products-page .premium-product-price{font-family:'DM Sans',Arial,sans-serif}
+.products-page .premium-product-add{border-radius:999px}
+.products-page .premium-product-favorite{background:white;color:#091114}
+.products-page .premium-product-favorite[aria-pressed=true]{background:#d0dd41;color:#091114}
+.products-page .premium-product-quick{background:#d0dd41;color:#091114;border-radius:999px}
+.products-filter{border-radius:999px!important;background:#fff;color:#091114}
+.products-filter.active{background:#d0dd41!important;color:#091114!important;border-color:#d0dd41!important}
+.products-search,.products-sort{border-radius:999px!important;background:white}
+.pdp-main{gap:clamp(2rem,5vw,6rem)}
+.pdp-gallery-stage,.pdp-thumbs button,.pdp-related-image{border-radius:1.25rem;background:#e6e7e9;overflow:hidden}
+.pdp-gallery-stage>img,.pdp-related-image img{object-fit:contain;padding:1rem}
+.pdp-information h1{font-size:clamp(3.3rem,5vw,6rem)!important}
+.pdp-information .pdp-desc,.pdp-accordion p{color:#686b87}
+.pdp-subtitle{font-family:'DM Sans',Arial,sans-serif!important;font-size:1.3rem!important;font-weight:500}
+.pdp-qty,.pdp-accordion,.pdp-meta{border-color:#d5d6db}
+.pdp-editorial{background:#e7e6ee}
+.pdp-related h3,.discovery-product h3,.soma-cart-header h1,.soma-cart-name,.soma-cart-empty h2{font-family:'DM Sans',Arial,sans-serif!important;letter-spacing:-.045em;font-weight:600!important}
+.pdp-related-grid img,.discovery-image img{object-fit:contain}
+.discovery-image{border-radius:1.3rem;background:#e8e8ec}
+.discovery-recent,.checkout-summary,.soma-cart-panel,.soma-cart-summary{background:#e7e6ee}
+.discovery-bag,.checkout-review,.checkout-back,.soma-cart-primary{border-radius:999px;background:#d0dd41;color:#091114;border:0;font-weight:700}
+.discovery-bag:hover,.checkout-review:hover,.soma-cart-primary:hover{background:#e3ed70;color:#091114}
+.checkout-panel,.checkout-item,.checkout-summary-lines,.soma-cart-line{border-color:#d3d4dc}
+.checkout-field input,.checkout-field textarea{border-radius:.75rem;background:white;border-color:#d5d7db}
+.checkout-notice,.checkout-payment{background:#f1f0f6;border-radius:1rem}
+.sep-hero,.sep-split{margin:clamp(.7rem,2vw,2rem);border-radius:1.75rem;overflow:hidden}
+.sep-manifesto,.sep-faq{background:#f5f3f9}
+.sep-cta{background:#d0dd41;color:#091114;border-radius:999px}
+.sep-cta:hover{background:#e3ed70}
+@media(max-width:38rem){.products-page .premium-product-info{padding:.95rem}.products-page .premium-product-card h3{font-size:1.1rem!important}.products-page .premium-products-grid{gap:.75rem}.pdp-gallery-stage>img{padding:.6rem}.sep-hero,.sep-split{margin:.65rem;border-radius:1.2rem}}
