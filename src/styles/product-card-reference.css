@@ -1,0 +1,22 @@
+/* Reference card: compact, softly-rounded white skincare tile.
+   Explicit selectors override previous collection cards without altering other pages. */
+.soma-reference-products .soma-ref-product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(.75rem,1.25vw,1.45rem);align-items:stretch;max-width:84rem;margin-inline:auto}
+.soma-reference-products .soma-ref-product-card{position:relative;min-width:0;display:flex;flex-direction:column;overflow:hidden;border:0;border-radius:1.15rem;background:#fff;padding:.75rem .7rem 1rem;box-shadow:none;text-align:center;transition:transform .25s,box-shadow .25s}
+.soma-reference-products .soma-ref-product-card:hover{transform:translateY(-.18rem);box-shadow:0 .6rem 1.6rem rgba(28,45,32,.07)}
+.soma-reference-products .soma-ref-product-media{position:relative;flex:none;height:auto;aspect-ratio:4/4.6;border-radius:.8rem;overflow:hidden;background:#fff}
+.soma-reference-products .soma-ref-product-media>a{display:flex;width:100%;height:100%;align-items:center;justify-content:center}
+.soma-reference-products .soma-ref-product-media img{width:100%;height:100%;display:block;object-fit:contain;object-position:50% 50%;padding:.3rem clamp(.2rem,.5vw,.55rem);filter:none;transition:transform .28s}
+.soma-reference-products .soma-ref-product-card:hover .soma-ref-product-media img{transform:scale(1.035)}
+.soma-reference-products .soma-ref-product-heart{position:absolute;top:.35rem;right:.35rem;z-index:2;display:grid;place-items:center;width:2rem;height:2rem;border:0;border-radius:50%;background:#fff;color:#101820;font-size:1.35rem;line-height:1;cursor:pointer}
+.soma-reference-products .soma-ref-product-heart[aria-pressed=true]{color:#223b81}
+.soma-reference-products .soma-ref-product-description{display:flex;flex:1;flex-direction:column;align-items:center;gap:.25rem;padding:.25rem .35rem 0}
+.soma-reference-products .soma-ref-product-name{font:700 clamp(.78rem,.9vw,.98rem)/1.25 'DM Sans',Arial,sans-serif;letter-spacing:-.01em;color:#10232a;text-align:center}
+.soma-reference-products .soma-ref-product-description p{font:400 clamp(.62rem,.68vw,.74rem)/1.4 'DM Sans',Arial,sans-serif;color:#65756a;margin:0;text-align:center}
+.soma-reference-products .soma-ref-product-description strong{font:500 clamp(1.05rem,1.18vw,1.3rem)/1.2 'Cormorant Garamond',Georgia,serif;white-space:normal;color:#11506a;min-height:1.45rem;margin-top:.1rem}
+.soma-reference-products .soma-ref-card-add{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:transparent!important;color:#154533!important;border:1px solid #d9e2d7!important;border-radius:999px!important;font:600 .68rem 'DM Sans',Arial,sans-serif!important;letter-spacing:.01em!important;min-height:2rem;padding:.35rem .7rem;margin-top:.45rem;cursor:pointer}
+.soma-reference-products .soma-ref-card-add:hover{background:#e4f487!important;border-color:#e4f487!important}
+.soma-reference-products .soma-ref-card-add>span{font-size:.68rem}
+@media(min-width:90rem){.soma-reference-products .soma-ref-product-grid{grid-template-columns:repeat(4,minmax(0,1fr));max-width:73rem}}
+@media(max-width:60rem){.soma-reference-products .soma-ref-product-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:45rem}}
+@media(max-width:37rem){.soma-reference-products .soma-ref-product-grid{gap:.65rem}.soma-reference-products .soma-ref-product-card{padding:.4rem .35rem .7rem;border-radius:.9rem}.soma-reference-products .soma-ref-product-media{aspect-ratio:4/4.5}.soma-reference-products .soma-ref-product-media img{padding:.15rem}.soma-reference-products .soma-ref-product-description{padding:.15rem .1rem 0}.soma-reference-products .soma-ref-product-name{font-size:.77rem}.soma-reference-products .soma-ref-product-description p{font-size:.61rem}.soma-reference-products .soma-ref-product-heart{width:1.7rem;height:1.7rem;font-size:1.2rem}.soma-reference-products .soma-ref-card-add{font-size:.6rem!important;min-height:1.8rem;padding:.25rem .5rem}}
+@media(prefers-reduced-motion:reduce){.soma-reference-products .soma-ref-product-card,.soma-reference-products .soma-ref-product-media img{transition:none}}
