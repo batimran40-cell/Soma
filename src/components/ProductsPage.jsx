@@ -44,4 +44,5 @@ export default function ProductsPage({onAdd}){
         <div className="products-actions"><a className="products-action secondary" style={{display:"flex",alignItems:"center",justifyContent:"center"}} href={`/products/${p.id}`}>VIEW DETAILS</a><button className="products-action" onClick={()=>onAdd(p)}>ADD TO BAG</button></div>
       </article>)}</div>:<p className="products-empty">No products match your search. Try another term or category.</p>}
     </section>
-  </main>\n}
+  </main>
+}
