@@ -35,3 +35,21 @@ body{min-width:0;-webkit-font-smoothing:antialiased}
 @media(max-width:48rem){.hero-copy h1{max-width:15ch}.products-controls{gap:1rem}.products-filters{overflow-x:auto;flex-wrap:nowrap;padding-bottom:.3rem}.products-filter{white-space:nowrap}.pdp-information h1{max-width:none}.pdp-editorial{padding-block:5rem}.pdp-related-heading{align-items:flex-end}.product-image .add-overlay{transform:none;position:static;background:var(--green);padding:.75rem;font-size:.65rem}.product-image{aspect-ratio:auto}.product-image img{aspect-ratio:1;object-fit:contain}}
 @media(max-width:25rem){.products-intro-copy{padding:2.5rem 1rem}.products-results{padding-inline:1rem}.pdp-purchase{gap:.65rem}.pdp-qty{width:100%}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+/* Design-first polish — typography, interaction and image framing */
+:root{--soma-space:clamp(1rem,3vw,3rem)}
+html{font-size:100%}
+body{line-height:1.55}
+:where(button,input,select,textarea){font-family:'DM Sans',Arial,sans-serif}
+:where(p){overflow-wrap:break-word}
+:where(.hero-copy h1,.section-heading h2,.ingredient-heading h2,.products-intro h1,.products-results h2,.pdp-information h1,.checkout-heading h1,.discovery-hero h1){text-wrap:balance}
+.soma-premium-header .soma-premium-links a{font-size:clamp(.9rem,.92vw,1rem);letter-spacing:.055em}
+.soma-premium-header .soma-nav-bag{font-size:.9rem}
+.soma-premium-header .soma-nav-search label{font-size:.9rem}
+.premium-product-card .premium-product-visual{aspect-ratio:4/5}
+.premium-product-card .products-image{width:100%;height:100%;aspect-ratio:auto}
+.premium-product-card .products-image img{width:100%;height:100%;object-fit:contain;object-position:center;padding:.6rem}
+.premium-product-card .premium-product-info h3{font-size:clamp(1.7rem,2.1vw,2.35rem);line-height:1.12}
+.premium-product-card .premium-product-price{font-size:.95rem}
+:where(.premium-product-card,.pdp-gallery-stage,.checkout-item-image,.soma-cart-photo) img{max-width:100%}
+@media(max-width:48rem){.soma-premium-header .soma-nav-bag{font-size:.85rem}.premium-product-card .products-image img{padding:.25rem}}
