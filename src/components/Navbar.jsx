@@ -36,11 +36,11 @@ export default function Navbar({onCart,cartCount}){
    </div>
   </header>
   {menu&&<div className="soma-nav-overlay" onPointerDown={e=>{if(e.target===e.currentTarget)setMenu(false)}}>
-    <nav className="soma-nav-drawer" id="soma-mobile-nav" role="dialog" aria-modal="true" aria-label="Navigation">
+    <div className="soma-nav-drawer" id="soma-mobile-nav" role="dialog" aria-modal="true" aria-label="Navigation">
      <div className="soma-nav-drawer-top"><span>SOMA <small>ORGANIC</small></span><button ref={drawerClose} className="soma-nav-icon" type="button" onClick={()=>setMenu(false)} aria-label="Close navigation"><Icon name="close" size={24}/></button></div>
-     {drawerLinks.map(([name,url],i)=><a href={url} key={name} onClick={()=>setMenu(false)}><small>{String(i+1).padStart(2,'0')}</small><span>{name}</span><Icon name="arrow" size={19}/></a>)}
+     {drawerLinks.map(([name,url],i)=><a href={url} key={name} aria-current={window.location.pathname===url?"page":undefined} onClick={()=>setMenu(false)}><small>{String(i+1).padStart(2,'0')}</small><span>{name}</span><Icon name="arrow" size={19}/></a>)}
      <p>A quieter kind of radiance.</p>
-    </nav>
+    </div>
    </div>}
  </>
 }
