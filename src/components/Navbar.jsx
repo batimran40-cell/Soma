@@ -1,8 +1,8 @@
 import {useState,useEffect} from 'react'
 import Icon from './Icons'
 
-const links=[['Shop','/products'],['Philosophy','#philosophy'],['Ritual','#bestseller'],['Reviews','#reviews']]
-const drawerLinks=[['Home','/'],['Shop','/products'],['Our Philosophy','#philosophy'],['Our Ritual','#bestseller'],['Reviews','#reviews'],['Contact','#footer']]
+const links=[['Shop','/products'],['Philosophy','/#philosophy'],['Ritual','/#bestseller'],['Reviews','/#reviews']]
+const drawerLinks=[['Home','/'],['Shop','/products'],['Our Philosophy','/#philosophy'],['Our Ritual','/#bestseller'],['Reviews','/#reviews'],['Contact','/#footer']]
 
 export default function Navbar({onCart,cartCount}) {
  const [menu,setMenu]=useState(false),[search,setSearch]=useState(false),[term,setTerm]=useState(''),[scrolled,setScrolled]=useState(false)
