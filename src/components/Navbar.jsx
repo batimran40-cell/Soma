@@ -1,50 +1,46 @@
-import {useState,useEffect} from 'react'
+import {useEffect,useRef,useState} from 'react'
 import Icon from './Icons'
+import '../styles/navbar-premium.css'
 
-const links=[['Shop','/products'],['Wishlist','/wishlist'],['Philosophy','/#philosophy'],['Ritual','/#bestseller'],['Reviews','/#reviews']]
-const drawerLinks=[['Home','/'],['Shop','/products'],['Wishlist','/wishlist'],['Our Philosophy','/#philosophy'],['Our Ritual','/#bestseller'],['Reviews','/#reviews'],['Contact','/#footer']]
-
-export default function Navbar({onCart,cartCount}) {
- const [menu,setMenu]=useState(false),[search,setSearch]=useState(false),[term,setTerm]=useState(''),[scrolled,setScrolled]=useState(false)
-
- useEffect(()=>{document.body.classList.toggle('drawer-open',menu);return ()=>document.body.classList.remove('drawer-open')},[menu])
- useEffect(()=>{
-  const onScroll=()=>setScrolled(window.scrollY>24)
-  onScroll();window.addEventListener('scroll',onScroll,{passive:true})
-  return ()=>window.removeEventListener('scroll',onScroll)
- },[])
- useEffect(()=>{
-  const onKey=e=>{if(e.key==='Escape'){setMenu(false);setSearch(false)}}
-  window.addEventListener('keydown',onKey);return ()=>window.removeEventListener('keydown',onKey)
- },[])
-
+const primary=[['Home','/'],['Shop','/products'],['Our Story','/#philosophy'],['Ritual','/#bestseller']]
+const drawerLinks=[...primary,['Wishlist','/wishlist'],['Reviews','/#reviews'],['Your bag','/cart']]
+export default function Navbar({onCart,cartCount}){
+ const [menu,setMenu]=useState(false)
+ const [search,setSearch]=useState(false)
+ const [term,setTerm]=useState('')
+ const [scrolled,setScrolled]=useState(false)
+ const drawerClose=useRef(null)
+ const searchInput=useRef(null)
+ useEffect(()=>{const update=()=>setScrolled(window.scrollY>18);update();window.addEventListener('scroll',update,{passive:true});return()=>window.removeEventListener('scroll',update)},[])
+ useEffect(()=>{if(!menu)return;const old=document.body.style.overflow;const before=document.activeElement;document.body.style.overflow='hidden';drawerClose.current?.focus();const key=e=>{if(e.key==='Escape')setMenu(false);if(e.key==='Tab'){const nodes=[...document.querySelectorAll('.soma-nav-drawer a,.soma-nav-drawer button')];if(!nodes.length)return;if(e.shiftKey&&document.activeElement===nodes[0]){e.preventDefault();nodes.at(-1).focus()}else if(!e.shiftKey&&document.activeElement===nodes.at(-1)){e.preventDefault();nodes[0].focus()}}};window.addEventListener('keydown',key);return()=>{document.body.style.overflow=old;window.removeEventListener('keydown',key);before?.focus?.()}},[menu])
+ useEffect(()=>{if(search)searchInput.current?.focus()},[search])
+ useEffect(()=>{const onKey=e=>{if(e.key==='Escape')setSearch(false)};window.addEventListener('keydown',onKey);return()=>window.removeEventListener('keydown',onKey)},[])
+ const submit=e=>{e.preventDefault();const q=term.trim();setSearch(false);window.location.assign(q?'/products?q='+encodeURIComponent(q):'/products')}
  return <>
- <div className="announce" role="note"><span>Pure ingredients</span><i aria-hidden="true"/><span>Visible care</span><i aria-hidden="true" className="announce-extra"/><span className="announce-extra">Plant-based skincare</span></div>
- <header className={`site-header${scrolled?' is-scrolled':''}`} id="top">
-  <div className="nav-inner">
-   <div className="nav-left">
-    <button className="icon-btn nav-menu-btn" aria-label="Open menu" onClick={()=>setMenu(true)}><Icon name="menu"/></button>
-    <nav className="nav-links" aria-label="Primary">{links.map(([label,href])=><a href={href} key={label}>{label}</a>)}</nav>
+  <div className="soma-nav-announcement"><span>BOTANICAL CARE, BEAUTIFULLY CONSIDERED</span><span className="soma-nav-announcement-side">SOMA ORGANIC · DAILY RITUALS</span></div>
+  <header className={`site-header soma-premium-header${scrolled?' is-scrolled':''}`} id="top">
+   <div className="soma-premium-nav">
+    <div className="soma-premium-left">
+      <button className="soma-nav-icon soma-nav-toggle" type="button" aria-label="Open navigation" aria-expanded={menu} aria-controls="soma-mobile-nav" onClick={()=>setMenu(true)}><Icon name="menu" size={23}/></button>
+      <nav className="soma-premium-links" aria-label="Primary navigation">{primary.map(([name,url])=><a href={url} key={name}>{name}</a>)}</nav>
+    </div>
+    <a className="soma-premium-logo" href="/" aria-label="Soma Organic home"><span>SOMA</span><small>ORGANIC</small></a>
+    <div className="soma-premium-actions">
+      <a className="soma-nav-wishlist" href="/wishlist" aria-label="View wishlist">♡ <span>Wishlist</span></a>
+      <button className="soma-nav-icon" type="button" aria-label={search?'Close product search':'Search products'} aria-expanded={search} aria-controls="soma-nav-search" onClick={()=>setSearch(v=>!v)}><Icon name={search?'close':'search'} size={21}/></button>
+      <button className="soma-nav-bag" type="button" onClick={onCart} aria-label={`Open shopping bag, ${cartCount} items`}><Icon name="bag" size={19}/><span className="soma-nav-bag-label">Bag</span><strong>{cartCount}</strong></button>
+    </div>
    </div>
-   <a className="wordmark" href="/" aria-label="Soma home"><span className="wordmark-main">SOMA</span><span className="wordmark-sub">ORGANIC</span></a>
-   <div className="header-actions">
-    <button className={`icon-btn${search?' is-active':''}`} aria-label="Search products" aria-expanded={search} onClick={()=>setSearch(v=>!v)}><Icon name={search?'close':'search'} size={21}/></button>
-    <button className="cart-button" onClick={onCart} aria-label={`Open cart, ${cartCount} items`}><Icon name="bag" size={21}/><span className="cart-label">BAG</span><span className={`cart-count${cartCount?' has-items':''}`}>{cartCount}</span></button>
+   <div id="soma-nav-search" className={`soma-nav-search${search?' is-open':''}`} hidden={!search}>
+      <form onSubmit={submit} role="search"><label htmlFor="soma-search-input">Search the collection</label><input ref={searchInput} id="soma-search-input" type="search" placeholder="Discover your next ritual…" value={term} onChange={e=>setTerm(e.target.value)}/><button type="submit">SEARCH <Icon name="arrow" size={16}/></button></form>
    </div>
-  </div>
-  <div className={`search-panel${search?' open':''}`} aria-hidden={!search}>
-   <form className="search-bar" onSubmit={e=>{e.preventDefault();setSearch(false);window.location.assign('/products')}}>
-    <label htmlFor="site-search">Search Soma products</label>
-    <Icon name="search" size={19}/>
-    <input id="site-search" tabIndex={search?0:-1} value={term} onChange={e=>setTerm(e.target.value)} placeholder="Search the collection…"/>
-    <button className="small-button" type="submit" tabIndex={search?0:-1}>VIEW COLLECTION <Icon name="arrow" size={15}/></button>
-   </form>
-  </div>
- </header>
- {menu&&<div className="drawer-backdrop" onClick={()=>setMenu(false)}><nav className="drawer" aria-label="Main navigation" onClick={e=>e.stopPropagation()}>
-  <div className="drawer-top"><span>SOMA</span><button className="icon-btn" aria-label="Close menu" onClick={()=>setMenu(false)}><Icon name="close"/></button></div>
-  {drawerLinks.map(([label,href],i)=><a onClick={()=>setMenu(false)} href={href} key={label} style={{'--i':i}}><span><em className="drawer-index">{String(i+1).padStart(2,'0')}</em>{label}</span><Icon name="arrow" size={18}/></a>)}
-  <p>Pure care for natural you.</p>
- </nav></div>}
+  </header>
+  {menu&&<div className="soma-nav-overlay" onPointerDown={e=>{if(e.target===e.currentTarget)setMenu(false)}}>
+    <nav className="soma-nav-drawer" id="soma-mobile-nav" role="dialog" aria-modal="true" aria-label="Navigation">
+     <div className="soma-nav-drawer-top"><span>SOMA <small>ORGANIC</small></span><button ref={drawerClose} className="soma-nav-icon" type="button" onClick={()=>setMenu(false)} aria-label="Close navigation"><Icon name="close" size={24}/></button></div>
+     {drawerLinks.map(([name,url],i)=><a href={url} key={name} onClick={()=>setMenu(false)}><small>{String(i+1).padStart(2,'0')}</small><span>{name}</span><Icon name="arrow" size={19}/></a>)}
+     <p>A quieter kind of radiance.</p>
+    </nav>
+   </div>}
  </>
 }
