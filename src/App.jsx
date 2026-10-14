@@ -6,6 +6,7 @@ import Icon from './components/Icons'
 import {Hero,FeaturedProducts,OurPhilosophy,Benefits,BestSeller,RealResults,Newsletter,Footer,EditorialFeature,IngredientGallery,RitualBanner} from './components/Sections'
 import {products} from './data/products'
 import './styles/global.css'
+import './styles/refinements.css'
 export default function App(){
  const [cart,setCart]=useState([]),[cartOpen,setCartOpen]=useState(false)
  const [path,setPath]=useState(window.location.pathname.replace(/\/$/,'')||'/')
