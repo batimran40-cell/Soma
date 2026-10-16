@@ -1,9 +1,10 @@
 import {useEffect,useRef,useState} from 'react'
 import Icon from './Icons'
+import SearchDialog from './SearchDialog'
 import '../styles/navbar-premium.css'
 
 const primary=[['Home','/'],['Shop','/products'],['Our Story','/story'],['Ritual','/#bestseller'],['FAQs','/help']]
-const drawerLinks=[...primary,['Wishlist','/wishlist'],['Reviews','/#reviews'],['Shopping Bag','/cart']]
+const drawerLinks=[...primary,['Wishlist','/wishlist'],['Account','/account'],['Reviews','/#reviews'],['Shopping Bag','/cart']]
 export default function Navbar({onCart,cartCount}){
  const [menu,setMenu]=useState(false)
  const [search,setSearch]=useState(false)
@@ -27,14 +28,13 @@ export default function Navbar({onCart,cartCount}){
     <a className="soma-premium-logo" href="/" aria-label="Soma Organic home"><span>SOMA</span><small>ORGANIC</small></a>
     <div className="soma-premium-actions">
       <a className="soma-nav-wishlist" href="/wishlist" aria-label="View wishlist"><span aria-hidden="true" className="soma-heart">♡</span><span>Wishlist</span></a>
-      <button className="soma-nav-icon" type="button" aria-label={search?'Close product search':'Search products'} aria-expanded={search} aria-controls="soma-nav-search" onClick={()=>setSearch(v=>!v)}><Icon name={search?'close':'search'} size={21}/></button>
+      <a className="soma-nav-icon soma-account-link" href="/account" aria-label="My account" title="My account">♙</a><button className="soma-nav-icon" type="button" aria-label={search?'Close product search':'Search products'} aria-expanded={search} aria-controls="soma-premium-search" onClick={()=>setSearch(v=>!v)}><Icon name={search?'close':'search'} size={21}/></button>
       <button className="soma-nav-bag" type="button" onClick={onCart} aria-label={`Open shopping bag, ${cartCount} items`}><Icon name="bag" size={19}/><span className="soma-nav-bag-label">Bag</span><strong>{cartCount}</strong></button>
     </div>
    </div>
-   <div id="soma-nav-search" className={`soma-nav-search${search?' is-open':''}`} hidden={!search}>
-      <form onSubmit={submit} role="search"><label htmlFor="soma-search-input">Search the collection</label><input ref={searchInput} id="soma-search-input" type="search" placeholder="Discover your next ritual…" value={term} onChange={e=>setTerm(e.target.value)}/><button type="submit">SEARCH <Icon name="arrow" size={16}/></button></form>
-   </div>
+
   </header>
+  {search&&<SearchDialog onClose={()=>setSearch(false)}/>}
   {menu&&<div className="soma-nav-overlay" onPointerDown={e=>{if(e.target===e.currentTarget)setMenu(false)}}>
     <div className="soma-nav-drawer" id="soma-mobile-nav" role="dialog" aria-modal="true" aria-label="Navigation">
      <div className="soma-nav-drawer-top"><span>SOMA <small>ORGANIC</small></span><button ref={drawerClose} className="soma-nav-icon" type="button" onClick={()=>setMenu(false)} aria-label="Close navigation"><Icon name="close" size={24}/></button></div>
