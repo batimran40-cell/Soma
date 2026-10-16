@@ -15,6 +15,7 @@ import './styles/hero-premium.css'
 import './styles/reference-inspired.css'
 import './styles/reference-shop.css'
 import './styles/hero-navbar-fix.css'
+import './styles/soma-premium-final.css'
 export default function App(){
  const [cart,setCart]=useState(()=>{try{const saved=JSON.parse(localStorage.getItem('soma-cart-v1')||'[]');if(!Array.isArray(saved))return [];return saved.filter(x=>products.some(p=>p.id===x.id)&&Number.isInteger(x.quantity)&&x.quantity>0).map(x=>({...products.find(p=>p.id===x.id),quantity:Math.min(x.quantity,20)}))}catch{return []}}),[cartOpen,setCartOpen]=useState(false)
  useEffect(()=>{try{localStorage.setItem('soma-cart-v1',JSON.stringify(cart.map(({id,quantity})=>({id,quantity}))))}catch{}},[cart])
