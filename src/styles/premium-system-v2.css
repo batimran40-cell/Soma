@@ -1,0 +1,68 @@
+/* SOMA DESIGN LOCK V2: approved forest / ivory / champagne references.
+   Loaded last to resolve competing historic purple/lime styles. */
+:root{--green:#173727;--cream:#fcfaf5;--soft:#f3f0e8;--ref-ink:#192b22;--ref-mute:#6c786c;--ref-paper:#fcfaf5;--ref-lime:#c79a61;--ref-border:#e7e2d7;--soma-forest:#193928;--soma-gold:#bd9259;--soma-surface:#fffdf8}
+body,.site-shell,.page-frame{background:#fcfaf5!important;color:#19382a}
+.soma-nav-announcement{background:#193727!important;color:#fff9eb!important}.soma-announcement-spark,.soma-nav-announcement-side{color:#d5b07c!important}
+.soma-premium-header{background:rgba(252,250,245,.98)!important;border-bottom:1px solid #e9e5da!important;backdrop-filter:blur(.75rem)}
+.soma-premium-links a,.soma-premium-logo>span,.soma-nav-icon,.soma-nav-wishlist{color:#203c2b!important}
+.soma-premium-logo>small{color:#907f68!important}
+.soma-premium-links a[aria-current=page]{color:#b08650!important}.soma-premium-links a:after{background:#b08650!important}
+.soma-nav-bag{border:1px solid #1c3d2b!important;background:#1c3d2b!important;color:#fffdf5!important;border-radius:2rem!important}.soma-nav-bag strong{background:#d6b586!important;color:#1d3329!important}.soma-nav-icon:hover{background:#f1e9db!important}
+.soma-luxury-hero{min-height:clamp(32rem,48vw,46rem)!important;display:grid!important;grid-template-columns:minmax(0,46%) minmax(0,54%)!important;background:linear-gradient(108deg,#1b3d2c 0%,#234936 48%,#eee9d9 48%,#f5f1e7 100%)!important;border-radius:1.15rem;overflow:hidden;margin:clamp(.5rem,1.5vw,1.5rem) clamp(.6rem,3vw,3.5rem) 0}
+.soma-luxury-hero .hero-copy{padding:clamp(2rem,5.5vw,6rem) clamp(1.5rem,4vw,5rem)!important;max-width:100%;color:#fff9eb;align-self:center}
+.soma-luxury-hero .hero-copy h1{font-family:'Cormorant Garamond',Georgia,serif!important;font-size:clamp(3.6rem,6.1vw,7rem)!important;font-weight:500!important;line-height:.91!important;letter-spacing:-.045em!important;color:#fffaf1!important;max-width:12ch!important;margin:1.5rem 0}
+.soma-luxury-hero .hero-copy h1 em{color:#d4b184!important}.soma-luxury-hero .hero-copy .eyebrow{color:#e2c29b!important;font-size:.7rem}
+.soma-luxury-hero .hero-copy p{font-family:'DM Sans',Arial,sans-serif!important;color:#e9eee5!important;font-size:clamp(.98rem,1.25vw,1.15rem)!important;line-height:1.7!important;max-width:28rem}
+.soma-luxury-hero .soma-hero-actions .button{border:0!important;background:#d2a469!important;color:#193527!important;border-radius:2rem!important;padding:1rem 1.45rem;min-height:3rem}.soma-luxury-hero .soma-hero-story{color:#f1e8da!important;border-bottom-color:#d5b482!important}
+.soma-luxury-hero .soma-hero-note{color:#ecdfcb!important}.soma-luxury-hero .soma-hero-note span{color:inherit!important}
+.soma-luxury-hero .soma-hero-media{position:relative!important;min-height:inherit!important;height:auto!important;border-radius:0!important;background:#eee9de!important}
+.soma-luxury-hero .soma-hero-artwork{position:absolute;inset:0}
+.soma-luxury-hero .soma-hero-artwork .soma-hero-atmosphere{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.25;filter:blur(2rem) saturate(.7);transform:scale(1.1);mask-image:none!important}
+.soma-luxury-hero .soma-hero-artwork .soma-hero-product{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;mix-blend-mode:normal;mask-image:none!important;-webkit-mask-image:none!important;filter:drop-shadow(0 1.25rem 1.6rem #1b332219)!important}
+.soma-luxury-hero .soma-hero-media-caption{background:#1b3729b5;padding:.5rem .8rem;border-radius:1rem;width:max-content;max-width:calc(100% - 2rem);color:#fdf9e9!important;font-size:.63rem!important;letter-spacing:.08em}
+.section-heading h2,.philosophy h2,.bestseller h2,.ingredient-heading h2,.ritual-banner h2,.pdp-information h1,.pdp-editorial h2,.pdp-related-heading h2,.discovery-hero h1,.discovery-heading h2,.checkout-heading h1,.checkout-section-title h2,.checkout-summary h2,.sep-hero h1{font-family:'Cormorant Garamond',Georgia,serif!important;font-weight:500!important;letter-spacing:-.035em!important;line-height:1.06!important;color:#182f23!important}
+.products.section-pad,.ingredient-gallery,.reviews.section-pad{background:#fcfaf5}
+.product-card{border:1px solid #eae4d7;border-radius:1rem;overflow:hidden;background:#fffdfa;padding:.65rem .65rem 1.4rem;box-shadow:0 1.2rem 2.7rem #20342206}
+.product-card .product-image{border-radius:.7rem;background:#f1eee4;overflow:hidden}
+.product-card h3{color:#1c3428;font-size:clamp(1.5rem,2.1vw,2rem)}.product-card .product-tag{color:#b48c53!important}.product-card p{color:#657469}
+.philosophy,.ritual-banner{background:#f3f0e8!important}.benefits{background:#fffdf7!important}
+.bestseller{background:#f4f1e8!important}
+:where(.products-page,.soma-pdp,.discovery-page,.soma-cart-page,.soma-checkout,.soma-editorial-page){background:#fcfaf5!important;color:#1a3326!important}
+:where(.discovery-hero,.checkout-heading,.sep-hero,.sep-help-heading){background:#f1eee4!important}
+:where(.pdp-information h1,.pdp-editorial h2,.pdp-related-heading h2,.discovery-hero h1,.discovery-heading h2,.checkout-heading h1){font-family:'Cormorant Garamond',Georgia,serif!important;font-weight:500!important;color:#193728!important}
+.page-frame:has(> .soma-reference-products) > .soma-nav-announcement{display:flex!important}
+.page-frame:has(> .soma-reference-products) > .soma-premium-header{display:block!important}
+.soma-reference-products.products-page{background:#fcfaf5!important;color:#183425!important}
+.soma-reference-products .soma-ref-shop-nav{display:none!important}
+.soma-reference-products .soma-ref-shop-hero{background:linear-gradient(95deg,#1f3d2c,#34513b)!important;margin:1.15rem clamp(.65rem,3vw,3.2rem) 0!important;border-radius:1.1rem!important;min-height:clamp(23rem,34vw,35rem)!important}
+.soma-reference-products .soma-ref-shop-hero-copy{z-index:2;max-width:40%;padding-left:clamp(1.5rem,5vw,5rem)}
+.soma-reference-products .soma-ref-shop-hero-copy :is(h1,p){color:#fff9ee!important}.soma-reference-products .soma-ref-shop-hero-copy h1{font-family:'Cormorant Garamond',Georgia,serif!important;font-weight:500!important;letter-spacing:-.035em!important;font-size:clamp(3.4rem,5vw,5.7rem)!important}
+.soma-reference-products .soma-ref-shop-hero-copy .soma-ref-hero-offer{color:#e6c697!important}
+.soma-reference-products .soma-ref-shop-hero-copy .soma-ref-shop-cta{background:#d4ac75!important;color:#1b3225!important;border-radius:2rem!important;border-color:#d4ac75!important}
+.soma-reference-products .soma-ref-shop-hero-art{position:absolute;right:0;top:0;bottom:0;width:59%;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#f2ede1}
+.soma-reference-products .soma-ref-shop-hero-art img{object-fit:contain!important;object-position:center!important;width:100%;height:100%;mask-image:none!important}
+.soma-reference-products .soma-ref-shop-catalog{background:#fcfaf5!important;max-width:88rem;margin:auto;padding-left:clamp(1rem,4vw,4rem)!important;padding-right:clamp(1rem,4vw,4rem)!important}
+.soma-reference-products .soma-ref-catalog-head h2{font:500 clamp(2.5rem,4vw,4.3rem)/1.07 'Cormorant Garamond',Georgia,serif!important;color:#213a29!important}
+.soma-reference-products .soma-ref-product-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:clamp(1rem,2vw,1.75rem)!important;max-width:82rem!important}
+.soma-reference-products .soma-ref-product-card{border:1px solid #ece8dd!important;background:#fffdfa!important;text-align:left!important;border-radius:1rem!important;padding:.75rem .75rem 1.25rem!important;box-shadow:0 1rem 2.6rem #193b2806!important}
+.soma-reference-products .soma-ref-product-media{aspect-ratio:4/3.7!important;background:#f5f0e5!important;border-radius:.8rem!important}
+.soma-reference-products .soma-ref-product-media img{object-fit:cover!important;padding:0!important}
+.soma-reference-products .soma-ref-product-heart{width:2.5rem;height:2.5rem;top:.8rem;right:.8rem;box-shadow:0 .25rem .75rem #172e2715}
+.soma-reference-products .soma-ref-product-heart[aria-pressed=true]{color:#ad7143!important}
+.soma-reference-products .soma-ref-product-description{align-items:stretch!important;text-align:left!important;gap:.5rem!important;padding:.85rem .45rem .2rem!important}
+.soma-reference-products .soma-ref-product-name{font:500 clamp(1.45rem,2vw,1.85rem)/1.13 'Cormorant Garamond',Georgia,serif!important;text-align:left!important;color:#193426!important}
+.soma-reference-products .soma-ref-product-description p{font-size:.88rem!important;text-align:left!important;line-height:1.5!important;color:#6e786e!important}
+.soma-reference-products .soma-ref-product-description strong{font:700 .93rem 'DM Sans',Arial,sans-serif!important;color:#263b2e!important;text-align:left;margin:.2rem 0}
+.soma-reference-products .soma-ref-card-add{width:100%;border-radius:.65rem!important;background:#193e2b!important;color:#fff!important;border:1px solid #193e2b!important;min-height:2.8rem;font-size:.82rem!important;margin-top:.5rem}
+.soma-reference-products .soma-ref-card-add:hover{background:#315d3e!important;color:#fff!important}
+.soma-reference-products .soma-ref-catalog-filters button.is-active{background:#1e432d!important;color:#fff!important}
+.pdp-gallery-stage,.pdp-thumbs button,.pdp-related-image{border-radius:.85rem!important;overflow:hidden;background:#f5f0e8}
+.pdp-information .pdp-btn,.discovery-bag,.soma-cart-primary{background:#1b3f2b!important;color:#fff!important;border-radius:.65rem!important}
+.pdp-price-note,.soma-cart-summary>p{font-size:.85rem;color:#69766a}
+.discovery-product{background:#fffdfa!important;border:1px solid #ebe6db;border-radius:1rem!important;overflow:hidden;box-shadow:0 .5rem 1.75rem #142b1d07}
+.discovery-hero{background:#f2eee6!important}.discovery-hero h1 em{color:#b68c56!important}.discovery-bag{min-height:2.9rem}
+.checkout-panel,.checkout-summary,.soma-cart-panel{border-color:#e8e4d8!important;background:#fffefa!important}
+@media(max-width:64rem){.soma-luxury-hero{grid-template-columns:minmax(0,48%) minmax(0,52%)!important}.soma-luxury-hero .hero-copy h1{font-size:clamp(3rem,5.6vw,5rem)!important}.soma-reference-products .soma-ref-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:45rem){.soma-luxury-hero{display:flex!important;flex-direction:column!important;background:#1d3b2b!important}.soma-luxury-hero .hero-copy{padding:2.5rem 1.5rem 1rem!important}.soma-luxury-hero .hero-copy h1{font-size:clamp(3.5rem,11vw,5rem)!important}.soma-luxury-hero .soma-hero-media{height:clamp(17rem,75vw,27rem)!important;min-height:0!important;background:#efeadd!important}.soma-reference-products .soma-ref-shop-hero{display:flex;flex-direction:column}.soma-reference-products .soma-ref-shop-hero-copy{max-width:none;padding:2.8rem 1.5rem 1rem!important}.soma-reference-products .soma-ref-shop-hero-art{position:relative!important;width:100%;height:clamp(13rem,55vw,22rem);min-height:0}.soma-reference-products .soma-ref-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.soma-reference-products .soma-ref-product-media{aspect-ratio:1/1.1!important}.soma-reference-products .soma-ref-product-description{padding:.55rem .2rem!important}.soma-reference-products .soma-ref-product-name{font-size:1.25rem!important}.soma-reference-products .soma-ref-card-add{font-size:.72rem!important}}
+@media(max-width:28rem){.soma-reference-products .soma-ref-product-grid{grid-template-columns:1fr!important}.soma-reference-products .soma-ref-product-media{aspect-ratio:4/3.5!important}}
+@media(prefers-reduced-motion:reduce){.soma-luxury-hero *, .soma-reference-products *{transition:none!important;animation:none!important}}
