@@ -31,8 +31,9 @@ try {
   const runtime=[]
   page.on('pageerror',error=>runtime.push(error.message))
   for(const path of pages) {
-   const response=await page.goto(base+path,{waitUntil:'networkidle',timeout:30000})
+   const response=await page.goto(base+path,{waitUntil:'domcontentloaded',timeout:30000})
    if(!response?.ok())failures.push(path+' at '+width+': HTTP response not OK')
+   await page.waitForTimeout(180)
    const layout=await page.evaluate(()=>({
     overflow:document.documentElement.scrollWidth-innerWidth,
     heading:!!document.querySelector('main h1'),
@@ -50,7 +51,7 @@ try {
   await page.close()
  }
  const page=await browser.newPage({viewport:{width:1280,height:800}})
- await page.goto(base+'/',{waitUntil:'networkidle'})
+ await page.goto(base+'/',{waitUntil:'domcontentloaded'})
  await page.getByRole('button',{name:/Search products/}).click()
  const dialog=page.getByRole('dialog',{name:/What are you looking for/})
  await dialog.waitFor()
@@ -58,8 +59,8 @@ try {
  if(!(await dialog.getByText('Vitamin C Face Serum').count()))failures.push('Search dialog did not return Vitamin C serum')
  await page.keyboard.press('Escape')
  if(await dialog.count())failures.push('Search dialog did not close on Escape')
- await page.goto(base+'/products/vitamin-c',{waitUntil:'networkidle'})
- await page.goto(base+'/admin-preview',{waitUntil:'networkidle'})
+ await page.goto(base+'/products/vitamin-c',{waitUntil:'domcontentloaded'})
+ await page.goto(base+'/admin-preview',{waitUntil:'domcontentloaded'})
  await page.getByRole('button',{name:/Products/}).first().click()
  await page.getByRole('button',{name:/Add product/}).click()
  const editor=page.getByRole('dialog',{name:'New product draft'})
