@@ -1,0 +1,23 @@
+name: SOMA dependency security audit
+on:
+  push:
+    branches:
+      - feature/soma-admin-studio-milestones
+  pull_request:
+    paths:
+      - 'package*.json'
+      - '.github/workflows/soma-security-audit.yml'
+permissions:
+  contents: read
+jobs:
+  dependencies:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Audit production dependencies for high and critical vulnerabilities
+        run: npm audit --omit=dev --audit-level=high
