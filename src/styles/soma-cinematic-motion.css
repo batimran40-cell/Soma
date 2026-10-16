@@ -1,0 +1,14 @@
+/* SOMA cinematic motion: respects the established luxury design system */
+.soma-hero-media .soma-hero-product {transform-origin:50% 55%;backface-visibility:hidden}
+.soma-luxury-hero .hero-copy {position:relative}
+.editorial-feature,.philosophy-image,.ingredient-image {overflow:hidden}
+.soma-luxury-hero .button,.soma-hero-story,.product-card .product-image {transition:transform .32s ease,box-shadow .32s ease,opacity .32s ease}
+@media (hover:hover) and (pointer:fine) {
+  .soma-luxury-hero .button:hover {transform:translateY(-3px);box-shadow:0 12px 25px rgba(19,45,32,.16)}
+  .product-card .product-image:hover {transform:translateY(-4px)}
+}
+@media (prefers-reduced-motion:reduce) {
+  html {scroll-behavior:auto}
+  [data-reveal], .soma-hero-product, .editorial-feature img, .philosophy-image img, .ingredient-image img {opacity:1!important;transform:none!important}
+  .soma-luxury-hero .button,.soma-hero-story,.product-card .product-image {transition:none!important}
+}
