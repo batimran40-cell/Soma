@@ -1,0 +1,50 @@
+/* Post-browser-visual-review corrections: preserve contrast and contain mobile grids. */
+.soma-luxury-hero .hero-copy{
+ background:#1c3b2b!important;
+ color:#fff7e9!important;
+ border-radius:0!important;
+ box-shadow:none!important;
+}
+.soma-luxury-hero .hero-copy h1,
+.soma-luxury-hero .hero-copy h1 *{color:#fff9ef!important;text-shadow:none!important}
+.soma-luxury-hero .hero-copy h1 em{
+ background:transparent!important;
+ color:#d5af77!important;
+ padding:0!important;
+ border:0!important;
+ border-radius:0!important;
+ font-style:italic!important;
+ box-decoration-break:initial!important;
+ display:inline!important;
+}
+.soma-luxury-hero .hero-copy .eyebrow,
+.soma-luxury-hero .hero-copy .eyebrow *{color:#dec49b!important}
+.soma-luxury-hero .hero-copy p{color:#e8e9e0!important;opacity:1!important}
+.soma-luxury-hero .soma-hero-note,.soma-luxury-hero .soma-hero-note *{color:#ddc6a0!important;opacity:1!important}
+.soma-reference-products .soma-ref-shop-hero-art{opacity:1!important}
+.soma-reference-products .soma-ref-shop-hero-art::before{background:none!important}
+.soma-reference-products .soma-ref-shop-hero-art img{opacity:1!important}
+.soma-pdp .pdp-desc,.soma-pdp .pdp-subtitle{color:#53685c!important}
+.soma-admin{width:100%;max-width:100%;min-width:0}
+.soma-admin-sidebar,.soma-admin-workspace,.soma-admin-stat-grid,
+.soma-admin-bottom-grid,.soma-admin-notice,.soma-admin-card{min-width:0;max-width:100%}
+.soma-admin-stat-grid>.soma-admin-stat{min-width:0;width:auto}
+.soma-admin-notice{overflow-wrap:anywhere;word-break:normal}
+.soma-admin-bar-row>div:first-child{min-width:0;flex-wrap:wrap}
+@media(max-width:60rem){
+ .soma-admin{grid-template-columns:minmax(0,1fr)!important;overflow-x:clip}
+ .soma-admin-sidebar{min-width:0;max-width:100%;overflow:hidden}
+ .soma-admin-sidebar nav{max-width:100%;min-width:0;overflow-x:auto}
+ .soma-admin-workspace{width:100%;max-width:100%;min-width:0}
+}
+@media(max-width:45rem){
+ .soma-luxury-hero .hero-copy{border-radius:1.1rem 1.1rem 0 0!important}
+ .soma-premium-actions .soma-account-link{display:none!important}
+ .soma-admin-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;width:100%}
+ .soma-admin-bottom-grid{grid-template-columns:minmax(0,1fr)!important}
+ .soma-admin-stat{padding:1rem!important}
+ .soma-admin-stat small{overflow-wrap:anywhere}
+}
+@media(max-width:27rem){
+ .soma-admin-stat-grid{grid-template-columns:minmax(0,1fr)!important}
+}

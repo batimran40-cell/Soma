@@ -1,3 +1,22 @@
 node_modules
 dist
 .DS_Store
+
+# Environment and local credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.pfx
+*.secret
+*.credentials.json
+
+# Build logs, tests and local backups
+*.log
+coverage/
+playwright-report/
+test-results/
+artifacts/
+backups/
+*.dump

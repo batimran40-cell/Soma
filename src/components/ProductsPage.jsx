@@ -41,7 +41,7 @@ export default function ProductsPage({onAdd,favorites=[],onToggle=()=>{},cartCou
     <p>Four thoughtfully curated skincare essentials. Explore botanical rituals for everyday moments of care.</p>
     <a href="#soma-shop-grid" className="soma-ref-shop-cta">Shop Now <span aria-hidden="true">↗</span></a>
    </div>
-   <div className="soma-ref-shop-hero-art" aria-hidden="true"><img src="/images/serum-premium.webp" alt=""/></div>
+   <div className="soma-ref-shop-hero-art" aria-hidden="true"><img src="/images/product-trio.webp" alt=""/></div>
   </section>
   <section className="soma-ref-shop-catalog" id="soma-shop-grid" aria-labelledby="soma-ref-catalog-title">
    <div className="soma-ref-catalog-head"><span className="soma-ref-small-eyebrow">THE SOMA COLLECTION</span><h2 id="soma-ref-catalog-title">Popular Serums &amp; Skincare</h2><p>Discover your everyday botanical essentials.</p></div>

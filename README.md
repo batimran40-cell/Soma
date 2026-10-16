@@ -34,3 +34,18 @@ npm run preview
 ## Premium homepage additions
 
 Editorial botanical feature, three-card ingredient gallery, and visual ritual story are implemented in `src/components/Sections.jsx`. All CSS font-size declarations use `rem` units (including responsive clamps). Product photography is in `public/images/`. Newsletter and cart are frontend demonstrations, not live commerce.
+
+
+## SOMA Studio — local development preview (2026-10)
+
+A premium visual pass and local-only admin prototype are implemented on the `feature/soma-admin-studio-milestones` branch.
+
+- Visit `http://localhost:5173/admin-preview` while `npm run dev` is running. The Studio route is not available in production builds.
+- Product views are counted **once per product per browser session**, only for this browser. Add-to-bag and wishlist counts represent local interactions, **not sales**.
+- Studio includes Overview, Products, Analytics, Orders placeholder, Settings, and a local product draft/edit flow. Catalog edits do not publish to storefront.
+- The homepage and collection hero use `/images/product-trio.webp`, which is a concept artwork. Verify packaging and product catalog before production.
+- `node --test tests/admin-*.test.mjs` validates browser storage and local admin business logic.
+- `docs/SOMA_DEVELOPMENT_PLAN.md` contains the milestone checklist. `docs/SOMA_SECURITY_ANALYTICS.md` documents security limitations and future Supabase integration.
+
+Real orders, customer sign-in, privileged admin permissions, payments, inventory, and global analytics remain **unimplemented** until a backend and security policies are integrated.
+
