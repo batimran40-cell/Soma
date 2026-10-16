@@ -1,0 +1,15 @@
+/* Reference-aligned SOMA finishing layer — cream, forest green, restrained champagne */
+:root{--soma-forest:#193623;--soma-ivory:#fbf8f1;--soma-champagne:#c79e63}
+.soma-trio-hero-media{isolation:isolate;background:linear-gradient(115deg,#eee7d9,#273d28)}
+.soma-trio-hero-media .soma-hero-artwork{position:absolute;inset:0;overflow:hidden}
+.soma-trio-hero-media .soma-hero-atmosphere{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(1.8rem) brightness(.72);transform:scale(1.09);opacity:.8}
+.soma-trio-hero-media .soma-hero-product{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;filter:drop-shadow(0 1rem 1rem #15251a35);mask-image:none;mix-blend-mode:normal}
+.soma-trio-hero-media .soma-hero-media-caption{position:absolute;bottom:1.3rem;left:1.4rem;right:1.4rem;width:auto;color:#fff;text-shadow:0 .1rem .5rem #112018;font-size:.75rem;letter-spacing:.16em;z-index:2}
+.soma-premium-actions .soma-account-link{display:inline-grid;place-items:center;text-decoration:none;font-size:1.6rem;line-height:1;color:#203b2d}
+.soma-account-link:hover{color:#ac8652}
+.soma-ref-product-card,.discovery-product{border-radius:1rem;overflow:hidden}
+.soma-ref-product-card img,.discovery-product img{transition:transform .45s ease}
+.soma-ref-product-card:hover img,.discovery-product:hover img{transform:scale(1.025)}
+button,a,input,select{touch-action:manipulation}
+@media(max-width:700px){.soma-trio-hero-media{min-height:21rem}.soma-trio-hero-media .soma-hero-product{object-fit:contain}.soma-premium-actions .soma-account-link{font-size:1.3rem}}
+@media(prefers-reduced-motion:reduce){.soma-ref-product-card img,.discovery-product img{transition:none}}
