@@ -1,4 +1,5 @@
 import {useEffect,useState} from 'react'
+import {useSomaMotion} from './hooks/useSomaMotion'
 import Navbar from './components/Navbar'
 import AdminDashboard from './components/AdminDashboard'
 import {recordDemoEvent} from './data/demoAnalytics'
@@ -20,6 +21,7 @@ import './styles/hero-navbar-fix.css'
 import './styles/soma-premium-final.css'
 import './styles/premium-system-v2.css'
 import './styles/visual-qa-fixes.css'
+import './styles/soma-cinematic-motion.css'
 export default function App(){
  const [cart,setCart]=useState(()=>{try{const saved=JSON.parse(localStorage.getItem('soma-cart-v1')||'[]');if(!Array.isArray(saved))return [];return saved.filter(x=>products.some(p=>p.id===x.id)&&Number.isInteger(x.quantity)&&x.quantity>0).map(x=>({...products.find(p=>p.id===x.id),quantity:Math.min(x.quantity,20)}))}catch{return []}}),[cartOpen,setCartOpen]=useState(false)
  useEffect(()=>{try{localStorage.setItem('soma-cart-v1',JSON.stringify(cart.map(({id,quantity})=>({id,quantity}))))}catch{}},[cart])
@@ -34,13 +36,7 @@ export default function App(){
  useEffect(()=>{const update=()=>setPath(window.location.pathname.replace(/\/$/,'')||'/');window.addEventListener('popstate',update);const click=e=>{const link=e.target.closest('a[href]');if(!link||e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;if(link.target==='_blank'||link.hasAttribute('download'))return;const url=new URL(link.href);if(url.origin!==location.origin||!(/^\/$|^\/(?:cart|checkout|wishlist|account|admin-preview|story|help)\/?$|^\/products\/?$|^\/products\/[a-z0-9-]+\/?$/.test(url.pathname)))return;e.preventDefault();history.pushState({},'',url.pathname+url.hash);update();if(url.hash){requestAnimationFrame(()=>requestAnimationFrame(()=>document.getElementById(url.hash.slice(1))?.scrollIntoView({block:'start'})))}else window.scrollTo({top:0,behavior:'instant'})};document.addEventListener('click',click);return()=>{window.removeEventListener('popstate',update);document.removeEventListener('click',click)}},[])
  useEffect(()=>{const id=path.startsWith('/products/')?path.split('/')[2]:null;if(id&&products.some(p=>p.id===id)){recordDemoEvent(id,'views');setRecent(v=>[id,...v.filter(x=>x!==id)].slice(0,4))}},[path])
  const add=(p,amount=1)=>{recordDemoEvent(p.id,'cartAdds');const qty=Math.max(1,Math.min(20,Number(amount)||1));setCart(items=>{const found=items.find(i=>i.id===p.id);return found?items.map(i=>i.id===p.id?{...i,quantity:Math.min(20,i.quantity+qty)}:i):[...items,{...p,quantity:qty}]});setCartOpen(true)}
- useEffect(()=>{
-  let ctx;let disposed=false
-  const start=async()=>{
-   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return
-   try { const [{default:gsap},{ScrollTrigger}]=await Promise.all([import('gsap'),import('gsap/ScrollTrigger')]);if(disposed)return;gsap.registerPlugin(ScrollTrigger);ctx=gsap.context(()=>{gsap.utils.toArray('[data-reveal]').forEach(el=>gsap.fromTo(el,{opacity:0,y:28},{opacity:1,y:0,duration:.85,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 92%',once:true}}))})}catch(err){console.warn('Animations unavailable; static site remains usable',err)}
-  };start();return()=>{disposed=true;ctx?.revert()}
- },[path])
+ useSomaMotion(path)
  useEffect(()=>{const onEscape=e=>{if(e.key==='Escape')setCartOpen(false)};window.addEventListener('keydown',onEscape);return()=>window.removeEventListener('keydown',onEscape)},[])
  useEffect(()=>{const product=path.startsWith('/products/')?products.find(p=>p.id===path.split('/')[2]):null;const titles={'/':'Soma Organic — Botanical Skincare','/products':'Shop Botanical Skincare — Soma Organic','/wishlist':'Your Wishlist — Soma Organic','/account':'My Account — Soma Organic','/admin-preview':'Soma Studio — Local Demo','/cart':'Shopping Bag — Soma Organic','/checkout':'Checkout Preview — Soma Organic','/story':'Our Story — Soma Organic','/help':'Help & FAQs — Soma Organic'};document.title=product?`${product.name} — Soma Organic`:(titles[path]||'Page Not Found — Soma Organic');const desc=product?`Discover ${product.name}, part of the Soma Organic skincare collection.`:(path==='/story'?'Discover the botanical inspiration and daily rituals behind Soma Organic.':path==='/products'?'Explore the Soma Organic skincare collection.':'Explore thoughtful botanical skincare rituals by Soma Organic.');const meta=document.querySelector('meta[name="description"]');if(meta)meta.setAttribute('content',desc)},[path])
  const count=cart.reduce((sum,i)=>sum+i.quantity,0)
