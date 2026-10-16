@@ -6,7 +6,7 @@ const base='http://127.0.0.1:4178'
 const pages=['/','/products','/products/vitamin-c','/wishlist','/cart','/account','/admin-preview']
 const widths=[320,375,768,1024,1440,1920]
 const screenshots=['/','/products','/products/vitamin-c','/admin-preview']
-const server=spawn('npm',['run','dev','--','--host','127.0.0.1','--port','4178','--strictPort'],{stdio:'pipe'})
+const server=spawn(process.execPath,['node_modules/vite/bin/vite.js','--host','127.0.0.1','--port','4178','--strictPort'],{stdio:'pipe'})
 let output=''
 server.stderr.on('data',chunk=>{output+=chunk.toString()})
 server.stdout.on('data',chunk=>{output+=chunk.toString()})
