@@ -42,6 +42,14 @@ try {
    if(layout.overflow>3)failures.push(path+' at '+width+': horizontal overflow '+layout.overflow)
    if(!layout.heading)failures.push(path+' at '+width+': missing heading')
    if(layout.overlay)failures.push(path+' at '+width+': Vite error overlay')
+   if(path==='/admin-preview'){
+    const clipped=await page.evaluate(()=>[...document.querySelectorAll('.soma-admin-stat,.soma-admin-notice')].filter(el=>{const b=el.getBoundingClientRect();return b.left < -2 || b.right > innerWidth+2}).length)
+    if(clipped)failures.push(path+' at '+width+': '+clipped+' admin cards clipped by viewport')
+   }
+   if(path==='/'){
+    const bg=await page.locator('.soma-luxury-hero .hero-copy').evaluate(el=>getComputedStyle(el).backgroundColor)
+    if(bg==='rgb(231, 230, 238)')failures.push(path+' at '+width+': old lavender hero background leaked through')
+   }
    if(runtime.length){failures.push(path+' at '+width+': '+runtime.splice(0).join('; '))}
    if((width===375||width===1440)&&screenshots.includes(path)){
     const name=path==='/'?'home':path.slice(1).replaceAll('/','-')
