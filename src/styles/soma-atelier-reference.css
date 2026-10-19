@@ -448,3 +448,113 @@ main:has(> .soma-luxury-hero){gap:0!important}
 @media(prefers-reduced-motion:reduce){
  .soma-reference-products .soma-ref-product-media img{transition:none!important}
 }
+
+
+/* Phase 4 — visual alignment to supplied light editorial homepage reference */
+.soma-luxury-hero{
+  grid-template-columns:minmax(0,45%) minmax(0,55%)!important;
+  background:#f7f2e9!important;border:1px solid #eee7da!important;
+  box-shadow:none!important;border-radius:.6rem!important;
+}
+.soma-luxury-hero .hero-copy{
+  background:#f7f2e9!important;color:#152e21!important;
+  padding:clamp(3rem,5.5vw,6rem)!important;
+}
+.soma-luxury-hero .hero-copy .eyebrow{
+  color:#806949!important;letter-spacing:.28em!important;
+}
+.soma-luxury-hero .hero-copy h1,
+.soma-luxury-hero .hero-copy h1 *{
+  color:#17271d!important;text-shadow:none!important;
+}
+.soma-luxury-hero .hero-copy h1{
+  font-size:clamp(4rem,6.5vw,8.1rem)!important;
+  letter-spacing:-.06em!important;line-height:.87!important;
+  max-width:12ch!important;
+}
+.soma-luxury-hero .hero-copy h1 em{
+  color:#33553a!important;font-weight:400!important;font-style:italic!important;
+}
+.soma-luxury-hero .hero-copy p{
+  color:#485b4d!important;font-size:clamp(.98rem,1.3vw,1.18rem)!important;
+  line-height:1.72!important;
+}
+.soma-luxury-hero .soma-hero-actions .button{
+  background:#173a26!important;color:#fffaf0!important;border-color:#173a26!important;
+  border-radius:.2rem!important;box-shadow:none!important;
+  letter-spacing:.12em!important;
+}
+.soma-luxury-hero .soma-hero-actions .button:hover{
+  background:#32543a!important;color:#fffaf0!important;
+}
+.soma-luxury-hero .soma-hero-story{
+  color:#29432f!important;border-bottom-color:#998c78!important;
+}
+.soma-luxury-hero .soma-hero-note,
+.soma-luxury-hero .soma-hero-note span{
+  color:#6f705d!important;
+}
+.soma-luxury-hero .soma-hero-media{
+  background:#e9dfcf!important;min-height:inherit!important;
+}
+.soma-luxury-hero .soma-hero-media:before{display:none}
+.soma-luxury-hero .soma-hero-artwork .soma-hero-atmosphere{
+  opacity:.13!important;filter:blur(1.6rem) saturate(.85)!important;
+}
+.soma-luxury-hero .soma-hero-artwork .soma-hero-product{
+  object-fit:contain!important;padding:clamp(0rem,1vw,1rem)!important;
+}
+.soma-luxury-hero .soma-hero-media-caption{
+  color:#2d4834!important;background:#fff9ece8!important;border-radius:.2rem!important;
+}
+.products.soma-featured{
+  padding-top:clamp(4.5rem,7vw,7rem)!important;
+  padding-bottom:clamp(4.5rem,7vw,7rem)!important;
+}
+.soma-featured .soma-featured-heading h2{
+  font-size:clamp(3.2rem,4.3vw,5.3rem)!important;
+  max-width:19ch;
+}
+.soma-featured .soma-featured-grid{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:clamp(.85rem,1.45vw,1.45rem)!important;
+}
+.soma-featured .soma-featured-card{
+  border:0!important;background:transparent!important;padding:0!important;
+  border-radius:0!important;box-shadow:none!important;
+}
+.soma-featured .soma-featured-card:hover{transform:translateY(-.2rem);box-shadow:none!important}
+.soma-featured .soma-featured-card .product-image{
+  aspect-ratio:4/4.35!important;border-radius:.2rem!important;
+  background:#eee7d9!important;
+}
+.soma-featured .soma-featured-card .product-image img{
+  object-fit:contain!important;padding:clamp(.45rem,1.1vw,1rem)!important;
+}
+.soma-featured .soma-featured-card-body{padding:1rem 0 .2rem!important}
+.soma-featured .soma-featured-card .product-tag{font-size:.61rem!important}
+.soma-featured .soma-featured-card h3{
+  font-size:clamp(1.5rem,1.85vw,2rem)!important;
+  margin:.45rem 0 .3rem!important;
+}
+.soma-featured .soma-featured-card p{margin-bottom:1.1rem}
+.soma-featured .soma-featured-add{
+  border-radius:.2rem!important;min-height:2.8rem;background:transparent;
+  border-color:#c5c9b8!important;
+}
+@media(max-width:68rem){
+ .soma-featured .soma-featured-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .soma-featured .soma-featured-card .product-image{aspect-ratio:4/3.7!important}
+}
+@media(max-width:45rem){
+ .soma-luxury-hero{display:flex!important;flex-direction:column!important;margin:.65rem!important;min-height:0!important}
+ .soma-luxury-hero .hero-copy{padding:3rem 1.5rem 2.5rem!important}
+ .soma-luxury-hero .hero-copy h1{font-size:clamp(3.9rem,11vw,5.3rem)!important}
+ .soma-luxury-hero .soma-hero-media{height:clamp(18rem,74vw,28rem)!important;min-height:0!important}
+ .soma-featured .soma-featured-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .soma-featured .soma-featured-card h3{font-size:clamp(1.45rem,4.8vw,1.9rem)!important}
+}
+@media(max-width:27rem){
+ .soma-featured .soma-featured-grid{grid-template-columns:1fr!important}
+ .soma-featured .soma-featured-card .product-image{aspect-ratio:4/3.5!important}
+}
