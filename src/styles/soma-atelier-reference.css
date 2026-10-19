@@ -1,0 +1,275 @@
+/* SOMA — reference-driven atelier redesign, 2026.
+   Final, scoped visual layer. Uses existing Soma images and product data. */
+:root{
+ --atelier-ink:#1e392b;--atelier-deep:#173928;--atelier-cream:#fcfaf5;
+ --atelier-porcelain:#f5f0e7;--atelier-sand:#eae1d2;--atelier-gold:#cda673;
+ --atelier-border:#e6dfd3;--atelier-serif:'Cormorant Garamond',Georgia,serif;
+ --atelier-ease:cubic-bezier(.21,.79,.2,1);
+}
+body,.site-shell,.page-frame{background:var(--atelier-cream)!important;color:var(--atelier-ink)}
+main:has(> .soma-luxury-hero){gap:0!important}
+.soma-premium-header{box-shadow:0 .5rem 2rem #142e1f09!important}
+.soma-premium-logo>span{letter-spacing:.26em!important}
+.soma-premium-links a:hover{color:#a78352!important}
+.soma-nav-announcement{min-height:2.2rem;letter-spacing:.16em}
+/* Lead visual: luxurious editorial spread */
+.soma-luxury-hero{
+ display:grid!important;grid-template-columns:minmax(0,47%) minmax(0,53%)!important;
+ min-height:clamp(36rem,49vw,48rem)!important;margin:clamp(.7rem,1.6vw,1.5rem) clamp(.7rem,3vw,3rem) 0!important;
+ background:#1c3b2a!important;border-radius:1.25rem!important;isolation:isolate;overflow:hidden!important;
+ box-shadow:0 1.5rem 3rem #152f2012;
+}
+.soma-luxury-hero .hero-copy{
+ display:flex!important;flex-direction:column;justify-content:center;
+ background:transparent!important;max-width:100%;align-self:stretch!important;
+ padding:clamp(2.5rem,5.3vw,6rem)!important;color:#fff9ed!important;z-index:1;
+}
+.soma-luxury-hero .hero-copy .eyebrow{color:#e5c398!important;font-size:.67rem!important;letter-spacing:.24em!important}
+.soma-luxury-hero .hero-copy h1{
+ font:500 clamp(4rem,6.3vw,7.6rem)/.88 var(--atelier-serif)!important;
+ letter-spacing:-.055em!important;max-width:11ch!important;
+ color:#fff9ef!important;margin:clamp(1.6rem,3vw,3rem) 0 1.5rem!important;text-wrap:balance;
+}
+.soma-luxury-hero .hero-copy h1 em{color:#e2bc88!important;font-weight:400!important}
+.soma-luxury-hero .hero-copy p{
+ font:400 clamp(1rem,1.25vw,1.18rem)/1.75 'DM Sans',sans-serif!important;
+ color:#e9ede3!important;max-width:28rem!important;margin:0 0 2rem!important;
+}
+.soma-luxury-hero .soma-hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:1.25rem}
+.soma-luxury-hero .soma-hero-actions .button{
+ background:#e0b981!important;border-color:#e0b981!important;color:#1c3927!important;
+ border-radius:99rem!important;min-height:3.5rem!important;padding:.9rem 1.45rem!important;
+ box-shadow:0 .65rem 1.5rem #101c1521;
+}
+.soma-luxury-hero .soma-hero-actions .button:hover{background:#eccb9f!important;transform:translateY(-.18rem)}
+.soma-luxury-hero .soma-hero-story{color:#fff8ec!important;font-size:.7rem!important;letter-spacing:.11em}
+.soma-luxury-hero .soma-hero-note{color:#e2d5bd!important;margin-top:clamp(2.5rem,5vw,5.5rem)!important;font-size:.61rem}
+.soma-luxury-hero .soma-hero-media{
+ min-height:clamp(36rem,49vw,48rem)!important;height:auto!important;position:relative;
+ background:radial-gradient(circle at 50% 41%,#faf6ed,#e9decf 72%)!important;
+}
+.soma-luxury-hero .soma-hero-media:before{
+ content:'';position:absolute;inset:14% 18% auto 18%;aspect-ratio:1;
+ border:1px solid #ccb89e75;border-radius:50%;pointer-events:none;
+}
+.soma-luxury-hero .soma-hero-artwork{position:absolute;inset:0}
+.soma-luxury-hero .soma-hero-artwork .soma-hero-atmosphere{
+ width:100%;height:100%;opacity:.13!important;filter:blur(2.8rem) saturate(.6)!important;
+}
+.soma-luxury-hero .soma-hero-artwork .soma-hero-product{
+ width:100%;height:100%;object-fit:contain!important;object-position:center!important;
+ padding:clamp(.65rem,2.3vw,2.5rem)!important;
+ filter:drop-shadow(0 1.2rem 1.7rem #213c2521)!important;
+}
+.soma-luxury-hero .soma-hero-media-caption{
+ position:absolute;bottom:1.25rem!important;left:1.25rem!important;right:auto!important;
+ padding:.65rem 1rem!important;max-width:calc(100% - 2.5rem);width:max-content!important;
+ color:#294631!important;background:#fffaf1d9!important;text-shadow:none!important;
+ border:1px solid #ffffffcf;border-radius:3rem!important;font-size:.61rem!important;letter-spacing:.12em!important;
+}
+/* Shoppable editorial collection */
+.products.soma-featured{padding:clamp(5rem,8vw,9rem) clamp(1.25rem,6vw,7rem)!important;background:#fcfaf5!important}
+.soma-featured .soma-featured-heading{
+ max-width:91rem;margin:0 auto clamp(2rem,4vw,3.6rem)!important;display:flex;
+ justify-content:space-between;align-items:end;gap:2rem;text-align:left;
+}
+.soma-featured .soma-featured-heading h2{
+ font:500 clamp(3.6rem,5vw,6rem)/.93 var(--atelier-serif)!important;
+ color:var(--atelier-ink)!important;letter-spacing:-.052em!important;margin:1rem 0 0!important;
+}
+.soma-featured .soma-featured-heading h2 em{font-weight:400;color:#ad8758}
+.soma-featured .soma-featured-intro{max-width:20rem}
+.soma-featured .soma-featured-intro p{color:#617567;font-size:.94rem;line-height:1.75;margin:0 0 1rem}
+.soma-featured .soma-featured-intro a{display:inline-flex;align-items:center;gap:.8rem;border-bottom:1px solid #c6b49a;padding-bottom:.45rem;font-size:.69rem;font-weight:700;letter-spacing:.14em}
+.soma-featured .soma-featured-grid{
+ max-width:91rem;margin:auto;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+ gap:clamp(1rem,2vw,1.8rem)!important;align-items:stretch;
+}
+.soma-featured .soma-featured-card{
+ display:flex;flex-direction:column;min-width:0;border:1px solid #e5dfd4!important;
+ border-radius:1.2rem!important;padding:.65rem!important;background:#fffefb!important;
+ text-align:left!important;box-shadow:0 .65rem 1.8rem #1e382509!important;
+ transition:transform .35s var(--atelier-ease),box-shadow .35s var(--atelier-ease)!important;
+}
+.soma-featured .soma-featured-card:hover{transform:translateY(-.35rem);box-shadow:0 1.5rem 3rem #162d2017!important}
+.soma-featured .soma-featured-card .product-image{
+ position:relative!important;display:block;width:100%;height:auto!important;aspect-ratio:4/4.6!important;
+ overflow:hidden;border-radius:.8rem!important;background:radial-gradient(circle at 50% 32%,#faf7ef,#ece4d7)!important;
+}
+.soma-featured .soma-featured-card:nth-child(2) .product-image{background:radial-gradient(circle at 50% 32%,#f8f9f1,#e5e8d9)!important}
+.soma-featured .soma-featured-card:nth-child(3) .product-image{background:radial-gradient(circle at 50% 32%,#faf6f0,#efe4db)!important}
+.soma-featured .soma-featured-card .product-image img{
+ width:100%!important;height:100%!important;object-fit:contain!important;aspect-ratio:auto!important;
+ padding:clamp(.7rem,2vw,2rem)!important;transition:transform .65s var(--atelier-ease)!important;
+}
+.soma-featured .soma-featured-card:hover .product-image img{transform:scale(1.04)}
+.soma-featured .soma-featured-card-number{
+ position:absolute;z-index:2;top:1rem;left:1rem;padding:.45rem .65rem;border-radius:2rem;
+ font-size:.62rem;font-weight:700;letter-spacing:.1em;color:#48624b;background:#fffdf9cf;
+}
+.soma-featured .soma-featured-card .add-overlay{display:none!important}
+.soma-featured .soma-featured-card-body{
+ display:flex;flex-direction:column;flex:1;padding:clamp(.85rem,1.5vw,1.45rem) clamp(.6rem,1.3vw,1.3rem) .65rem;
+}
+.soma-featured .soma-featured-card-body .product-tag{margin:0!important;font-weight:700;letter-spacing:.15em!important;font-size:.64rem!important;color:#af8858!important}
+.soma-featured .soma-featured-card h3{
+ font:500 clamp(1.8rem,2.1vw,2.45rem)/1.02 var(--atelier-serif)!important;
+ letter-spacing:-.035em!important;color:#1d3e2b!important;margin:.7rem 0 .45rem!important;
+}
+.soma-featured .soma-featured-card p{color:#637768!important;font-size:.83rem;line-height:1.6;margin:0 0 1.5rem}
+.soma-featured .soma-featured-add{
+ display:flex;align-items:center;justify-content:space-between;gap:1rem;
+ width:100%;min-height:3rem;margin-top:auto;padding:.85rem 1rem;
+ border-radius:.65rem;border:1px solid #d3d8cb;background:#f4f1e9;color:#234630;
+ font-size:.72rem;font-weight:700;letter-spacing:.12em;
+}
+.soma-featured .soma-featured-add span{font-size:1.1rem}
+.soma-featured .soma-featured-add:hover{background:#1c412d;color:#fff;border-color:#1c412d}
+.soma-featured .soma-featured-view-mobile{display:none}
+/* Image storytelling: confident visual rhythm */
+.editorial-feature{
+ margin:0 clamp(.75rem,3vw,3rem) clamp(4rem,7vw,7rem)!important;
+ border-radius:1.2rem!important;min-height:clamp(34rem,47vw,47rem)!important;
+}
+.editorial-feature>img{filter:brightness(.78) saturate(.8)!important}
+.editorial-feature:after{background:linear-gradient(90deg,#122f20d5,#17392984 48%,#183a2305)!important}
+.editorial-feature .editorial-overlay{padding:clamp(3rem,8vw,8rem)!important;max-width:54rem}
+.editorial-feature .editorial-overlay h2{
+ font:500 clamp(4rem,6.6vw,8rem)/.9 var(--atelier-serif)!important;
+ letter-spacing:-.05em!important;color:#fffaf0!important;
+}
+.editorial-feature .editorial-overlay p{color:#f7f2e8!important;font:400 clamp(1rem,1.3vw,1.18rem)/1.75 'DM Sans',sans-serif!important}
+.editorial-feature .editorial-overlay .eyebrow{color:#f0d2a7!important}
+.editorial-feature .editorial-overlay .button{background:#e4c293!important;color:#24412e!important;border-radius:4rem!important;border-color:#e4c293!important}
+.benefits{
+ margin:0 clamp(.75rem,3vw,3rem) clamp(4rem,7vw,7rem)!important;
+ padding:clamp(1.5rem,3vw,3rem)!important;background:#f0ece3!important;
+ border:1px solid #e3dbcf;border-radius:1rem!important;
+}
+.benefit{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:7rem}
+.benefit svg{color:#70816a}
+.benefit p{font:600 clamp(.85rem,1vw,1rem)/1.5 'DM Sans',sans-serif!important;color:#2c4b37;max-width:14rem}
+/* Four-step shopping ritual */
+.soma-ritual-steps{padding:clamp(4.5rem,8vw,8rem) clamp(1rem,6vw,7rem);background:#193a2b;color:#fbf7ef}
+.soma-ritual-heading{max-width:91rem;margin:0 auto clamp(2rem,4vw,3.7rem);display:flex;justify-content:space-between;align-items:end;gap:2rem}
+.soma-ritual-heading .eyebrow{color:#e3bc83!important;font-size:.67rem!important;letter-spacing:.19em}
+.soma-ritual-heading h2{font:500 clamp(3.7rem,5.3vw,6.6rem)/.93 var(--atelier-serif);letter-spacing:-.05em;max-width:15ch;margin:1rem 0 0;color:#fff7eb}
+.soma-ritual-heading h2 em{color:#ddba8b;font-weight:400}
+.soma-ritual-heading>p{max-width:20rem;color:#d8e1d5;font-size:.96rem;line-height:1.75}
+.soma-ritual-grid{max-width:91rem;margin:auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(.75rem,1.5vw,1.5rem)}
+.soma-ritual-step{display:flex;flex-direction:column;min-width:0;color:inherit;transition:transform .35s var(--atelier-ease)}
+.soma-ritual-step:hover{transform:translateY(-.35rem)}
+.soma-ritual-image{position:relative;overflow:hidden;border-radius:.9rem;aspect-ratio:4/4.75;background:radial-gradient(circle at 50% 30%,#faf8f2,#e4decf)}
+.soma-ritual-step:nth-child(even) .soma-ritual-image{background:radial-gradient(circle at 50% 30%,#f7f7ee,#e3e4d4)}
+.soma-ritual-image img{width:100%;height:100%;object-fit:contain;padding:clamp(.6rem,1.4vw,1.5rem);transition:transform .55s var(--atelier-ease)}
+.soma-ritual-step:hover .soma-ritual-image img{transform:scale(1.055)}
+.soma-ritual-number{position:absolute;z-index:1;top:.9rem;left:.9rem;background:#fffdf9d5;color:#3a513d;padding:.4rem .65rem;border-radius:2rem;letter-spacing:.12em;font-size:.65rem;font-weight:700}
+.soma-ritual-step-copy{padding:1.2rem .2rem 0;flex:1;display:flex;flex-direction:column}
+.soma-ritual-step-copy>span:first-child{font-size:.64rem;letter-spacing:.2em;color:#e1bb8b;font-weight:700}
+.soma-ritual-step-copy h3{font:500 clamp(1.85rem,2.1vw,2.6rem)/1.02 var(--atelier-serif);letter-spacing:-.035em;color:#fff7eb;margin:.65rem 0 .45rem}
+.soma-ritual-step-copy p{color:#d5dfd2;font-size:.83rem;line-height:1.7;margin:0 0 1.5rem}
+.soma-ritual-discover{margin-top:auto;display:inline-flex;align-items:center;gap:1.25rem;border-bottom:1px solid #b6bb9c;padding-bottom:.45rem;width:max-content;max-width:100%;font-size:.64rem;letter-spacing:.13em;font-weight:700}
+/* Secondary editorial panels */
+.philosophy{margin:clamp(4rem,7vw,7rem) clamp(.75rem,3vw,3rem)!important;background:#f2eee5!important;border-radius:1.2rem!important;overflow:hidden}
+.philosophy-copy{padding:clamp(2.5rem,6vw,6rem)!important}
+.philosophy-copy h2{font:500 clamp(3.4rem,5vw,6rem)/.95 var(--atelier-serif)!important;letter-spacing:-.05em!important}
+.philosophy-copy p{font:400 clamp(.98rem,1.2vw,1.14rem)/1.8 'DM Sans',sans-serif!important;color:#5c7463!important}
+.philosophy-copy .button{background:#1e442e!important;color:#fff!important;border-color:#1e442e!important;border-radius:3rem!important}
+.ingredient-gallery{padding:clamp(4.5rem,7vw,7rem) clamp(1.25rem,6vw,7rem)!important}
+.ingredient-heading,.ingredient-cards{max-width:91rem;margin-left:auto;margin-right:auto}
+.ingredient-heading h2{font:500 clamp(3.5rem,5vw,6.4rem)/.93 var(--atelier-serif)!important;letter-spacing:-.05em!important}
+.ingredient-heading h2 em{color:#b48f61}
+.ingredient-heading>p{font:400 .98rem/1.75 'DM Sans',sans-serif!important;color:#607265!important}
+.ingredient-image{border-radius:1rem!important}
+.ingredient-meta h3{font:500 clamp(1.95rem,2.5vw,3rem)/1 var(--atelier-serif)!important}
+.bestseller{margin:clamp(3rem,6vw,6rem) clamp(.75rem,3vw,3rem)!important;border-radius:1.2rem!important;background:#f2e9dc!important}
+.bestseller-copy{padding:clamp(2.5rem,6vw,6rem)!important}
+.bestseller h2{font:500 clamp(3.5rem,5vw,6.2rem)/.94 var(--atelier-serif)!important}
+.bestseller-copy p{font:400 1rem/1.8 'DM Sans',sans-serif!important;color:#647466!important}
+.bestseller-copy .button{background:#1b432d!important;color:#fff!important;border-color:#1b432d!important;border-radius:3rem!important}
+.bestseller-art{background:radial-gradient(circle,#faf7ee,#e9decf)}
+.bestseller-art img{object-fit:contain!important}
+.ritual-banner{margin:clamp(2rem,5vw,5rem) clamp(.75rem,3vw,3rem)!important;border-radius:1.2rem!important;overflow:hidden}
+.ritual-banner-copy h2{font:500 clamp(3.5rem,5vw,6rem)/.95 var(--atelier-serif)!important;letter-spacing:-.04em!important}
+.ritual-banner-copy h2 em{color:#b18d5c}
+.ritual-banner-copy p{font:400 1rem/1.8 'DM Sans',sans-serif!important}
+.ritual-banner-art img{object-fit:contain;background:#ede4d7}
+.reviews{padding:clamp(4rem,7vw,7rem) clamp(1.25rem,6vw,7rem)!important}
+.reviews .section-heading h2{font:500 clamp(3.5rem,5vw,6rem)/.95 var(--atelier-serif)!important}
+.review-grid{max-width:91rem;margin:auto;gap:1rem}
+.review{background:#fffefa!important;text-align:left;border:1px solid #e8e1d5!important;border-radius:1rem;padding:clamp(1.5rem,3vw,2.6rem)!important}
+.review h3{font:500 clamp(1.8rem,2.2vw,2.7rem)/1.03 var(--atelier-serif)!important;color:#1b382b}
+.review p{font:400 .95rem/1.75 'DM Sans',sans-serif!important;min-height:0}
+.review-caption{font-size:.65rem}
+.newsletter{
+ display:grid!important;grid-template-columns:minmax(0,1fr) minmax(19rem,.75fr)!important;
+ background:#1b3b2b!important;min-height:19rem;color:#fff9ee!important;
+ border-radius:1.2rem!important;margin:clamp(3rem,5vw,5rem) clamp(.75rem,3vw,3rem) 0!important;
+ padding:clamp(2.5rem,5vw,5rem)!important;gap:clamp(1.5rem,4vw,4rem);
+}
+.newsletter-shadow{display:none!important}
+.newsletter .eyebrow{color:#e0b987!important}
+.newsletter h2{font:500 clamp(3.3rem,4.5vw,5.6rem)/.95 var(--atelier-serif)!important;color:#fff8ea!important;letter-spacing:-.05em!important}
+.newsletter p{font:400 .97rem/1.7 'DM Sans',sans-serif!important;color:#e2e8dd!important}
+.newsletter-form{align-self:center;display:flex!important;flex-wrap:wrap;gap:.5rem}
+.newsletter-form input{background:#fffaf1!important;color:#21402d!important;border-radius:.6rem;min-height:3.55rem}
+.newsletter-form .button{min-height:3.55rem;border-radius:.6rem!important;background:#dfba84!important;color:#213b2b!important;border-color:#dfba84!important}
+.footer{
+ background:#173529!important;color:#f7f3e8!important;margin-top:clamp(3rem,5vw,5rem)!important;
+ border-top:1px solid #44634c!important;padding:clamp(2rem,4vw,4rem) clamp(1.2rem,6vw,7rem)!important;
+}
+.footer-brand,.footer nav a,.footer-social,.footer-social a{color:#f7f3e8!important}
+.footer-brand small{color:#cbc3b3!important}
+.footer nav a:hover,.footer-social a:hover{color:#e3bc87!important}
+@media(max-width:70rem){
+ .soma-luxury-hero .hero-copy h1{font-size:clamp(3.6rem,6vw,5.8rem)!important}
+ .soma-ritual-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:45rem){
+ .soma-luxury-hero{display:flex!important;flex-direction:column!important;min-height:0!important;margin:.7rem .7rem 0!important;border-radius:1rem!important}
+ .soma-luxury-hero .hero-copy{padding:3rem 1.5rem 2rem!important}
+ .soma-luxury-hero .hero-copy h1{font-size:clamp(3.85rem,11.5vw,5.5rem)!important}
+ .soma-luxury-hero .soma-hero-media{height:clamp(19rem,74vw,29rem)!important;min-height:0!important}
+ .soma-luxury-hero .soma-hero-media-caption{bottom:.65rem!important;left:.7rem!important;font-size:.55rem!important}
+ .products.soma-featured{padding:4.3rem 1rem!important}
+ .soma-featured .soma-featured-heading{display:block}
+ .soma-featured .soma-featured-heading h2{font-size:clamp(3.2rem,10vw,4.5rem)!important}
+ .soma-featured .soma-featured-intro{margin-top:1.2rem}
+ .soma-featured .soma-featured-intro a{display:none}
+ .soma-featured .soma-featured-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:.7rem!important}
+ .soma-featured .soma-featured-card{padding:.4rem!important;border-radius:.8rem!important}
+ .soma-featured .soma-featured-card .product-image{aspect-ratio:4/4.9!important}
+ .soma-featured .soma-featured-card .product-image img{padding:.5rem!important}
+ .soma-featured .soma-featured-card-body{padding:.8rem .3rem .4rem}
+ .soma-featured .soma-featured-card h3{font-size:clamp(1.55rem,5vw,2rem)!important}
+ .soma-featured .soma-featured-add{font-size:.62rem;letter-spacing:.05em;padding:.6rem;min-height:2.8rem}
+ .soma-featured .soma-featured-view-mobile{display:flex}
+ .editorial-feature{margin:.7rem .7rem 4rem!important;border-radius:.9rem!important;min-height:32rem!important}
+ .editorial-feature .editorial-overlay{padding:3.3rem 1.6rem!important}
+ .editorial-feature .editorial-overlay h2{font-size:clamp(3.4rem,11vw,5.5rem)!important}
+ .benefits{margin:.7rem .7rem 4rem!important;padding:1.1rem!important}
+ .soma-ritual-steps{padding:4rem 1rem}
+ .soma-ritual-heading{display:block}
+ .soma-ritual-heading h2{font-size:clamp(3.3rem,10vw,5rem)}
+ .soma-ritual-heading>p{margin-top:1rem}
+ .soma-ritual-grid{gap:.75rem}
+ .soma-ritual-step-copy h3{font-size:1.85rem}
+ .soma-ritual-step-copy p{font-size:.77rem}
+ .soma-ritual-discover{font-size:.55rem;letter-spacing:.07em}
+ .philosophy,.bestseller,.ritual-banner{margin:3rem .7rem!important}
+ .ingredient-gallery{padding:4rem 1rem!important}
+ .reviews{padding:4rem 1rem!important}
+ .newsletter{grid-template-columns:1fr!important;margin:3rem .7rem 0!important;padding:2.5rem 1.4rem!important}
+ .footer{margin-top:3rem!important}
+}
+@media(max-width:27rem){
+ .soma-featured .soma-featured-grid{grid-template-columns:1fr!important}
+ .soma-featured .soma-featured-card .product-image{aspect-ratio:4/4.3!important}
+ .soma-ritual-grid{grid-template-columns:1fr}
+ .soma-ritual-image{aspect-ratio:4/3.4}
+}
+@media(hover:none){.soma-featured .soma-featured-card:hover,.soma-ritual-step:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){
+ .soma-featured .soma-featured-card,.soma-featured .product-image img,
+ .soma-ritual-step,.soma-ritual-image img{transition:none!important;transform:none!important}
+}
