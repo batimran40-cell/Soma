@@ -98,3 +98,89 @@ body {font-synthesis:none;-webkit-font-smoothing:antialiased}
  html {scroll-behavior:auto}
  .site-shell *, .site-shell *::before, .site-shell *::after {animation-duration:.01ms !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
 }
+/* Phase 2 — product detail, cart and checkout */
+.soma-pdp {background:var(--soma-paper)!important}
+.pdp-crumb,.checkout-breadcrumb,.soma-cart-breadcrumb {max-width:100%;border-color:var(--soma-border-soft)}
+.pdp-main {max-width:100rem;margin-inline:auto;align-items:start;gap:clamp(2rem,5vw,6.5rem)!important}
+.pdp-gallery-stage {border-radius:1.2rem!important;background:linear-gradient(145deg,#f7f3ea,#eee9dd)!important;box-shadow:0 1.5rem 3rem #26392b0a}
+.pdp-gallery-stage>img {object-fit:contain;padding:clamp(.5rem,2vw,1.5rem)}
+.pdp-gallery-next {border-radius:50%;background:#fffdf7e8;border-color:#e2d8c8;width:3.25rem;height:3.25rem}
+.pdp-gallery-next:hover {background:#1d3d2b;color:#fff;transform:translateX(.15rem)}
+.pdp-gallery-counter {background:#fffdf7df;border:1px solid #eae1d4;padding:.55rem .8rem;border-radius:2rem;font-weight:600;letter-spacing:.09em}
+.pdp-thumbs button {border-radius:.75rem!important;overflow:hidden;transition:border-color .2s,transform .2s}
+.pdp-thumbs button.selected {border-color:#bd9259!important;box-shadow:0 0 0 1px #bd9259}
+.pdp-thumbs button:hover {transform:translateY(-.12rem)}
+.pdp-information {max-width:39rem;padding-block:clamp(.5rem,3vw,2rem)}
+.pdp-information h1 {font-size:clamp(3.5rem,5.3vw,6.2rem)!important;line-height:.95;letter-spacing:-.04em;text-wrap:balance}
+.pdp-subtitle {color:#9b7951!important;font-size:clamp(1.55rem,2.2vw,2.15rem)}
+.pdp-desc {line-height:1.8}
+.pdp-meta {border-color:#e5decf;gap:.7rem}
+.pdp-qty {border-radius:.7rem;border-color:#dcd4c5;overflow:hidden;background:#fffdfa}
+.pdp-qty button:hover {background:#f4ecdf}
+.pdp-add {border-radius:.7rem!important;justify-content:center;gap:1.5rem;letter-spacing:.12em}
+.pdp-save {color:#36523e;border-radius:2rem;padding:.65rem .9rem}
+.pdp-save:hover {background:#f0ebdf}
+.pdp-accordion button {min-height:3.5rem}
+.pdp-editorial {background:#eaece2!important;padding-block:clamp(4.5rem,8vw,8rem)}
+.pdp-editorial h2 {text-wrap:balance}
+.pdp-editorial h2 em {color:#b38e60!important}
+.pdp-related {max-width:100rem;margin-inline:auto}
+.pdp-related-image {border-radius:1rem!important;background:#f1ede4}
+.pdp-related-grid article {min-width:0}
+.pdp-related-grid article:hover h3 {color:#926d3e}
+.pdp-related h3 {text-wrap:balance}
+.soma-cart-shade {background:#10221ab8}
+.soma-cart-panel {background:#fffdf8;border-left:1px solid #e7dfd0}
+.soma-cart-header {border-color:#e9e2d5}
+.soma-cart-header h1 {letter-spacing:-.035em}
+.soma-cart-close {border-radius:50%;border-color:#e3daca;background:#f8f3e8}
+.soma-cart-close:hover {background:#193b2a;color:#fff}
+.soma-cart-line {border-color:#ece5db}
+.soma-cart-photo {border-radius:.8rem;background:#f1ece2}
+.soma-cart-photo img {transition:transform .3s ease}
+.soma-cart-photo:hover img {transform:scale(1.035)}
+.soma-cart-stepper {border-radius:.55rem;border-color:#d9d3c7;overflow:hidden}
+.soma-cart-stepper button:hover {background:#f0e9db}
+.soma-cart-summary {background:#f3f0e8!important}
+.soma-cart-primary {border-radius:.7rem!important;letter-spacing:.09em}
+.soma-cart-primary:hover {transform:translateY(-.1rem)}
+.soma-cart-full {max-width:78rem;background:transparent;border:0}
+.soma-cart-full .soma-cart-header {padding-top:3.5rem}
+.soma-cart-full .soma-cart-list {max-width:72rem}
+.soma-cart-full .soma-cart-summary {border-radius:1rem;margin:2rem 2.4rem 3rem}
+.soma-checkout {background:var(--soma-paper)!important}
+.checkout-heading {background:#f0ece2!important;padding-block:clamp(3rem,6vw,5rem);border-block:1px solid #e9e1d3}
+.checkout-heading h1 {letter-spacing:-.045em;text-wrap:balance}
+.checkout-heading h1 em {color:#a68258!important}
+.checkout-layout {max-width:96rem;margin:0 auto;gap:clamp(1.5rem,4vw,5rem)}
+.checkout-form {gap:1.25rem}
+.checkout-panel {padding:clamp(1.2rem,3vw,2.5rem)!important;background:#fffefa!important;border:1px solid #e9e1d4!important;border-radius:1rem;box-shadow:0 1rem 2rem #203a2a07}
+.checkout-section-title {margin-bottom:1.5rem}
+.checkout-section-title>span {border-color:#d9c5a5;color:#8f714a}
+.checkout-field input,.checkout-field textarea {border-radius:.55rem;border-color:#e0d9ce;background:#fff!important;transition:border-color .2s,box-shadow .2s}
+.checkout-field input:hover,.checkout-field textarea:hover {border-color:#c9b99f}
+.checkout-field input:focus,.checkout-field textarea:focus {outline:none!important;border-color:#9f825a;box-shadow:0 0 0 .18rem #cba7702e}
+.checkout-payment {background:#f7f4ed;border:1px solid #e4dac8;border-radius:.65rem}
+.checkout-review {border-radius:.65rem;min-height:3.8rem}
+.checkout-review:hover {transform:translateY(-.12rem)}
+.checkout-summary {top:7rem;border-radius:1rem;background:#f3f0e8!important;border:1px solid #e8ddcd!important;box-shadow:0 1.2rem 3rem #293e2a0a}
+.checkout-item,.checkout-summary-lines,.checkout-total {border-color:#ddd4c7!important}
+.checkout-item-image {border-radius:.55rem;overflow:visible}
+.checkout-item-image img {border-radius:.55rem}
+.checkout-notice {border-radius:.7rem;background:#ebe6d9}
+.checkout-back:hover {color:#a17c4b}
+@media(min-width:75rem) {.pdp-information {position:sticky;top:8rem}}
+@media(max-width:58rem) {.checkout-summary {position:static}}
+@media(max-width:45rem) {
+ .pdp-main {gap:2rem!important}
+ .pdp-gallery-stage {border-radius:.85rem!important}
+ .pdp-information h1 {font-size:clamp(3rem,11vw,4.4rem)!important}
+ .pdp-purchase {gap:.75rem}
+ .pdp-qty {min-height:3.4rem}
+ .soma-cart-full .soma-cart-summary {margin:1.2rem}
+ .soma-cart-full .soma-cart-header {padding-top:2rem}
+ .checkout-heading {padding-inline:1rem}
+ .checkout-heading h1 {font-size:clamp(3rem,10vw,4.4rem)}
+ .checkout-panel {padding:1.2rem!important}
+}
+@media(prefers-reduced-motion:reduce) {.pdp-gallery-next:hover,.soma-cart-primary:hover,.checkout-review:hover,.pdp-thumbs button:hover {transform:none}}
