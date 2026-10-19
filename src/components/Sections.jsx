@@ -13,12 +13,24 @@ export function Hero(){
    </div>
    <div className="soma-hero-note"><span className="soma-hero-note-rule" aria-hidden="true"/><span>BOTANICAL <i aria-hidden="true">/</i> CONSIDERED <i aria-hidden="true">/</i> EVERYDAY</span></div>
   </div>
-  <div className="hero-visual soma-hero-media soma-trio-hero-media soma-editorial-hero-visual">
-   <div className="soma-hero-artwork">
-    <img className="soma-hero-atmosphere" src="/images/product-trio.webp" alt="" aria-hidden="true"/>
-    <img className="soma-hero-product" src="/images/product-trio.webp" alt="Three Soma Organic skincare essentials in a botanical product arrangement" fetchPriority="high" loading="eager" decoding="async"/>
+  <div className="hero-visual soma-hero-media soma-editorial-hero-visual soma-curated-hero-visual" aria-label="Explore three Soma Organic skincare essentials">
+   <div className="soma-curation-scene">
+    <span className="soma-curation-orbit soma-curation-orbit-one" aria-hidden="true"/>
+    <span className="soma-curation-orbit soma-curation-orbit-two" aria-hidden="true"/>
+    <a className="soma-curation-product soma-curation-product-serum" href="/products/vitamin-c" aria-label="Explore Vitamin C Face Serum">
+     <img src="/images/serum-hero.webp" alt="Soma Organic Vitamin C Face Serum in a warm botanical setting" loading="eager" fetchPriority="high" decoding="async"/>
+     <span className="soma-curation-item-name">VITAMIN C SERUM <span aria-hidden="true">↗</span></span>
+    </a>
+    <a className="soma-curation-product soma-curation-product-cleanser" href="/products/aloe-wash" aria-label="Explore Aloe Vera Face Wash">
+     <img src="/images/face-wash.webp" alt="Soma Organic Aloe Vera Face Wash" loading="eager" decoding="async"/>
+     <span className="soma-curation-item-name">ALOE FACE WASH <span aria-hidden="true">↗</span></span>
+    </a>
+    <a className="soma-curation-product soma-curation-product-cream" href="/products/hydrating-cream" aria-label="Explore Hydrating Face Cream">
+     <img src="/images/cream.webp" alt="Soma Organic Hydrating Face Cream on natural stone" loading="lazy" decoding="async"/>
+     <span className="soma-curation-item-name">HYDRATING CREAM <span aria-hidden="true">↗</span></span>
+    </a>
    </div>
-   <div className="soma-editorial-photo-label" aria-hidden="true"><span>01 / THE SOMA COLLECTION</span><span>THE ART OF EVERYDAY CARE</span></div>
+   <div className="soma-editorial-photo-label" aria-hidden="true"><span>01 / THE SOMA COLLECTION</span><span>THREE ESSENTIALS · ONE RITUAL</span></div>
   </div>
  </section>
 }
