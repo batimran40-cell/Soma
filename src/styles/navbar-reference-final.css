@@ -1,0 +1,161 @@
+/* Soma Organic — reference navbar, always loaded after historical overrides.
+   Slim botanical announcement + centered editorial wordmark + outline actions. */
+.soma-nav-announcement{
+ display:block!important;min-height:2rem!important;padding:0 clamp(1rem,5vw,5.5rem)!important;
+ background:#173624!important;color:#f7f3e7!important;
+ font:400 .65rem/1.4 'DM Sans',Arial,sans-serif!important;
+ letter-spacing:.015em!important;
+}
+.soma-announcement-inner{
+ max-width:100rem;min-height:2rem;display:flex;align-items:center;
+ justify-content:space-between;gap:1.5rem;margin:0 auto;
+}
+.soma-announcement-message{display:inline-flex;align-items:center;gap:.65rem;min-width:0}
+.soma-announcement-message svg{flex:none;color:#c6b07c}
+.soma-nav-announcement-side{
+ display:inline-flex!important;position:static!important;align-items:center;gap:.55rem;
+ color:#f2ecdf!important;text-decoration:none;white-space:nowrap;
+ font:400 .64rem/1.4 'DM Sans',Arial,sans-serif!important;
+ letter-spacing:.015em!important;
+ border:0!important;padding:0!important;
+}
+.soma-nav-announcement-side:hover{text-decoration:underline;text-underline-offset:.2rem}
+.soma-reference-header.soma-premium-header{
+ position:sticky!important;top:0!important;z-index:70!important;
+ background:rgba(250,248,242,.97)!important;
+ border-bottom:1px solid #e8e2d6!important;
+ box-shadow:none!important;backdrop-filter:blur(1rem);
+}
+.soma-reference-header.soma-premium-header.is-scrolled{
+ background:rgba(250,248,242,.985)!important;
+ box-shadow:0 .3rem 1rem rgba(21,40,28,.055)!important;
+}
+.soma-reference-header .soma-premium-nav{
+ width:100%;max-width:100rem;min-height:4.6rem!important;height:auto;
+ margin:0 auto;padding:0 clamp(1rem,5vw,5.5rem)!important;
+ display:grid!important;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)!important;
+ gap:clamp(.5rem,2vw,2rem);align-items:center;
+}
+.soma-reference-header .soma-premium-left,.soma-reference-header .soma-premium-actions{
+ min-width:0;display:flex;align-items:center;
+}
+.soma-reference-header .soma-premium-links{
+ display:flex;align-items:center;gap:clamp(1.1rem,2.5vw,2.8rem);white-space:nowrap;
+}
+.soma-reference-header .soma-premium-links a{
+ color:#25271e!important;font:600 .655rem/1.2 'DM Sans',Arial,sans-serif!important;
+ letter-spacing:.175em!important;text-transform:uppercase;
+ position:relative;padding:.8rem 0!important;
+}
+.soma-reference-header .soma-premium-links a::after{
+ background:#9c8158!important;height:1px;bottom:.5rem;left:0;right:0;
+}
+.soma-reference-header .soma-premium-links a:hover,
+.soma-reference-header .soma-premium-links a[aria-current="page"]{color:#3b563d!important}
+.soma-reference-header .soma-premium-logo{
+ display:flex!important;flex-direction:column;align-items:center;justify-content:center;
+ justify-self:center;line-height:1!important;white-space:nowrap;
+ color:#171e17!important;text-decoration:none;
+ padding:.35rem .5rem!important;min-width:0;
+}
+.soma-reference-header .soma-premium-logo>span{
+ color:#191c18!important;
+ font:500 clamp(2.05rem,2.55vw,2.8rem)/.89 'Cormorant Garamond',Georgia,serif!important;
+ letter-spacing:-.035em!important;padding:0!important;
+}
+.soma-reference-header .soma-premium-logo>small{
+ color:#293329!important;font:600 .52rem/1.1 'DM Sans',Arial,sans-serif!important;
+ letter-spacing:.35em!important;padding-left:.35em;margin-top:.17rem!important;
+}
+.soma-reference-header .soma-premium-actions{
+ justify-content:flex-end!important;gap:clamp(.08rem,.7vw,.6rem)!important;
+}
+.soma-reference-header .soma-nav-icon{
+ position:relative;display:inline-grid!important;place-items:center;flex:none;
+ width:2.45rem!important;height:2.45rem!important;
+ min-width:2.45rem!important;min-height:2.45rem!important;
+ border:0!important;border-radius:50%!important;
+ background:transparent!important;color:#272b23!important;
+ padding:0!important;text-decoration:none;cursor:pointer;
+ transition:color .2s ease,background-color .2s ease!important;
+ box-shadow:none!important;letter-spacing:0!important;
+}
+.soma-reference-header .soma-nav-icon svg{
+ width:1.27rem;height:1.27rem;stroke:currentColor;stroke-width:1.5;
+}
+.soma-reference-header .soma-nav-icon:hover{
+ background:#ece7db!important;color:#31543a!important;transform:none!important;
+}
+.soma-reference-header .soma-nav-icon:active{background:#e5dccb!important}
+.soma-reference-header .soma-nav-icon:focus-visible{
+ outline:.13rem solid #a07b4b!important;outline-offset:.15rem;
+}
+.soma-reference-header .soma-nav-bag{
+ display:inline-grid!important;min-width:2.45rem!important;
+ width:2.45rem!important;height:2.45rem!important;
+ padding:0!important;gap:0!important;min-height:2.45rem!important;
+ text-transform:none!important;
+}
+.soma-reference-header .soma-nav-bag-count{
+ position:absolute;top:-.12rem;right:-.14rem;display:grid;place-items:center;
+ min-width:1.05rem;height:1.05rem;padding:0 .15rem;
+ border-radius:99rem;background:#204a2f;color:#fffaf1;
+ font:600 .57rem/1 'DM Sans',Arial,sans-serif;
+ letter-spacing:0;
+}
+.soma-reference-header .soma-nav-toggle{display:none!important}
+.soma-nav-overlay{z-index:200!important;background:rgba(16,31,20,.55);backdrop-filter:blur(.2rem)}
+.soma-nav-drawer{
+ background:#fcfaf5!important;color:#203d2d;
+ display:flex;flex-direction:column;
+ padding:clamp(1.3rem,4vw,2rem)!important;
+}
+.soma-nav-drawer-top{gap:1rem;margin-bottom:1.4rem!important;flex:none}
+.soma-drawer-brand{
+ font:500 2.3rem/1 'Cormorant Garamond',Georgia,serif;letter-spacing:.01em!important;color:#20382a;
+}
+.soma-drawer-brand small{
+ font:600 .5rem/1.3 'DM Sans',Arial,sans-serif;
+ letter-spacing:.34em!important;margin-top:.2rem;color:#637865;
+}
+.soma-nav-drawer nav{display:flex;flex-direction:column;min-width:0}
+.soma-nav-drawer nav>a{
+ display:flex;align-items:center;gap:1rem;
+ border-bottom:1px solid #e6e0d6;padding:.9rem .2rem;
+ font:500 clamp(1.8rem,6vw,2.2rem)/1.05 'Cormorant Garamond',Georgia,serif;
+ color:#213c2b;transition:color .2s,padding-left .2s;
+}
+.soma-nav-drawer nav>a>span{flex:1}
+.soma-nav-drawer nav>a>small{
+ font:600 .65rem/1 'DM Sans',Arial,sans-serif;color:#977e5e;
+}
+.soma-nav-drawer nav>a:hover{color:#99744e;padding-left:.55rem}
+.soma-nav-drawer nav>a[aria-current="page"]{color:#90704d}
+.soma-nav-drawer>p{margin-top:auto;padding-top:2.2rem;font-style:italic}
+@media(max-width:65rem){
+ .soma-reference-header .soma-premium-nav{min-height:4.25rem!important}
+ .soma-reference-header .soma-premium-links{display:none!important}
+ .soma-reference-header .soma-nav-toggle{display:inline-grid!important}
+}
+@media(max-width:50rem){
+ .soma-nav-announcement-side{display:none!important}
+ .soma-announcement-inner{justify-content:center}
+ .soma-reference-header .soma-premium-nav{padding:0 .8rem!important}
+ .soma-reference-header .soma-premium-logo>span{font-size:2.15rem!important}
+ .soma-reference-header .soma-premium-actions{gap:.05rem!important}
+ .soma-reference-header .soma-account-link,.soma-reference-header .soma-nav-wishlist{display:none!important}
+ .soma-reference-header .soma-nav-icon{
+  width:2.45rem!important;height:2.45rem!important;
+ }
+}
+@media(max-width:24rem){
+ .soma-nav-announcement{padding:0 .5rem!important;font-size:.56rem!important}
+ .soma-announcement-message{gap:.38rem}
+ .soma-reference-header .soma-premium-nav{padding:0 .4rem!important;gap:0!important}
+ .soma-reference-header .soma-premium-logo>span{font-size:1.9rem!important}
+ .soma-reference-header .soma-nav-icon{width:2.2rem!important;min-width:2.2rem!important}
+ .soma-reference-header .soma-nav-bag{width:2.2rem!important;min-width:2.2rem!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .soma-reference-header .soma-nav-icon,.soma-nav-drawer nav>a{transition:none!important}
+}
