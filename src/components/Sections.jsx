@@ -34,14 +34,45 @@ export function Hero(){
   </div>
  </section>
 }
-export function FeaturedProducts({onAdd}){return <section id="products" className="products section-pad soma-featured" aria-labelledby="soma-featured-title">
- <div className="section-heading soma-featured-heading" data-reveal><div><span className="eyebrow">01 / THE SOMA COLLECTION</span><h2 id="soma-featured-title">Skincare rooted <em>in nature.</em></h2></div><div className="soma-featured-intro"><p>Four botanical-inspired essentials for thoughtful everyday care.</p><a href="/products">VIEW ALL PRODUCTS <Icon name="arrow" size={16}/></a></div></div>
- <div className="product-grid soma-featured-grid">{products.map((p,index)=><article className="product-card soma-featured-card" key={p.id} data-reveal>
-  <a className="product-image" href={`/products/${p.id}`} aria-label={`View ${p.name} details`}><span className="soma-featured-card-number">{String(index+1).padStart(2,'0')} / 04</span><img src={p.image} alt={p.name} loading="lazy"/><span className="add-overlay">DISCOVER PRODUCT <Icon name="arrow" size={15}/></span></a>
-  <div className="soma-featured-card-body"><span className="product-tag">{p.tag}</span><a href={`/products/${p.id}`} className="soma-featured-product-link"><h3>{p.name}</h3></a><p>{p.detail}</p><button className="soma-featured-add" type="button" onClick={()=>onAdd(p)} aria-label={`Add ${p.name} to bag`}>ADD TO BAG <span aria-hidden="true">↗</span></button></div>
- </article>)}</div>
- <a className="underlined-link soma-featured-view-mobile" href="/products">EXPLORE THE WHOLE COLLECTION <Icon name="arrow" size={17}/></a>
- </section>}
+const featuredPhotography={
+ 'vitamin-c':'/images/serum-group.webp',
+ 'aloe-wash':'/images/face-wash.webp',
+ 'hydrating-cream':'/images/cream.webp',
+ 'neem-toner':'/images/toner.webp'
+}
+export function FeaturedProducts({onAdd}){
+ return <section id="products" className="products section-pad soma-featured soma-editorial-collection" aria-labelledby="soma-featured-title">
+  <div className="soma-collection-heading" data-reveal>
+   <span className="eyebrow">THE SOMA COLLECTION</span>
+   <h2 id="soma-featured-title">Skincare Rooted <em>in Nature</em></h2>
+   <p>Four botanical-inspired essentials for thoughtful everyday care.</p>
+   <a href="/products" className="soma-collection-view-all">VIEW ALL PRODUCTS <Icon name="arrow" size={17}/></a>
+  </div>
+  <div className="soma-collection-grid">
+   {products.map((product,index)=>{
+    const photo=featuredPhotography[product.id]||product.image
+    return <article className="soma-collection-card" key={product.id} data-reveal>
+      <a href={`/products/${product.id}`} className="soma-collection-photo-link" aria-label={`View ${product.name} details`}>
+       <span className="soma-collection-photo-stage">
+        <img className="soma-collection-photo-backdrop" src={photo} alt="" aria-hidden="true" loading="lazy" decoding="async"/>
+        <img className="soma-collection-photo" src={photo} alt={product.name} loading="lazy" decoding="async"/>
+       </span>
+       <span className="soma-collection-photo-number" aria-hidden="true">{String(index+1).padStart(2,'0')} / 04</span>
+       <span className="soma-collection-photo-cta" aria-hidden="true">DISCOVER <Icon name="arrow" size={16}/></span>
+      </a>
+      <div className="soma-collection-card-details">
+       <a className="soma-collection-card-title" href={`/products/${product.id}`}><h3>{product.name}</h3><Icon name="arrow" size={19}/></a>
+       <p>{product.detail}</p>
+       <div className="soma-collection-card-bottom">
+        <span>{product.tag}</span>
+        <button type="button" className="soma-collection-quick-add" onClick={()=>onAdd(product)} aria-label={`Add ${product.name} to bag`}>ADD TO BAG <span aria-hidden="true">+</span></button>
+       </div>
+      </div>
+     </article>
+   })}
+  </div>
+ </section>
+}
 export function OurPhilosophy(){return <section id="philosophy" className="philosophy"><div className="philosophy-image" data-reveal><img src="/images/collection.webp" alt="Soma botanical skincare arranged with natural plants and stone" loading="lazy"/></div><div className="philosophy-copy" data-reveal><span className="eyebrow">OUR PHILOSOPHY</span><span className="short-line left"/><h2>Botanical care<br/>for a brighter you.</h2><p>We believe in the power of plants to nourish, comfort, and reveal your natural radiance. Thoughtful skincare, rooted in nature and made for everyday rituals.</p><a href="/#bestseller" className="button">EXPLORE OUR STORY <Icon name="arrow" size={18}/></a></div></section>}
 const benefits=[['leaf','Organic Ingredients'],['heart','Consciously Made'],['sprout','Plant Powered Formulas'],['sun','Healthy Radiance']]
 export function Benefits(){return <section className="benefits" aria-label="Our values">{benefits.map(([icon,title])=><div className="benefit" key={title} data-reveal><Icon name={icon} size={34}/><p>{title}</p></div>)}</section>}
