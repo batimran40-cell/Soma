@@ -1,7 +1,27 @@
 import {useState} from 'react'
 import {products} from '../data/products'
 import Icon from './Icons'
-export function Hero(){return <section className="hero soma-luxury-hero" aria-labelledby="soma-hero-title"><div className="hero-copy" data-reveal><span className="eyebrow">SOMA ORGANIC <span className="hairline"/></span><h1 id="soma-hero-title">A gentler way<br/>to <em>glow.</em></h1><p>Thoughtfully inspired by nature.<br/>Beautiful everyday skincare rituals.</p><div className="soma-hero-actions"><a className="button" href="/products">EXPLORE COLLECTION <Icon name="arrow" size={18}/></a><a className="soma-hero-story" href="/story">OUR PHILOSOPHY ↗</a></div><div className="soma-hero-note"><span aria-hidden="true">✧</span><span>YOUR MOMENT OF BOTANICAL CARE</span></div></div><div className="hero-visual soma-hero-media soma-trio-hero-media"><div className="soma-hero-artwork"><img className="soma-hero-atmosphere" src="/images/product-trio.webp" alt="" aria-hidden="true"/><img className="soma-hero-product" src="/images/product-trio.webp" alt="Three Soma Organic skincare products arranged together with botanical accents" fetchPriority="high"/></div><span className="soma-hero-media-caption">THE SOMA THREE · EXPLORE THE RITUAL</span></div></section>}
+export function Hero(){
+ return <section className="hero soma-luxury-hero soma-editorial-hero" aria-labelledby="soma-hero-title">
+  <div className="hero-copy soma-editorial-hero-copy" data-reveal>
+   <span className="eyebrow soma-editorial-hero-eyebrow"><span className="soma-hero-eyebrow-mark" aria-hidden="true">✳</span> SOMA ORGANIC <span className="soma-hero-eyebrow-separator" aria-hidden="true">/</span> BOTANICAL CARE</span>
+   <h1 id="soma-hero-title">A gentler<br/>way to <em>glow.</em></h1>
+   <p>Thoughtful skincare inspired by nature. Discover a calmer, more beautiful everyday ritual.</p>
+   <div className="soma-hero-actions">
+    <a className="button soma-hero-primary" href="/products">EXPLORE COLLECTION <Icon name="arrow" size={18}/></a>
+    <a className="soma-hero-story" href="/story">OUR PHILOSOPHY <Icon name="arrow" size={16}/></a>
+   </div>
+   <div className="soma-hero-note"><span className="soma-hero-note-rule" aria-hidden="true"/><span>BOTANICAL <i aria-hidden="true">/</i> CONSIDERED <i aria-hidden="true">/</i> EVERYDAY</span></div>
+  </div>
+  <div className="hero-visual soma-hero-media soma-trio-hero-media soma-editorial-hero-visual">
+   <div className="soma-hero-artwork">
+    <img className="soma-hero-atmosphere" src="/images/product-trio.webp" alt="" aria-hidden="true"/>
+    <img className="soma-hero-product" src="/images/product-trio.webp" alt="Three Soma Organic skincare essentials in a botanical product arrangement" fetchPriority="high" loading="eager" decoding="async"/>
+   </div>
+   <div className="soma-editorial-photo-label" aria-hidden="true"><span>01 / THE SOMA COLLECTION</span><span>THE ART OF EVERYDAY CARE</span></div>
+  </div>
+ </section>
+}
 export function FeaturedProducts({onAdd}){return <section id="products" className="products section-pad soma-featured" aria-labelledby="soma-featured-title">
  <div className="section-heading soma-featured-heading" data-reveal><div><span className="eyebrow">01 / THE SOMA COLLECTION</span><h2 id="soma-featured-title">Skincare rooted <em>in nature.</em></h2></div><div className="soma-featured-intro"><p>Four botanical-inspired essentials for thoughtful everyday care.</p><a href="/products">VIEW ALL PRODUCTS <Icon name="arrow" size={16}/></a></div></div>
  <div className="product-grid soma-featured-grid">{products.map((p,index)=><article className="product-card soma-featured-card" key={p.id} data-reveal>
