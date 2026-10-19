@@ -1,0 +1,100 @@
+/* SOMA — Editorial refinement layer
+   Scoped to the existing storefront; preserves all routes and commerce logic. */
+:root {
+  --soma-ink: #20392d;
+  --soma-forest-deep: #173b2a;
+  --soma-paper: #fcfaf5;
+  --soma-champagne: #c5a577;
+  --soma-border-soft: #e8e2d5;
+  --soma-motion: cubic-bezier(.2,.8,.2,1);
+}
+html {scroll-behavior:smooth;scroll-padding-top:7rem}
+body {font-synthesis:none;-webkit-font-smoothing:antialiased}
+.site-shell {overflow-x:clip}
+.site-shell :is(button,a,input,select,textarea):focus-visible {
+  outline:.16rem solid #b8915e !important;
+  outline-offset:.2rem;
+}
+.site-shell :is(button,a) { -webkit-tap-highlight-color:transparent }
+.site-shell :is(button,a):disabled {cursor:not-allowed;opacity:.55}
+.site-shell :is(button,a):not(:disabled) {transition:background-color .25s var(--soma-motion),color .25s var(--soma-motion),border-color .25s var(--soma-motion),box-shadow .3s var(--soma-motion),transform .3s var(--soma-motion)}
+/* Calm, gallery-like navigation */
+.soma-premium-header {box-shadow:0 .3rem 1.5rem #24382908 !important}
+.soma-premium-nav {min-height:5rem}
+.soma-premium-links a {text-underline-offset:.4rem}
+.soma-premium-logo>span {letter-spacing:.22em}
+.soma-premium-logo>small {letter-spacing:.3em}
+/* The hero is the visual anchor: balanced reading width + product breathing room */
+.soma-luxury-hero {isolation:isolate;box-shadow:0 1.7rem 4.5rem #1e382113}
+.soma-luxury-hero .hero-copy {position:relative;z-index:1}
+.soma-luxury-hero .hero-copy h1 {text-wrap:balance}
+.soma-luxury-hero .hero-copy p {text-wrap:pretty}
+.soma-luxury-hero .soma-hero-actions a:hover {transform:translateY(-.15rem)}
+.soma-luxury-hero .soma-hero-artwork .soma-hero-product {max-width:100%;will-change:auto}
+/* Consistent editorial rhythm through the existing sections */
+.section-heading h2,.ingredient-heading h2,.pdp-information h1,.soma-ref-catalog-head h2 {text-wrap:balance}
+.section-pad {scroll-margin-top:7rem}
+.soma-reference-products .soma-ref-shop-hero {overflow:hidden;isolation:isolate;box-shadow:0 1.2rem 3rem #193b260f}
+.soma-reference-products .soma-ref-shop-hero-copy {position:relative}
+.soma-reference-products .soma-ref-shop-hero-copy p {text-wrap:pretty;line-height:1.65}
+/* Catalog: premium product cards with consistent baseline and action location */
+.soma-reference-products .soma-ref-product-grid {align-items:stretch}
+.soma-reference-products .soma-ref-product-card {
+  display:flex; flex-direction:column;min-width:0;
+  transition:transform .35s var(--soma-motion),box-shadow .35s var(--soma-motion),border-color .25s ease !important;
+}
+.soma-reference-products .soma-ref-product-card:hover {
+  transform:translateY(-.35rem);
+  border-color:#d9cbb6 !important;
+  box-shadow:0 1.5rem 3.2rem #193b2915 !important;
+}
+.soma-reference-products .soma-ref-product-media {width:100%;position:relative;overflow:hidden}
+.soma-reference-products .soma-ref-product-media>a {display:block;width:100%;height:100%}
+.soma-reference-products .soma-ref-product-media img {
+  display:block;width:100%;height:100%;object-position:center;
+  transition:transform .65s var(--soma-motion) !important;
+}
+.soma-reference-products .soma-ref-product-card:hover .soma-ref-product-media img {transform:scale(1.045)}
+.soma-reference-products .soma-ref-product-description {display:flex;flex:1;flex-direction:column;min-width:0}
+.soma-reference-products .soma-ref-product-description p {line-height:1.6 !important}
+.soma-reference-products .soma-ref-product-description strong {margin-top:auto !important;padding-top:.45rem}
+.soma-reference-products .soma-ref-card-add {font-weight:600;letter-spacing:.025em}
+.soma-reference-products .soma-ref-card-add:hover {transform:translateY(-.1rem)}
+.soma-reference-products .soma-ref-product-heart {display:grid;place-items:center}
+.soma-reference-products .soma-ref-product-heart:hover {transform:scale(1.06)}
+.soma-reference-products .soma-ref-catalog-controls {gap:1rem}
+.soma-reference-products .soma-ref-catalog-filters {gap:.5rem}
+.soma-reference-products .soma-ref-catalog-filters button {min-height:2.65rem}
+.soma-reference-products .soma-ref-catalog-controls select {min-height:2.65rem}
+/* Gallery and account/checkout common finishing details */
+.pdp-gallery-stage {box-shadow:inset 0 0 0 1px #e9e3d8}
+.pdp-gallery-stage img {max-width:100%}
+.soma-pdp :is(button,a),.soma-checkout :is(button,a),.soma-cart-page :is(button,a) {touch-action:manipulation}
+:where(.checkout-panel,.checkout-summary,.soma-cart-panel,.discovery-product) {box-shadow:0 .8rem 2.2rem #203a2a08}
+:where(.checkout-panel,.checkout-summary,.soma-cart-panel) {min-width:0}
+@media (min-width:90rem) {
+ .soma-reference-products .soma-ref-shop-catalog {max-width:90rem}
+ .soma-reference-products .soma-ref-product-media {aspect-ratio:1/1.04 !important}
+ .soma-reference-products .soma-ref-product-grid {gap:2rem !important}
+ .soma-reference-products .soma-ref-product-name {font-size:2rem !important}
+}
+@media (max-width:45rem) {
+ html {scroll-padding-top:5rem}
+ .soma-luxury-hero,.soma-reference-products .soma-ref-shop-hero {box-shadow:none}
+ .soma-reference-products .soma-ref-product-grid {gap:.8rem !important}
+ .soma-reference-products .soma-ref-product-card {padding:.5rem .5rem 1rem !important}
+ .soma-reference-products .soma-ref-product-description {gap:.35rem !important}
+ .soma-reference-products .soma-ref-product-name {overflow-wrap:anywhere}
+ .soma-reference-products .soma-ref-card-add {min-height:2.9rem}
+ .soma-reference-products .soma-ref-catalog-controls {align-items:stretch;flex-wrap:wrap}
+ .soma-reference-products .soma-ref-catalog-filters {overflow-x:auto;max-width:100%;padding-bottom:.4rem}
+ .soma-reference-products .soma-ref-catalog-filters button {white-space:nowrap;flex-shrink:0}
+}
+@media (hover:none) {
+ .soma-reference-products .soma-ref-product-card:hover {transform:none;box-shadow:0 .5rem 1.4rem #193b2908 !important}
+ .soma-reference-products .soma-ref-product-card:hover .soma-ref-product-media img {transform:none}
+}
+@media (prefers-reduced-motion:reduce) {
+ html {scroll-behavior:auto}
+ .site-shell *, .site-shell *::before, .site-shell *::after {animation-duration:.01ms !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+}
