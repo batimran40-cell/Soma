@@ -273,10 +273,10 @@
   padding:clamp(.5rem,1.5vw,1.7rem)!important;
   object-fit:contain!important;
   object-position:center 54%!important;
-  mix-blend-mode:normal!important;
+  mix-blend-mode:multiply!important;
   mask-image:none!important;
   -webkit-mask-image:none!important;
-  filter:drop-shadow(0 1.5rem 1.5rem rgba(37,42,24,.14))!important;
+  filter:none!important;
   transform:none;
   animation:soma-hero-art-enter 1.05s var(--soma-hero-ease) both;
 }
