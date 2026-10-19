@@ -3,6 +3,7 @@ export default function Icon({ name, size=22, ...props }) {
  const common={width:size,height:size,viewBox:'0 0 24 24',fill:'none',stroke:'currentColor',strokeWidth:1.5,strokeLinecap:'round',strokeLinejoin:'round','aria-hidden':true,...props}
  const paths={
  menu:<><path d="M4 7h16M4 12h16M4 17h16"/></>,
+ user:<><circle cx="12" cy="8" r="3.5"/><path d="M5.5 20v-1.5a6.5 6.5 0 0 1 13 0V20"/></>,
  search:<><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></>,
  bag:<><path d="M5 8h14l1 12H4L5 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></>,
  close:<><path d="M5 5 19 19M19 5 5 19"/></>,
