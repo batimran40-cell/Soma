@@ -1,44 +1,85 @@
-import {useEffect,useRef,useState} from 'react'
+import {useCallback,useEffect,useRef,useState} from 'react'
 import Icon from './Icons'
 import SearchDialog from './SearchDialog'
 import '../styles/navbar-premium.css'
 
-const primary=[['Home','/'],['Shop','/products'],['Our Story','/story'],['Ritual','/#bestseller'],['FAQs','/help']]
-const drawerLinks=[...primary,['Wishlist','/wishlist'],['Account','/account'],['Reviews','/#reviews'],['Shopping Bag','/cart']]
-export default function Navbar({onCart,cartCount}){
+const primary=[['Shop','/products'],['Our Story','/story'],['Ritual','/#bestseller']]
+const drawerLinks=[['Home','/'],...primary,['Wishlist','/wishlist'],['Account','/account'],['Help & FAQs','/help'],['Shopping Bag','/cart']]
+
+export default function Navbar({onCart,cartCount=0}){
  const [menu,setMenu]=useState(false)
  const [search,setSearch]=useState(false)
- const [term,setTerm]=useState('')
  const [scrolled,setScrolled]=useState(false)
- const drawerClose=useRef(null)
- const searchInput=useRef(null)
- useEffect(()=>{const update=()=>setScrolled(window.scrollY>18);update();window.addEventListener('scroll',update,{passive:true});return()=>window.removeEventListener('scroll',update)},[])
- useEffect(()=>{if(!menu)return;const old=document.body.style.overflow;const before=document.activeElement;document.body.style.overflow='hidden';drawerClose.current?.focus();const key=e=>{if(e.key==='Escape')setMenu(false);if(e.key==='Tab'){const nodes=[...document.querySelectorAll('.soma-nav-drawer a,.soma-nav-drawer button')];if(!nodes.length)return;if(e.shiftKey&&document.activeElement===nodes[0]){e.preventDefault();nodes.at(-1).focus()}else if(!e.shiftKey&&document.activeElement===nodes.at(-1)){e.preventDefault();nodes[0].focus()}}};window.addEventListener('keydown',key);return()=>{document.body.style.overflow=old;window.removeEventListener('keydown',key);before?.focus?.()}},[menu])
- useEffect(()=>{if(search)searchInput.current?.focus()},[search])
- useEffect(()=>{const onKey=e=>{if(e.key==='Escape')setSearch(false)};window.addEventListener('keydown',onKey);return()=>window.removeEventListener('keydown',onKey)},[])
- const submit=e=>{e.preventDefault();const q=term.trim();setSearch(false);window.location.assign(q?'/products?q='+encodeURIComponent(q):'/products')}
+ const drawerRef=useRef(null)
+ const drawerCloseRef=useRef(null)
+ const closeSearch=useCallback(()=>setSearch(false),[])
+ const closeMenu=useCallback(()=>setMenu(false),[])
+
+ useEffect(()=>{
+  const update=()=>setScrolled(window.scrollY>12)
+  update()
+  window.addEventListener('scroll',update,{passive:true})
+  return()=>window.removeEventListener('scroll',update)
+ },[])
+
+ useEffect(()=>{
+  if(!menu)return
+  const previous=document.activeElement
+  const oldOverflow=document.body.style.overflow
+  document.body.style.overflow='hidden'
+  drawerCloseRef.current?.focus()
+  const onKey=e=>{
+   if(e.key==='Escape'){closeMenu();return}
+   if(e.key!=='Tab')return
+   const elements=[...(drawerRef.current?.querySelectorAll('a[href],button:not([disabled])')||[])]
+   if(!elements.length)return
+   if(e.shiftKey&&document.activeElement===elements[0]){e.preventDefault();elements.at(-1).focus()}
+   else if(!e.shiftKey&&document.activeElement===elements.at(-1)){e.preventDefault();elements[0].focus()}
+  }
+  document.addEventListener('keydown',onKey)
+  return()=>{document.body.style.overflow=oldOverflow;document.removeEventListener('keydown',onKey);previous?.focus?.()}
+ },[menu,closeMenu])
+
+ const current=typeof window!=='undefined'?window.location.pathname:'/'
+ const isCurrent=url=>!url.includes('#')&&current===url
+ const closeOnNavigate=()=>{closeMenu();closeSearch()}
+
  return <>
-  <div className="soma-nav-announcement"><span className="soma-announcement-spark" aria-hidden="true">✦</span><span>YOUR DAILY MOMENT OF BOTANICAL CARE</span><span className="soma-announcement-spark" aria-hidden="true">✦</span><a href="/products" className="soma-nav-announcement-side">EXPLORE THE COLLECTION ↗</a></div>
-  <header className={`site-header soma-premium-header${scrolled?' is-scrolled':''}`} id="top">
+  <div className="soma-nav-announcement">
+   <div className="soma-announcement-inner">
+    <span className="soma-announcement-message"><Icon name="leaf" size={14}/><span>Pure botanicals. Thoughtful everyday care.</span></span>
+    <a href="/products" className="soma-nav-announcement-side">DISCOVER THE COLLECTION <span aria-hidden="true">→</span></a>
+   </div>
+  </div>
+
+  <header className={`site-header soma-premium-header soma-reference-header${scrolled?' is-scrolled':''}`} id="top">
    <div className="soma-premium-nav">
     <div className="soma-premium-left">
-      <button className="soma-nav-icon soma-nav-toggle" type="button" aria-label="Open navigation" aria-expanded={menu} aria-controls="soma-mobile-nav" onClick={()=>setMenu(true)}><Icon name="menu" size={23}/></button>
-      <nav className="soma-premium-links" aria-label="Primary navigation">{primary.map(([name,url])=><a href={url} key={name} aria-current={window.location.pathname===url?"page":undefined}>{name}</a>)}</nav>
+     <button className="soma-nav-icon soma-nav-toggle" type="button" aria-label="Open navigation" aria-expanded={menu} aria-controls="soma-mobile-nav" onClick={()=>setMenu(true)}><Icon name="menu" size={22}/></button>
+     <nav className="soma-premium-links" aria-label="Main navigation">
+      {primary.map(([title,url])=><a href={url} key={title} aria-current={isCurrent(url)?'page':undefined}>{title}</a>)}
+     </nav>
     </div>
-    <a className="soma-premium-logo" href="/" aria-label="Soma Organic home"><span>SOMA</span><small>ORGANIC</small></a>
+    <a className="soma-premium-logo" href="/" aria-label="Soma Organic — home" onClick={closeOnNavigate}><span>SOMA</span><small>ORGANIC</small></a>
     <div className="soma-premium-actions">
-      <a className="soma-nav-wishlist" href="/wishlist" aria-label="View wishlist"><span aria-hidden="true" className="soma-heart">♡</span><span>Wishlist</span></a>
-      <a className="soma-nav-icon soma-account-link" href="/account" aria-label="My account" title="My account">♙</a><button className="soma-nav-icon" type="button" aria-label={search?'Close product search':'Search products'} aria-expanded={search} aria-controls="soma-premium-search" onClick={()=>setSearch(v=>!v)}><Icon name={search?'close':'search'} size={21}/></button>
-      <button className="soma-nav-bag" type="button" onClick={onCart} aria-label={`Open shopping bag, ${cartCount} items`}><Icon name="bag" size={19}/><span className="soma-nav-bag-label">Bag</span><strong>{cartCount}</strong></button>
+     <button className="soma-nav-icon soma-nav-search-trigger" type="button" aria-label={search?'Close product search':'Search products'} aria-expanded={search} aria-controls="soma-premium-search" onClick={()=>setSearch(v=>!v)}><Icon name={search?'close':'search'} size={20}/></button>
+     <a className="soma-nav-icon soma-account-link" href="/account" aria-label="My account" title="My account"><Icon name="user" size={19}/></a>
+     <a className="soma-nav-icon soma-nav-wishlist" href="/wishlist" aria-label="View wishlist" title="Wishlist"><Icon name="heart" size={20}/></a>
+     <button className="soma-nav-icon soma-nav-bag" type="button" onClick={onCart} aria-label={`Open shopping bag, ${cartCount} items`} title="Shopping bag">
+      <Icon name="bag" size={20}/>
+      {cartCount>0&&<span className="soma-nav-bag-count" aria-hidden="true">{cartCount>99?'99+':cartCount}</span>}
+     </button>
     </div>
    </div>
-
   </header>
-  {search&&<SearchDialog onClose={()=>setSearch(false)}/>}
-  {menu&&<div className="soma-nav-overlay" onPointerDown={e=>{if(e.target===e.currentTarget)setMenu(false)}}>
-    <div className="soma-nav-drawer" id="soma-mobile-nav" role="dialog" aria-modal="true" aria-label="Navigation">
-     <div className="soma-nav-drawer-top"><span>SOMA <small>ORGANIC</small></span><button ref={drawerClose} className="soma-nav-icon" type="button" onClick={()=>setMenu(false)} aria-label="Close navigation"><Icon name="close" size={24}/></button></div>
-     {drawerLinks.map(([name,url],i)=><a href={url} key={name} aria-current={window.location.pathname===url?"page":undefined} onClick={()=>setMenu(false)}><small>{String(i+1).padStart(2,'0')}</small><span>{name}</span><Icon name="arrow" size={19}/></a>)}
+  {search&&<SearchDialog onClose={closeSearch}/>}
+  {menu&&<div className="soma-nav-overlay" onPointerDown={e=>{if(e.target===e.currentTarget)closeMenu()}}>
+    <div className="soma-nav-drawer" id="soma-mobile-nav" ref={drawerRef} role="dialog" aria-modal="true" aria-label="Navigation">
+     <div className="soma-nav-drawer-top">
+      <a href="/" onClick={closeOnNavigate} className="soma-drawer-brand">SOMA <small>ORGANIC</small></a>
+      <button ref={drawerCloseRef} className="soma-nav-icon" type="button" onClick={closeMenu} aria-label="Close navigation"><Icon name="close" size={22}/></button>
+     </div>
+     <nav aria-label="Mobile navigation">{drawerLinks.map(([title,url],i)=><a href={url} key={title} aria-current={isCurrent(url)?'page':undefined} onClick={closeOnNavigate}><small>{String(i+1).padStart(2,'0')}</small><span>{title}</span><Icon name="arrow" size={19}/></a>)}</nav>
      <p>A quieter kind of radiance.</p>
     </div>
    </div>}
