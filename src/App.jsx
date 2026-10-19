@@ -24,6 +24,7 @@ import './styles/editorial-polish.css'
 import './styles/soma-atelier-reference.css'
 import './styles/navbar-reference-final.css'
 import './styles/hero-editorial-final.css'
+import './styles/hero-product-curation.css'
 export default function App(){
  const [cart,setCart]=useState(()=>{try{const saved=JSON.parse(localStorage.getItem('soma-cart-v1')||'[]');if(!Array.isArray(saved))return [];return saved.filter(x=>products.some(p=>p.id===x.id)&&Number.isInteger(x.quantity)&&x.quantity>0).map(x=>({...products.find(p=>p.id===x.id),quantity:Math.min(x.quantity,20)}))}catch{return []}}),[cartOpen,setCartOpen]=useState(false)
  useEffect(()=>{try{localStorage.setItem('soma-cart-v1',JSON.stringify(cart.map(({id,quantity})=>({id,quantity}))))}catch{}},[cart])
