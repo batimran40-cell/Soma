@@ -1,0 +1,144 @@
+/* SOMA / CURATED HERO PRODUCT STILL LIFE
+   Built exclusively from the actual catalog photos: serum, cleanser, cream.
+   Runs after legacy hero styles; no invented packaging or external assets. */
+.soma-luxury-hero.soma-editorial-hero .soma-curated-hero-visual{
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  background:
+    radial-gradient(ellipse at 48% 36%,#fff9e9 0%,#eee3cc 56%,#d7c5aa 105%)!important;
+}
+.soma-curated-hero-visual::after{
+  content:"";pointer-events:none;position:absolute;inset:0;z-index:0;
+  background:
+   radial-gradient(ellipse at 20% 80%,rgba(78,109,68,.1),transparent 50%),
+   linear-gradient(130deg,rgba(255,255,255,.23),transparent 60%);
+}
+.soma-curation-scene{
+  position:absolute;inset:0;z-index:1;
+  overflow:hidden;
+}
+.soma-curation-orbit{
+  position:absolute;display:block;border-radius:50%;pointer-events:none;
+  border:1px solid rgba(160,133,89,.23);
+}
+.soma-curation-orbit-one{width:69%;aspect-ratio:1;top:5%;right:2%}
+.soma-curation-orbit-two{width:39%;aspect-ratio:1;bottom:4%;left:-8%;border-color:rgba(107,141,98,.17)}
+.soma-curated-hero-visual .soma-curation-product{
+  position:absolute;display:flex;flex-direction:column;min-width:0;
+  overflow:hidden;z-index:2;
+  text-decoration:none;color:#253c2c!important;
+  background:#f7f1e6;
+  padding:.38rem;
+  border:1px solid rgba(255,253,243,.95);
+  border-radius:.25rem;
+  box-shadow:0 1.3rem 2.6rem rgba(35,40,25,.19),0 .22rem .45rem rgba(35,40,25,.08);
+  transform:rotate(var(--soma-photo-angle,0deg));
+  transition:box-shadow .36s ease,transform .4s cubic-bezier(.22,.72,.23,1)!important;
+  animation:soma-curation-in .8s cubic-bezier(.22,.72,.23,1) backwards;
+}
+.soma-curated-hero-visual .soma-curation-product:hover,
+.soma-curated-hero-visual .soma-curation-product:focus-visible{
+  z-index:6;transform:translateY(-.45rem) rotate(var(--soma-photo-angle,0deg));
+  box-shadow:0 1.7rem 3rem rgba(28,45,29,.26);
+}
+.soma-curated-hero-visual .soma-curation-product:focus-visible{
+  outline:3px solid #976e43;outline-offset:2px;
+}
+.soma-curated-hero-visual .soma-curation-product img{
+  display:block!important;position:relative!important;inset:auto!important;
+  width:100%!important;max-width:100%!important;
+  height:calc(100% - 2.25rem)!important;
+  flex:1;min-height:0;
+  object-fit:cover!important;object-position:center!important;
+  padding:0!important;margin:0!important;
+  filter:none!important;opacity:1!important;
+  mask-image:none!important;-webkit-mask-image:none!important;
+  mix-blend-mode:normal!important;
+  transform:none!important;
+  animation:none!important;
+  border-radius:.15rem;
+}
+.soma-curated-hero-visual .soma-curation-item-name{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:.35rem;min-height:2.15rem;padding:.35rem .45rem .18rem;
+  color:#293f2e!important;background:#f7f1e6;
+  font:700 clamp(.52rem,.7vw,.68rem)/1.3 'DM Sans',Arial,sans-serif;
+  letter-spacing:.11em;text-align:left;white-space:nowrap;
+}
+.soma-curated-hero-visual .soma-curation-item-name span{
+  color:#956e3f!important;font-size:.98rem;line-height:1;
+}
+.soma-curation-product-serum{
+  left:7%;top:12%;width:44%;height:73%;
+  --soma-photo-angle:-2.8deg;
+  animation-delay:.06s!important;
+}
+.soma-curation-product-serum img{object-position:center 45%!important}
+.soma-curation-product-cleanser{
+  left:54%;top:7%;width:34%;height:48%;
+  --soma-photo-angle:3deg;
+  animation-delay:.18s!important;
+}
+.soma-curation-product-cleanser img{object-fit:cover!important;object-position:center 48%!important}
+.soma-curation-product-cream{
+  left:51%;top:57%;width:42%;height:31%;
+  --soma-photo-angle:-1.4deg;
+  animation-delay:.3s!important;
+}
+.soma-curation-product-cream img{object-fit:cover!important;object-position:center 48%!important}
+.soma-luxury-hero.soma-editorial-hero .soma-curated-hero-visual .soma-editorial-photo-label{
+  left:7%!important;right:7%!important;bottom:1.25rem!important;
+  color:#41513d!important;
+  border-top-color:rgba(67,86,57,.25)!important;
+  text-shadow:0 1px 2px rgba(255,251,240,.9);
+  font-size:.52rem!important;
+}
+@keyframes soma-curation-in{
+  from{opacity:0;translate:0 1rem}
+  to{opacity:1;translate:0 0}
+}
+@media(max-width:76rem){
+ .soma-curation-product-serum{left:4%;width:46%;top:13%;height:72%}
+ .soma-curation-product-cleanser{left:54%;width:36%;height:47%}
+ .soma-curation-product-cream{left:51%;width:45%;top:57%;height:30%}
+ .soma-curated-hero-visual .soma-curation-product{padding:.26rem}
+ .soma-curated-hero-visual .soma-curation-item-name{font-size:.52rem;letter-spacing:.055em}
+}
+@media(max-width:52rem){
+ .soma-luxury-hero.soma-editorial-hero .soma-curated-hero-visual{
+   min-height:0!important;height:clamp(22rem,74vw,36rem)!important
+ }
+ .soma-curation-product-serum{left:10%;top:7%;width:40%;height:79%}
+ .soma-curation-product-cleanser{left:55%;top:5%;width:32%;height:49%}
+ .soma-curation-product-cream{left:52%;top:57%;width:40%;height:29%}
+ .soma-curated-hero-visual .soma-curation-item-name{font-size:clamp(.48rem,1.25vw,.66rem)}
+}
+@media(max-width:35rem){
+ .soma-luxury-hero.soma-editorial-hero .soma-curated-hero-visual{
+   height:clamp(22rem,91vw,31rem)!important
+ }
+ .soma-curation-product-serum{left:5%;top:10%;width:46%;height:73%}
+ .soma-curation-product-cleanser{left:53%;top:7%;width:42%;height:46%}
+ .soma-curation-product-cream{left:50%;top:55%;width:47%;height:28%}
+ .soma-curated-hero-visual .soma-curation-product{padding:.2rem}
+ .soma-curated-hero-visual .soma-curation-item-name{
+    min-height:1.7rem;padding:.24rem .18rem;
+    font-size:.44rem;letter-spacing:0;gap:.1rem;
+ }
+ .soma-curated-hero-visual .soma-curation-item-name span{font-size:.75rem}
+ .soma-luxury-hero.soma-editorial-hero .soma-curated-hero-visual .soma-editorial-photo-label{
+   bottom:.5rem!important;left:5%!important;right:5%!important
+ }
+}
+@media(hover:none){
+ .soma-curated-hero-visual .soma-curation-product:hover{
+    transform:rotate(var(--soma-photo-angle,0deg));
+    box-shadow:0 1.3rem 2.6rem rgba(35,40,25,.19)
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ .soma-curated-hero-visual .soma-curation-product{
+   animation:none!important;transition:none!important
+ }
+}
